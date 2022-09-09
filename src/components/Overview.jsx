@@ -8,35 +8,39 @@ function Overview() {
   return (
     <div className="overview-continer">
       <Navbar />
+
       <div className="overview-header">
         <span className="overview-header-title">System Profile</span>
         <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
             <span>Project phase</span>
-            <span>In operation</span>
           </div>
+          <span>In operation</span>
         </div>
+
         <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
             <span>Project size</span>
-            <span>0 kWh</span>
           </div>
+          <span>0 kWh</span>
         </div>
+
         <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
             <span>Grid connection</span>
-            <span>0 €</span>
           </div>
+          <span>0 €</span>
         </div>
+
         <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
             <span>PPA Deadline</span>
-            <span>0 €</span>
           </div>
+          <span>0 €</span>
         </div>
       </div>
 
@@ -44,19 +48,17 @@ function Overview() {
         <span className="overview-header-title">
           Key Performance Indicators
         </span>
+
         <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
-            <span>Project phase</span>
+            <span>Energy generated</span>
             <div>
-              <span>(Total,</span>
-              <span>Past Year,</span>
-              <span>Past Month,</span>
-              <span>Past 24 hours)</span>
-              <span>In operation</span>
+              <span>0</span>
             </div>
           </div>
         </div>
+
         <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
@@ -64,6 +66,7 @@ function Overview() {
             <span>0 kWh</span>
           </div>
         </div>
+
         <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
@@ -71,6 +74,7 @@ function Overview() {
             <span>0 €</span>
           </div>
         </div>
+
         <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
@@ -78,10 +82,11 @@ function Overview() {
             <span>0 €</span>
           </div>
         </div>
+
         <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
-            <span>Saving Co2 total</span>
+            <span>Saving</span>
             <span>0 €</span>
           </div>
         </div>

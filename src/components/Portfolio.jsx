@@ -1,16 +1,17 @@
-import React from "react";
 import Api from "./api/api.json";
-import { Button } from "antd";
 import "./styles/style.css";
 import icon from "./assets/cloud-icon.png";
 import photo from "./assets/photo-icon.png";
 import Chart from "./Chart";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import Navbar from "./Navbar";
+import { setUnit } from "./slices/unitSlice";
 import { useState } from "react";
 
 function Portfolio() {
-  const [egValue, setEgValue] = useState();
+  const unit = useSelector((state) => state.unit.unit);
+  const dispatch = useDispatch();
 
   return (
     <div className="portfolio-continer">
@@ -27,53 +28,104 @@ function Portfolio() {
         </span>
         <div className="portfolio-header-items">
           <div className="portfolio-header-item">
-            <img className="portfolio-header-icon" src={icon} alt="" />
-            <div className="portfolio-header-text">
-              <div>
-                <span style={{ fontWeight: "900" }}>
-                  Energy generated {egValue}
-                </span>
-                <br />
-                <span onClick={() => setEgValue("Total")}>(Total,</span>
-                <span onClick={() => setEgValue("Past Year")}>Past Year,</span>
-                <span onClick={() => setEgValue("Past Month")}>
-                  Past Month,
-                </span>
-                <span onClick={() => setEgValue("Past 24 Hours")}>
-                  Past 24 hours)
+            <div className="portfolio-header-des">
+              <img className="portfolio-header-icon" src={icon} alt="" />
+              <div className="portfolio-header-value">
+                <span>Energy generated</span>
+                <span
+                  onClick={() => {
+                    if (unit.egUnit === "Total") {
+                      dispatch(setUnit({ ...unit, egUnit: "Past Year" }));
+                    } else if (unit.egUnit === "Past Year") {
+                      dispatch(setUnit({ ...unit, egUnit: "Past Month" }));
+                    } else if (unit.egUnit === "Past Month") {
+                      dispatch(setUnit({ ...unit, egUnit: "Past Week" }));
+                    } else if (unit.egUnit === "Past Week") {
+                      dispatch(setUnit({ ...unit, egUnit: "Past 24hours" }));
+                    } else if (unit.egUnit === "Past 24hours") {
+                      dispatch(setUnit({ ...unit, egUnit: "Total" }));
+                    }
+                  }}
+                >
+                  {unit.egUnit}
                 </span>
               </div>
-              <span>{Api.name}</span>
+              <div>
+                <span>{Api.name}</span>
+              </div>
             </div>
           </div>
 
           <div className="portfolio-header-item">
-            <img className="portfolio-header-icon" src={icon} alt="" />
-            <div className="portfolio-header-text">
-              <div>
-                <span style={{ fontWeight: "900" }}>Cash flow </span>
-                <br />
-                <span>(Total ,</span>
-                <span> Past Year,</span>
-                <span> Past Month,</span>
-                <span> Past 24 hours)</span>
+            <div className="portfolio-header-des">
+              <img className="portfolio-header-icon" src={icon} alt="" />
+              <div className="portfolio-header-value">
+                <span>Cash flow</span>
+                <span
+                  onClick={() => {
+                    if (unit.cfUnit === "Total") {
+                      dispatch(setUnit({ ...unit, cfUnit: "Past Year" }));
+                    } else if (unit.cfUnit === "Past Year") {
+                      dispatch(setUnit({ ...unit, cfUnit: "Past Month" }));
+                    } else if (unit.cfUnit === "Past Month") {
+                      dispatch(setUnit({ ...unit, cfUnit: "Past Week" }));
+                    } else if (unit.cfUnit === "Past Week") {
+                      dispatch(setUnit({ ...unit, cfUnit: "Past 24hours" }));
+                    } else if (unit.cfUnit === "Past 24hours") {
+                      dispatch(setUnit({ ...unit, cfUnit: "Total" }));
+                    }
+                  }}
+                >
+                  {unit.cfUnit}
+                </span>
               </div>
-              <span>{Api.name}</span>
+              <div>
+                <span>{Api.name}</span>
+              </div>
             </div>
           </div>
 
           <div className="portfolio-header-item">
-            <img className="portfolio-header-icon" src={icon} alt="" />
-            <div className="portfolio-header-text">
-              <div>
-                <span style={{ fontWeight: "900" }}>CO2 Savings</span>
-                <br />
-                <span>(Total,</span>
-                <span>Past Year,</span>
-                <span>Past Month,</span>
-                <span>Past 24 hours)</span>
+            <div className="portfolio-header-des">
+              <img className="portfolio-header-icon" src={icon} alt="" />
+              <div className="portfolio-header-value">
+                <span>Saving</span>
+                <span
+                  onClick={() => {
+                    if (unit.savFuel === "CO2") {
+                      dispatch(setUnit({ ...unit, savFuel: "Natural Gas" }));
+                    } else if (unit.savFuel === "Natural Gas") {
+                      dispatch(setUnit({ ...unit, savFuel: "Fuel Oil" }));
+                    } else if (unit.savFuel === "Fuel Oil") {
+                      dispatch(setUnit({ ...unit, savFuel: "Gasoil" }));
+                    } else if (unit.savFuel === "Gasoil") {
+                      dispatch(setUnit({ ...unit, savFuel: "CO2" }));
+                    }
+                  }}
+                >
+                  {unit.savFuel}
+                </span>
+                <span
+                  onClick={() => {
+                    if (unit.savUnit === "Total") {
+                      dispatch(setUnit({ ...unit, savUnit: "Past Year" }));
+                    } else if (unit.savUnit === "Past Year") {
+                      dispatch(setUnit({ ...unit, savUnit: "Past Month" }));
+                    } else if (unit.savUnit === "Past Month") {
+                      dispatch(setUnit({ ...unit, savUnit: "Past Week" }));
+                    } else if (unit.savUnit === "Past Week") {
+                      dispatch(setUnit({ ...unit, savUnit: "Past 24hours" }));
+                    } else if (unit.savUnit === "Past 24hours") {
+                      dispatch(setUnit({ ...unit, savUnit: "Total" }));
+                    }
+                  }}
+                >
+                  {unit.savUnit}
+                </span>
               </div>
-              <span>{Api.name}</span>
+              <div>
+                <span>{Api.name}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -116,40 +168,48 @@ function Portfolio() {
         className="portfolio-header-continer"
       >
         <span className="portfolio-header-title">
-          Portfolio Investment Analysis
+          Portfolio Key Performance Indicators
         </span>
         <div className="portfolio-header-items">
           <div className="portfolio-header-item">
-            <img className="portfolio-header-icon" src={icon} alt="" />
-            <div className="portfolio-header-text">
-              <div>
-                <span style={{ fontWeight: "900" }}>Total fair value</span>
+            <div className="portfolio-header-des">
+              <img className="portfolio-header-icon" src={icon} alt="" />
+              <div className="portfolio-header-value">
+                <div>
+                  <span>Total fair value</span>
+                  <div style={{ fontWeight: "100" }}>
+                    <span>{Api.name}</span>
+                  </div>
+                </div>
               </div>
-              <span>{Api.id}</span>
             </div>
           </div>
 
           <div className="portfolio-header-item">
-            <img className="portfolio-header-icon" src={icon} alt="" />
-            <div className="portfolio-header-text">
-              <div>
-                <span style={{ fontWeight: "900" }}>
-                  Average return on equity
-                </span>
+            <div className="portfolio-header-des">
+              <img className="portfolio-header-icon" src={icon} alt="" />
+              <div className="portfolio-header-value">
+                <div>
+                  <span>Average return on equitye</span>
+                  <div style={{ fontWeight: "100" }}>
+                    <span>{Api.name}</span>
+                  </div>
+                </div>
               </div>
-              <span>{Api.id}</span>
             </div>
           </div>
 
           <div className="portfolio-header-item">
-            <img className="portfolio-header-icon" src={icon} alt="" />
-            <div className="portfolio-header-text">
-              <div>
-                <span style={{ fontWeight: "900" }}>
-                  Total net present value
-                </span>
+            <div className="portfolio-header-des">
+              <img className="portfolio-header-icon" src={icon} alt="" />
+              <div className="portfolio-header-value">
+                <div>
+                  <span>Net present value</span>
+                  <div style={{ fontWeight: "100" }}>
+                    <span>{Api.name}</span>
+                  </div>
+                </div>
               </div>
-              <span>{Api.id}</span>
             </div>
           </div>
         </div>

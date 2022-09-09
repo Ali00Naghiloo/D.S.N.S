@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: dana;
-  src: url(../assets/DanaPro/Dana-family/Dana-Light.ttf);
+  src: url(../assets/DanaPro/Dana-family/Dana-Medium.ttf);
 }
 
 * {
@@ -272,25 +272,32 @@ $font1: #f08220;
       @include flex-Center(row, space-evenly, center);
 
       .portfolio-header-item {
-        @include flex-Center(row, flex-start, center);
+        @include flex-Center(row, space-evenly, center);
+        flex-wrap: wrap;
+        text-align: center;
         width: 30%;
         max-width: 350px;
+        max-height: 150px;
         padding: 10px;
         font-size: 1em;
         background: #fff;
         border-radius: 13px;
         box-shadow: 1px 1px 10px black;
 
-        .portfolio-header-text {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding: 0 10px;
+        .portfolio-header-des {
+          @include flex-Center(row, center, center);
+          gap: 20%;
+          padding: 0 5%;
           cursor: pointer;
 
-          :nth-child(1) {
+          .portfolio-header-value {
+            @include flex-Center(column, space-evenly, center);
             font-size: 1.2em;
-            padding: 5px 0;
+            font-weight: 700;
+
+            span {
+              width: max-content;
+            }
           }
         }
       }
@@ -313,6 +320,8 @@ $font1: #f08220;
       gap: 1rem;
       width: 24%;
       height: 100%;
+      font-size: 1.2em;
+      font-weight: 700;
       padding: 0 20px;
       margin-right: 2%;
 
@@ -366,9 +375,9 @@ $font1: #f08220;
       gap: 1.6rem;
 
       .portfolio-footer-item {
-        width: 100%;
         @include flex-Center(row, center, center);
         gap: 3rem;
+        width: 100%;
         background: $background;
         padding: 30px 20px;
         padding-top: 30px;
@@ -377,16 +386,20 @@ $font1: #f08220;
         h4 {
           position: absolute;
           top: 0;
-          left: 0;
+          left: 10vh;
         }
 
         .portfolio-footer-detail {
+          @include flex-Center(row, space-evenly, center);
+          gap: 30px;
           width: 25%;
           max-width: 350px;
           background: #fff;
+          border-radius: 13px;
+          box-shadow: 0px 0px 12px black;
           padding: 25px 10px;
-          @include flex-Center(row, flex-start, center);
-          gap: 30px;
+          font-size: 1.2em;
+          font-weight: 700;
 
           div {
             @include flex-Center(column, center, center);
@@ -420,13 +433,15 @@ $font1: #f08220;
 
     .overview-detail {
       @include flex-Center(row, space-evenly, center);
-      width: 15%;
+      width: 20%;
+      font-size: 1.1em;
       background: #fff;
       border-radius: 15px;
       padding: 10px;
 
       div {
-        @include flex-Center(column, center, center);
+        @include flex-Center(row, space-around, center);
+        font-size: 1.2em;
       }
     }
   }
@@ -467,7 +482,7 @@ $font1: #f08220;
 
   .kpi-header {
     width: 100%;
-    padding: 50px 40px;
+    padding: 50px 2.5%;
     margin-bottom: 30px;
     background: $background;
     position: relative;
@@ -479,17 +494,19 @@ $font1: #f08220;
     }
 
     .kpi-options {
-      @include flex-Center(row, space-between, center);
+      @include flex-Center(row, center, center);
+      width: 100%;
       flex-wrap: wrap;
-      gap: 0rem;
+      gap: 2rem;
 
       div {
-        @include flex-Center(row, space-evenly, center);
+        @include flex-Center(row, center, center);
+        width: 15%;
         background: #fff;
         border-radius: 12px;
-        min-width: 25%;
-        margin: 30px 10px;
-        padding: 30px;
+        font-size: 1.2em;
+        margin: 5px 0px;
+        padding: 10px 5px;
       }
     }
   }
@@ -518,7 +535,7 @@ $font1: #f08220;
 //------------------panel---------------------
 .panel-continer {
   width: 100%;
-  height: 15vh;
+  height: 7vh;
   @include flex-Center(row, center, center);
   gap: 20px;
   border-bottom: 2px solid black;
@@ -526,13 +543,16 @@ $font1: #f08220;
 
   .panel-title {
     position: absolute;
-    top: 10px;
+    font-size: 1.3em;
+    top: 2%;
     left: 3%;
   }
 
   button {
     border-radius: 15px;
-    width: 100px;
+    width: 10%;
+    padding: 5px 5px;
+    font-size: 1.2em;
     background: #f08220;
     color: #fff;
     border: none;
@@ -648,4 +668,7 @@ $font1: #f08220;
     color: #fff;
     text-shadow: rgb(218, 0, 0);
   }
+}
+
+@media screen and (max-width: 950px) {
 }

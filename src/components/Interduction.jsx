@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import icon from "./assets/cloud-icon.png";
-import { Input } from "antd";
-import { Button } from "antd";
+import { Input, Button, Popover } from "antd";
 import contact from "./assets/contact-icon.png";
 import home from "./assets/home-icon.png";
 import mail from "./assets/mail-icon.png";
@@ -10,12 +9,22 @@ import "./styles/style.css";
 
 function Interduction() {
   const { TextArea } = Input;
+  const content = (
+    <div>
+      <Input placeholder="Your Name" />
+      <Input placeholder="Your Email" />
+      <Button type="primary">Sign Up</Button>
+      <p>already have an acount?</p>
+    </div>
+  );
 
   return (
     <div className="introduction-continer">
       <div className="intro-nav">
         <img src={comanyLogo} alt="" />
-        <button>Sign in</button>
+        <Popover title="Wellcome!" trigger="click" content={content}>
+          Start Here!
+        </Popover>
       </div>
 
       <div className="div-1">

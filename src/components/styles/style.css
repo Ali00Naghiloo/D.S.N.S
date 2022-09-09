@@ -4,7 +4,7 @@
 }
 @font-face {
   font-family: dana;
-  src: url(../assets/DanaPro/Dana-family/Dana-Light.ttf);
+  src: url(../assets/DanaPro/Dana-family/Dana-Medium.ttf);
 }
 * {
   font-family: dana;
@@ -259,26 +259,40 @@
 .portfolio-continer .portfolio-header-continer .portfolio-header-items .portfolio-header-item {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
   width: 30%;
   max-width: 350px;
+  max-height: 150px;
   padding: 10px;
   font-size: 1em;
   background: #fff;
   border-radius: 13px;
   box-shadow: 1px 1px 10px black;
 }
-.portfolio-continer .portfolio-header-continer .portfolio-header-items .portfolio-header-item .portfolio-header-text {
+.portfolio-continer .portfolio-header-continer .portfolio-header-items .portfolio-header-item .portfolio-header-des {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  padding: 0 10px;
+  gap: 20%;
+  padding: 0 5%;
   cursor: pointer;
 }
-.portfolio-continer .portfolio-header-continer .portfolio-header-items .portfolio-header-item .portfolio-header-text :nth-child(1) {
+.portfolio-continer .portfolio-header-continer .portfolio-header-items .portfolio-header-item .portfolio-header-des .portfolio-header-value {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
   font-size: 1.2em;
-  padding: 5px 0;
+  font-weight: 700;
+}
+.portfolio-continer .portfolio-header-continer .portfolio-header-items .portfolio-header-item .portfolio-header-des .portfolio-header-value span {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 .portfolio-continer .portfolio-mid {
   display: flex;
@@ -301,6 +315,8 @@
   gap: 1rem;
   width: 24%;
   height: 100%;
+  font-size: 1.2em;
+  font-weight: 700;
   padding: 0 20px;
   margin-right: 2%;
 }
@@ -358,12 +374,12 @@
   gap: 1.6rem;
 }
 .portfolio-continer .portfolio-footer .portfolio-footer-items .portfolio-footer-item {
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 3rem;
+  width: 100%;
   background: rgb(223, 223, 223);
   padding: 30px 20px;
   padding-top: 30px;
@@ -372,18 +388,22 @@
 .portfolio-continer .portfolio-footer .portfolio-footer-items .portfolio-footer-item h4 {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 10vh;
 }
 .portfolio-continer .portfolio-footer .portfolio-footer-items .portfolio-footer-item .portfolio-footer-detail {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 30px;
   width: 25%;
   max-width: 350px;
   background: #fff;
+  border-radius: 13px;
+  box-shadow: 0px 0px 12px black;
   padding: 25px 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 30px;
+  font-size: 1.2em;
+  font-weight: 700;
 }
 .portfolio-continer .portfolio-footer .portfolio-footer-items .portfolio-footer-item .portfolio-footer-detail div {
   display: flex;
@@ -423,16 +443,18 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  width: 15%;
+  width: 20%;
+  font-size: 1.1em;
   background: #fff;
   border-radius: 15px;
   padding: 10px;
 }
 .overview-continer .overview-header .overview-detail div {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
+  font-size: 1.2em;
 }
 .overview-continer .overview-footer {
   width: 100%;
@@ -475,7 +497,7 @@
 }
 .kpi-continer .kpi-header {
   width: 100%;
-  padding: 50px 40px;
+  padding: 50px 2.5%;
   margin-bottom: 30px;
   background: rgb(223, 223, 223);
   position: relative;
@@ -488,21 +510,23 @@
 .kpi-continer .kpi-header .kpi-options {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  width: 100%;
   flex-wrap: wrap;
-  gap: 0rem;
+  gap: 2rem;
 }
 .kpi-continer .kpi-header .kpi-options div {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+  width: 15%;
   background: #fff;
   border-radius: 12px;
-  min-width: 25%;
-  margin: 30px 10px;
-  padding: 30px;
+  font-size: 1.2em;
+  margin: 5px 0px;
+  padding: 10px 5px;
 }
 .kpi-continer .kpi-chart {
   width: 100%;
@@ -522,7 +546,7 @@
 
 .panel-continer {
   width: 100%;
-  height: 15vh;
+  height: 7vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -533,12 +557,15 @@
 }
 .panel-continer .panel-title {
   position: absolute;
-  top: 10px;
+  font-size: 1.3em;
+  top: 2%;
   left: 3%;
 }
 .panel-continer button {
   border-radius: 15px;
-  width: 100px;
+  width: 10%;
+  padding: 5px 5px;
+  font-size: 1.2em;
   background: #f08220;
   color: #fff;
   border: none;
