@@ -1,5 +1,4 @@
-import icon from "./assets/cloud-icon.png";
-import photo from "./assets/photo-icon.png";
+import icon from "./assets/icons/cloud-icon.png";
 import { Button } from "antd";
 import Api from "./api/api.json";
 import Navbar from "./Navbar";
@@ -53,42 +52,40 @@ function Overview() {
           <img src={icon} alt="" />
           <div>
             <span>Energy generated</span>
-            <div>
-              <span>0</span>
-            </div>
           </div>
+          <span>0</span>
         </div>
 
         <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
             <span>Turbine Passed Water</span>
-            <span>0 kWh</span>
           </div>
+          <span>0 kWh</span>
         </div>
 
         <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
             <span>Availability Factor</span>
-            <span>0 €</span>
           </div>
+          <span>0 €</span>
         </div>
 
         <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
             <span>Cash Flow</span>
-            <span>0 €</span>
           </div>
+          <span>0 €</span>
         </div>
 
         <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
             <span>Saving</span>
-            <span>0 €</span>
           </div>
+          <span>0 €</span>
         </div>
       </div>
 
@@ -98,29 +95,32 @@ function Overview() {
           <img src={icon} alt="" />
           <div>
             <span>Fair value</span>
-            <span>0 €</span>
           </div>
+          <span>0 €</span>
         </div>
+
         <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
             <span>Return on equity</span>
-            <span>0.00 %</span>
           </div>
+          <span>0.00 %</span>
         </div>
+
         <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
             <span>Net present value</span>
-            <span>0 €</span>
           </div>
+          <span>0 €</span>
         </div>
+
         <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
             <span>PPA Deadline</span>
-            <span>0 €</span>
           </div>
+          <span>0 €</span>
         </div>
       </div>
 

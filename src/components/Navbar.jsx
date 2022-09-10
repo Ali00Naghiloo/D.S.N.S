@@ -1,8 +1,8 @@
 import { setNavbar } from "./slices/navSlice";
 import { useSelector, useDispatch } from "react-redux";
 import "./styles/style.css";
-import menu from "./assets/menu-icon.svg";
-import cross from "./assets/cross-icon.png";
+import menu from "./assets/icons/menu-icon.svg";
+import cross from "./assets/icons/cross-icon.png";
 import demos from "./api/demos.json";
 import { Link, NavLink } from "react-router-dom";
 

@@ -1,7 +1,11 @@
 import Api from "./api/api.json";
 import "./styles/style.css";
-import icon from "./assets/cloud-icon.png";
-import photo from "./assets/photo-icon.png";
+import icon from "./assets/icons/cloud-icon.png";
+import photo from "./assets/icons/photo-icon.png";
+import portfolio from "./assets/icons/portfolio-icon.png";
+// import cash from "./assets/icons/cash-icon.png";
+// import energy from "./assets/icons/energy-icon.png";
+// import saving from "./assets/icons/saving-icon.png";
 import Chart from "./Chart";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -18,7 +22,7 @@ function Portfolio() {
       <Navbar />
       <div className="portfolio-sign">
         <div className="portfolio-sign-line"></div>
-        <img src={icon} alt="" />
+        <img src={portfolio} alt="" />
         <span>My Portfolio</span>
       </div>
 

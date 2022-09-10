@@ -1,6 +1,5 @@
-body {
-    font-family: sans-serif;
-    max-width: 1900px;
+.app {
+    max-width: 1600px;
     margin: 0 auto;
 }
 

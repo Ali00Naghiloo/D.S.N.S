@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom";
-import icon from "./assets/cloud-icon.png";
 import { Input, Button, Popover } from "antd";
-import contact from "./assets/contact-icon.png";
-import home from "./assets/home-icon.png";
-import mail from "./assets/mail-icon.png";
-import comanyLogo from "./assets/company-icon.jpeg";
+import contact from "./assets/icons/contact-icon.png";
+import home from "./assets/icons/home-icon.png";
+import mail from "./assets/icons/mail-icon.png";
+import comanyLogo from "./assets/icons/company-icon.jpeg";
 import "./styles/style.css";
 
 function Interduction() {
   const { TextArea } = Input;
   const content = (
-    <div>
+    <div className="submit">
       <Input placeholder="Your Name" />
       <Input placeholder="Your Email" />
       <Button type="primary">Sign Up</Button>
@@ -22,7 +21,13 @@ function Interduction() {
     <div className="introduction-continer">
       <div className="intro-nav">
         <img src={comanyLogo} alt="" />
-        <Popover title="Wellcome!" trigger="click" content={content}>
+        <Popover
+          className="intro-nav-btn"
+          placement="bottomRight"
+          title="Wellcome!"
+          trigger="click"
+          content={content}
+        >
           Start Here!
         </Popover>
       </div>
@@ -32,7 +37,7 @@ function Interduction() {
           Renewable Energy Asset Monitoring And Management System Committed To
           Future Sustainability
         </span>
-        <span className="text-2">
+        {/* <span className="text-2">
           All Key Information at a Glance Both Technical and Financial
           Indicators
         </span>
@@ -43,7 +48,7 @@ function Interduction() {
         <span className="text-4">
           Optimize Your Investments Take the Right Decisions at the Right
           Moments
-        </span>
+        </span> */}
       </div>
 
       <div className="div-2">

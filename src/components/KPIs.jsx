@@ -1,18 +1,28 @@
-import icon from "./assets/cloud-icon.png";
+import icon from "./assets/icons/cloud-icon.png";
 import Chart from "./Chart";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setSelectedKPI } from "./slices/selectedKPISlice";
 
 function KPIs() {
-  const [kpiItem, setKpiItem] = useState(false);
+  const selected = useSelector((state) => state.selectedKPI.selectedKPI);
+  const dispatch = useDispatch();
 
   return (
     <div className="kpi-continer">
       <div className="kpi-header">
         <h2>Monthly Technical Performance Indicators</h2>
         <div className="kpi-options">
-          <div>
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={`${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Energy generated</span>
           </div>
+
           <div>
             <span>Availability Factor</span>
           </div>
