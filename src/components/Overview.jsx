@@ -1,8 +1,11 @@
 import icon from "./assets/icons/cloud-icon.png";
 import energy from "./assets/icons/energy.webp";
 import fairValue from "./assets/icons/Fair value.png";
+import cash from "./assets/icons/cash flow.png";
 import NPV from "./assets/icons/NPV icon.png";
+import returnOnEq from "./assets/icons/return on equity.png";
 import tpw from "./assets/icons/Water Passed icon.png";
+import CO2saving from "./assets/icons/Co2 saving.png";
 import { Button } from "antd";
 import Api from "./api/api.json";
 import Navbar from "./Navbar";
@@ -137,7 +140,7 @@ function Overview() {
         </div>
 
         <div className="overview-detail">
-          <img src={icon} alt="" />
+          <img src={cash} alt="" />
           <div>
             <span>Cash Flow</span>
             <span
@@ -162,7 +165,7 @@ function Overview() {
         </div>
 
         <div className="overview-detail">
-          <img src={icon} alt="" />
+          <img src={CO2saving} alt="" />
           <div>
             <span>Saving</span>
 
@@ -215,7 +218,7 @@ function Overview() {
         </div>
 
         <div className="overview-detail">
-          <img src={icon} alt="" />
+          <img src={returnOnEq} alt="" />
           <div>
             <span>Return on equity</span>
           </div>

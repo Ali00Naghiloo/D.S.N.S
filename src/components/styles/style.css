@@ -303,6 +303,9 @@
   width: -moz-max-content;
   width: max-content;
 }
+.portfolio-continer .portfolio-header-continer img {
+  width: 70px;
+}
 .portfolio-continer .portfolio-mid {
   display: flex;
   flex-direction: row;
@@ -539,7 +542,7 @@
   justify-content: center;
   align-items: center;
   width: 15%;
-  background-color: #fff;
+  text-align: center;
   border-radius: 12px;
   font-size: 1.2em;
   margin: 5px 0px;
@@ -548,7 +551,7 @@
 }
 .kpi-continer .selected-kpi {
   color: #fff;
-  background-color: green;
+  background-color: #f08220;
 }
 .kpi-continer .kpi-chart {
   width: 100%;

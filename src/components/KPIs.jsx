@@ -14,136 +14,463 @@ function KPIs() {
         <div className="kpi-options">
           <div
             onClick={() => {
-              selected.eg === false
-                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
-                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+              selected.a === false
+                ? dispatch(setSelectedKPI({ ...selected, a: true }))
+                : dispatch(setSelectedKPI({ ...selected, a: false }));
             }}
-            className={`${selected.eg === true ? "selected-kpi" : ""}`}
+            className={` ${selected.a === true ? "selected-kpi" : ""}`}
           >
             <span>Energy generated</span>
           </div>
 
-          <div>
+          <div
+            onClick={() => {
+              selected.b === false
+                ? dispatch(setSelectedKPI({ ...selected, b: true }))
+                : dispatch(setSelectedKPI({ ...selected, b: false }));
+            }}
+            className={` ${selected.b === true ? "selected-kpi" : ""}`}
+          >
             <span>Availability Factor</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.c === false
+                ? dispatch(setSelectedKPI({ ...selected, c: true }))
+                : dispatch(setSelectedKPI({ ...selected, c: false }));
+            }}
+            className={` ${selected.c === true ? "selected-kpi" : ""}`}
+          >
             <span>Plant Efficiency</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.d === false
+                ? dispatch(setSelectedKPI({ ...selected, d: true }))
+                : dispatch(setSelectedKPI({ ...selected, d: false }));
+            }}
+            className={` ${selected.d === true ? "selected-kpi" : ""}`}
+          >
             <span>Plant Factor</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.e === false
+                ? dispatch(setSelectedKPI({ ...selected, e: true }))
+                : dispatch(setSelectedKPI({ ...selected, e: false }));
+            }}
+            className={` ${selected.e === true ? "selected-kpi" : ""}`}
+          >
             <span>Turbine Passed Water Volume</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.f === false
+                ? dispatch(setSelectedKPI({ ...selected, f: true }))
+                : dispatch(setSelectedKPI({ ...selected, f: false }));
+            }}
+            className={` ${selected.f === true ? "selected-kpi" : ""}`}
+          >
             <span>Unit Water Energy</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.g === false
+                ? dispatch(setSelectedKPI({ ...selected, g: true }))
+                : dispatch(setSelectedKPI({ ...selected, g: false }));
+            }}
+            className={` ${selected.g === true ? "selected-kpi" : ""}`}
+          >
             <span>Active Power</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Reactive Power</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Total Power</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Cos phi</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Turbine Passed Water Flowrate</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Saving (CO2)</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Saving (Natural Gas)</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Saving (Fuel Oil)</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Equivalent No. of Trees</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Electricity Price</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Cash Flow</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Monthly Adjustment</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Revenue</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Costs</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Operation Costs</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Water Cost</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Tax and Loan</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Water Fee</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>ETS</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>CPI</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>CPF</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Generator DE Temperature</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Generator NDE Temperature</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Generator V1 Temperature</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Generator V2 Temperature</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Generator W1 Temperature</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Generator W2 Temperature</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Generator U1 Temperature</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Generator U2 Temperature</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Generator Air Inlet Temperature</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Generator Air outlet Temperature</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Generator Oil Temperature</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Turbine Upstream Pressure</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Turbine Downstream Pressure</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Generator DE Vibration</span>
           </div>
-          <div>
+
+          <div
+            onClick={() => {
+              selected.eg === false
+                ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+                : dispatch(setSelectedKPI({ ...selected, eg: false }));
+            }}
+            className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+          >
             <span>Generator NDE Vibration</span>
           </div>
         </div>

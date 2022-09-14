@@ -309,6 +309,10 @@ $font1: #f08220;
         }
       }
     }
+
+    img {
+      width: 70px;
+    }
   }
 
   .portfolio-mid {
@@ -518,7 +522,8 @@ $font1: #f08220;
       div {
         @include flex-Center(row, center, center);
         width: 15%;
-        background-color: #fff;
+        // background: #fff;
+        text-align: center;
         border-radius: 12px;
         font-size: 1.2em;
         margin: 5px 0px;
@@ -530,7 +535,7 @@ $font1: #f08220;
 
   .selected-kpi {
     color: #fff;
-    background-color: green;
+    background-color: #f08220;
   }
 
   .kpi-chart {

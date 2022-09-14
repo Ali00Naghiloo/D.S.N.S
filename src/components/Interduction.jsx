@@ -12,7 +12,9 @@ function Interduction() {
     <div className="submit">
       <Input placeholder="Your Name" />
       <Input placeholder="Your Email" />
-      <Button type="primary">Sign Up</Button>
+      <Button type="primary">
+        <Link to="/portfolio">Sign Up</Link>
+      </Button>
       <p>already have an acount?</p>
     </div>
   );
