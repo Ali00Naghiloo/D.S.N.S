@@ -446,6 +446,7 @@
   top: 5px;
   left: 20px;
   font-size: 1.3em;
+  cursor: pointer;
 }
 .overview-continer .overview-header .overview-detail {
   display: flex;
@@ -458,13 +459,19 @@
   background: #fff;
   border-radius: 15px;
   padding: 10px;
+  text-align: center;
 }
 .overview-continer .overview-header .overview-detail div {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  font-size: 1.2em;
+  font-size: 1em;
+  padding: 0 10%;
+  cursor: pointer;
+}
+.overview-continer .overview-header .overview-detail img {
+  width: 55px;
 }
 .overview-continer .overview-footer {
   width: 100%;

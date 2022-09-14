@@ -3,15 +3,15 @@ import "./styles/style.css";
 import icon from "./assets/icons/cloud-icon.png";
 import photo from "./assets/icons/photo-icon.png";
 import portfolio from "./assets/icons/portfolio-icon.png";
-// import cash from "./assets/icons/cash-icon.png";
-// import energy from "./assets/icons/energy-icon.png";
-// import saving from "./assets/icons/saving-icon.png";
+import cash from "./assets/icons/cash flow.png";
+import energy from "./assets/icons/energy.webp";
+import CO2saving from "./assets/icons/Co2 saving.png";
+import NGsaving from "./assets/icons/Fuel Saving.png";
 import Chart from "./Chart";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Navbar from "./Navbar";
 import { setUnit } from "./slices/unitSlice";
-import { useState } from "react";
 
 function Portfolio() {
   const unit = useSelector((state) => state.unit.unit);
@@ -33,9 +33,14 @@ function Portfolio() {
         <div className="portfolio-header-items">
           <div className="portfolio-header-item">
             <div className="portfolio-header-des">
-              <img className="portfolio-header-icon" src={icon} alt="" />
+              <img
+                width="60px"
+                className="portfolio-header-icon"
+                src={energy}
+                alt=""
+              />
               <div className="portfolio-header-value">
-                <span>Energy generated</span>
+                <span>Energy generat</span>
                 <span
                   onClick={() => {
                     if (unit.egUnit === "Total") {
@@ -62,7 +67,12 @@ function Portfolio() {
 
           <div className="portfolio-header-item">
             <div className="portfolio-header-des">
-              <img className="portfolio-header-icon" src={icon} alt="" />
+              <img
+                width="80px"
+                className="portfolio-header-icon"
+                src={cash}
+                alt=""
+              />
               <div className="portfolio-header-value">
                 <span>Cash flow</span>
                 <span
@@ -91,7 +101,12 @@ function Portfolio() {
 
           <div className="portfolio-header-item">
             <div className="portfolio-header-des">
-              <img className="portfolio-header-icon" src={icon} alt="" />
+              <img
+                width="80px"
+                className="portfolio-header-icon"
+                src={unit.savFuel === "CO2" ? CO2saving : NGsaving}
+                alt=""
+              />
               <div className="portfolio-header-value">
                 <span>Saving</span>
                 <span

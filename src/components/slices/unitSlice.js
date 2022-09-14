@@ -6,6 +6,13 @@ const initialState = {
         cfUnit: "Total",
         savFuel: "CO2",
         savUnit: "Total",
+
+        egoUnit: "Total",
+        tpwUnit: "Total",
+        afUnit: "Total",
+        cfoUnit: "Total",
+        savoUnit: "Total",
+        savoFuel: "CO2",
     }
 };
 

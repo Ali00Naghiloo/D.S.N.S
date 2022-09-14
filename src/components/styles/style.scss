@@ -436,6 +436,7 @@ $font1: #f08220;
       top: 5px;
       left: 20px;
       font-size: 1.3em;
+      cursor: pointer;
     }
 
     .overview-detail {
@@ -446,10 +447,17 @@ $font1: #f08220;
       background: #fff;
       border-radius: 15px;
       padding: 10px;
+      text-align: center;
 
       div {
-        @include flex-Center(row, space-around, center);
-        font-size: 1.2em;
+        @include flex-Center(column, space-around, center);
+        font-size: 1em;
+        padding: 0 10%;
+        cursor: pointer;
+      }
+
+      img {
+        width: 55px;
       }
     }
   }

@@ -1,9 +1,19 @@
 import icon from "./assets/icons/cloud-icon.png";
+import energy from "./assets/icons/energy.webp";
+import fairValue from "./assets/icons/Fair value.png";
+import NPV from "./assets/icons/NPV icon.png";
+import tpw from "./assets/icons/Water Passed icon.png";
 import { Button } from "antd";
 import Api from "./api/api.json";
 import Navbar from "./Navbar";
+import { setPanel } from "./slices/panelSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { setUnit } from "./slices/unitSlice";
 
 function Overview() {
+  const unit = useSelector((state) => state.unit.unit);
+  const dispatch = useDispatch();
+
   return (
     <div className="overview-continer">
       <Navbar />
@@ -44,14 +54,34 @@ function Overview() {
       </div>
 
       <div className="overview-header">
-        <span className="overview-header-title">
+        <span
+          onClick={() => dispatch(setPanel(1))}
+          className="overview-header-title"
+        >
           Key Performance Indicators
         </span>
 
         <div className="overview-detail">
-          <img src={icon} alt="" />
+          <img width="35px" src={energy} alt="" />
           <div>
             <span>Energy generated</span>
+            <span
+              onClick={() => {
+                if (unit.egoUnit === "Total") {
+                  dispatch(setUnit({ ...unit, egoUnit: "Past Year" }));
+                } else if (unit.egoUnit === "Past Year") {
+                  dispatch(setUnit({ ...unit, egoUnit: "Past Month" }));
+                } else if (unit.egoUnit === "Past Month") {
+                  dispatch(setUnit({ ...unit, egoUnit: "Past Week" }));
+                } else if (unit.egoUnit === "Past Week") {
+                  dispatch(setUnit({ ...unit, egoUnit: "Past 24hours" }));
+                } else if (unit.egoUnit === "Past 24hours") {
+                  dispatch(setUnit({ ...unit, egoUnit: "Total" }));
+                }
+              }}
+            >
+              {unit.egoUnit}
+            </span>
           </div>
           <span>0</span>
         </div>
@@ -60,6 +90,23 @@ function Overview() {
           <img src={icon} alt="" />
           <div>
             <span>Turbine Passed Water</span>
+            <span
+              onClick={() => {
+                if (unit.tpwUnit === "Total") {
+                  dispatch(setUnit({ ...unit, tpwUnit: "Past Year" }));
+                } else if (unit.tpwUnit === "Past Year") {
+                  dispatch(setUnit({ ...unit, tpwUnit: "Past Month" }));
+                } else if (unit.tpwUnit === "Past Month") {
+                  dispatch(setUnit({ ...unit, tpwUnit: "Past Week" }));
+                } else if (unit.tpwUnit === "Past Week") {
+                  dispatch(setUnit({ ...unit, tpwUnit: "Past 24hours" }));
+                } else if (unit.tpwUnit === "Past 24hours") {
+                  dispatch(setUnit({ ...unit, tpwUnit: "Total" }));
+                }
+              }}
+            >
+              {unit.tpwUnit}
+            </span>
           </div>
           <span>0 kWh</span>
         </div>
@@ -68,6 +115,23 @@ function Overview() {
           <img src={icon} alt="" />
           <div>
             <span>Availability Factor</span>
+            <span
+              onClick={() => {
+                if (unit.afUnit === "Total") {
+                  dispatch(setUnit({ ...unit, afUnit: "Past Year" }));
+                } else if (unit.afUnit === "Past Year") {
+                  dispatch(setUnit({ ...unit, afUnit: "Past Month" }));
+                } else if (unit.afUnit === "Past Month") {
+                  dispatch(setUnit({ ...unit, afUnit: "Past Week" }));
+                } else if (unit.afUnit === "Past Week") {
+                  dispatch(setUnit({ ...unit, afUnit: "Past 24hours" }));
+                } else if (unit.afUnit === "Past 24hours") {
+                  dispatch(setUnit({ ...unit, afUnit: "Total" }));
+                }
+              }}
+            >
+              {unit.afUnit}
+            </span>
           </div>
           <span>0 €</span>
         </div>
@@ -76,6 +140,23 @@ function Overview() {
           <img src={icon} alt="" />
           <div>
             <span>Cash Flow</span>
+            <span
+              onClick={() => {
+                if (unit.cfoUnit === "Total") {
+                  dispatch(setUnit({ ...unit, cfoUnit: "Past Year" }));
+                } else if (unit.cfoUnit === "Past Year") {
+                  dispatch(setUnit({ ...unit, cfoUnit: "Past Month" }));
+                } else if (unit.cfoUnit === "Past Month") {
+                  dispatch(setUnit({ ...unit, cfoUnit: "Past Week" }));
+                } else if (unit.cfoUnit === "Past Week") {
+                  dispatch(setUnit({ ...unit, cfoUnit: "Past 24hours" }));
+                } else if (unit.cfoUnit === "Past 24hours") {
+                  dispatch(setUnit({ ...unit, cfoUnit: "Total" }));
+                }
+              }}
+            >
+              {unit.cfoUnit}
+            </span>
           </div>
           <span>0 €</span>
         </div>
@@ -84,6 +165,40 @@ function Overview() {
           <img src={icon} alt="" />
           <div>
             <span>Saving</span>
+
+            <span
+              onClick={() => {
+                if (unit.savoFuel === "CO2") {
+                  dispatch(setUnit({ ...unit, savoFuel: "Natural Gas" }));
+                } else if (unit.savoFuel === "Natural Gas") {
+                  dispatch(setUnit({ ...unit, savoFuel: "Fuel Oil" }));
+                } else if (unit.savoFuel === "Fuel Oil") {
+                  dispatch(setUnit({ ...unit, savoFuel: "Gasoil" }));
+                } else if (unit.savoFuel === "Gasoil") {
+                  dispatch(setUnit({ ...unit, savoFuel: "CO2" }));
+                }
+              }}
+            >
+              {unit.savoFuel}
+            </span>
+
+            <span
+              onClick={() => {
+                if (unit.savoUnit === "Total") {
+                  dispatch(setUnit({ ...unit, savoUnit: "Past Year" }));
+                } else if (unit.savoUnit === "Past Year") {
+                  dispatch(setUnit({ ...unit, savoUnit: "Past Month" }));
+                } else if (unit.savoUnit === "Past Month") {
+                  dispatch(setUnit({ ...unit, savoUnit: "Past Week" }));
+                } else if (unit.savoUnit === "Past Week") {
+                  dispatch(setUnit({ ...unit, savoUnit: "Past 24hours" }));
+                } else if (unit.savoUnit === "Past 24hours") {
+                  dispatch(setUnit({ ...unit, savoUnit: "Total" }));
+                }
+              }}
+            >
+              {unit.savoUnit}
+            </span>
           </div>
           <span>0 €</span>
         </div>
@@ -92,7 +207,7 @@ function Overview() {
       <div className="overview-header">
         <span className="overview-header-title">Investment Analysis</span>
         <div className="overview-detail">
-          <img src={icon} alt="" />
+          <img src={fairValue} alt="" />
           <div>
             <span>Fair value</span>
           </div>
@@ -108,19 +223,11 @@ function Overview() {
         </div>
 
         <div className="overview-detail">
-          <img src={icon} alt="" />
+          <img src={NPV} alt="" />
           <div>
             <span>Net present value</span>
           </div>
-          <span>0 €</span>
-        </div>
-
-        <div className="overview-detail">
-          <img src={icon} alt="" />
-          <div>
-            <span>PPA Deadline</span>
-          </div>
-          <span>0 €</span>
+          <span>10000000 €</span>
         </div>
       </div>
 
