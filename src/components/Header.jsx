@@ -1,5 +1,6 @@
 import comanyLogo from "../assets/icons/company-icon.jpeg";
-import { Popover } from "antd";
+import { Popover, Input, Button } from "antd";
+import { Link } from "react-router-dom";
 import "../styles/style.scss";
 
 const Header = () => {
