@@ -127,7 +127,7 @@ $font1: #f08220;
       left: 50%;
       opacity: 0;
       text-align: left;
-      animation: 12s ease infinite intro-text-animation;
+      animation: 8s ease intro-text-animation;
       transform: translate(-50%, -50%);
     }
 
@@ -136,11 +136,11 @@ $font1: #f08220;
     }
 
     .text-3 {
-      animation-delay: 14s;
+      animation-delay: 18s;
     }
 
     .text-4 {
-      animation-delay: 19s;
+      animation: 8s ease intro-text-animation-last 27s infinite;
     }
   }
 
@@ -720,11 +720,23 @@ $font1: #f08220;
   0% {
     opacity: 0.2;
   }
-  50% {
+  10% {
+    opacity: 1;
+  }
+  95% {
     opacity: 1;
   }
   100% {
     opacity: 0;
+  }
+}
+
+@keyframes intro-text-animation-last {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

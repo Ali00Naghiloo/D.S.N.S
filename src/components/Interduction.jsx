@@ -59,7 +59,7 @@ function Interduction() {
           Renewable Energy Asset Monitoring And Management System Committed To
           Future Sustainability
         </span>
-        {/* <span className="text-2">
+        <span className="text-2">
           All Key Information at a Glance Both Technical and Financial
           Indicators
         </span>
@@ -70,7 +70,7 @@ function Interduction() {
         <span className="text-4">
           Optimize Your Investments Take the Right Decisions at the Right
           Moments
-        </span> */}
+        </span>
       </div>
 
       <div className="div-2">
