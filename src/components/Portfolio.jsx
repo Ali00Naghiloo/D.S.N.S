@@ -1,15 +1,15 @@
 import Api from "./api/api.json";
-import "./styles/style.css";
-import icon from "./assets/icons/cloud-icon.png";
-import photo from "./assets/icons/photo-icon.png";
-import portfolio from "./assets/icons/portfolio-icon.png";
-import cash from "./assets/icons/cash flow.png";
-import energy from "./assets/icons/energy.webp";
-import CO2saving from "./assets/icons/Co2 saving.png";
-import NGsaving from "./assets/icons/Fuel Saving.png";
-import fairValue from "./assets/icons/Fair value.png";
-import returnOnEq from "./assets/icons/return on equity.png";
-import NPV from "./assets/icons/NPV icon.png";
+import "../styles/style.scss";
+import icon from "../assets/icons/cloud-icon.png";
+import photo from "../assets/icons/photo-icon.png";
+import portfolio from "../assets/icons/portfolio-icon.png";
+import cash from "../assets/icons/cash flow.png";
+import energy from "../assets/icons/energy.webp";
+import CO2saving from "../assets/icons/Co2 saving.png";
+import NGsaving from "../assets/icons/Fuel Saving.png";
+import fairValue from "../assets/icons/Fair value.png";
+import returnOnEq from "../assets/icons/return on equity.png";
+import NPV from "../assets/icons/NPV icon.png";
 import Chart from "./Chart";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -19,6 +19,7 @@ import { setUnit } from "./slices/unitSlice";
 function Portfolio() {
   const unit = useSelector((state) => state.unit.unit);
   const dispatch = useDispatch();
+  const hello = "hello";
 
   return (
     <div className="portfolio-continer">

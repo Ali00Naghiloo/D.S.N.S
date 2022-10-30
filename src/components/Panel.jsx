@@ -2,7 +2,7 @@ import { setPanel } from "./slices/panelSlice";
 import { useSelector, useDispatch } from "react-redux";
 import Overview from "./Overview";
 import KPIs from "./KPIs";
-import "./styles/style.css";
+import "../styles/style.scss";
 import Navbar from "./Navbar";
 
 function Panel() {

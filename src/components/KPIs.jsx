@@ -1,4 +1,4 @@
-import icon from "./assets/icons/cloud-icon.png";
+import icon from "../assets/icons/cloud-icon.png";
 import Chart from "./Chart";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedKPI } from "./slices/selectedKPISlice";

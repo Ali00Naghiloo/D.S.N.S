@@ -1,20 +1,23 @@
-import './App.css';
-import Interduction from "./components/Interduction";
-import Portfolio from "./components/Portfolio";
-import PageThree from "./components/PageThree";
-import Panel from "./components/Panel";
+import "./App.css";
+import Interduction from "./pages/IntroPage";
+import PortfolioPage from "./pages/PortfolioPage";
+import PageThree from "./pages/PageThree";
+import Panel from "./pages/PanelPage";
 import { Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div className='app'>
-      <Routes>
-        <Route path='/' element={<Interduction />} />
-        <Route path='/portfolio' element={<Portfolio />} />
-        <Route path='/pagethree' element={<PageThree />} />
-        <Route path='/panel' element={<Panel />} />
-      </Routes>
-    </div>
+    <>
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<Interduction />} />
+          <Route path="/portfolio" element={<PortfolioPage />} />
+          <Route path="/pagethree" element={<PageThree />} />
+          <Route path="/panel" element={<Panel />} />
+        </Routes>
+      </div>
+    </>
   );
 }
 
