@@ -25,15 +25,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
-        <div className="row">
-          <div className="mixed-chart">
+      <div>
+        <div>
+          <div>
             <Chart
               options={this.state.options}
               series={this.state.series}
               type="bar"
               width="100%"
-              height="300px"
             />
           </div>
         </div>

@@ -5,7 +5,7 @@ import home from "../assets/icons/home-icon.png";
 import mail from "../assets/icons/mail-icon.png";
 import comanyLogo from "../assets/icons/company-icon.jpeg";
 import "../styles/style.scss";
-import { Header } from "antd/lib/layout/layout";
+import Header from "./Header";
 import { useState } from "react";
 
 function Interduction() {
@@ -30,7 +30,7 @@ function Interduction() {
 
   return (
     <div className="introduction-continer">
-      <div className="intro-nav">
+      {/* <div className="intro-nav">
         <main className="main">
           <img src={comanyLogo} alt="" />
           <p>DSNS Co.</p>
@@ -51,8 +51,8 @@ function Interduction() {
         >
           Start Here!
         </Popover>
-      </div>
-      {/* <Header /> */}
+      </div> */}
+      <Header />
 
       <div className="div-1">
         <span className="text-1">

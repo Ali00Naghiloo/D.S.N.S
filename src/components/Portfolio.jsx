@@ -15,11 +15,15 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Navbar from "./Navbar";
 import { setUnit } from "./slices/unitSlice";
+import { Select } from "antd";
 
 function Portfolio() {
   const unit = useSelector((state) => state.unit.unit);
   const dispatch = useDispatch();
-  const hello = "hello";
+  const { Option } = Select;
+  const handleChange = (value) => {
+    console.log(`selected ${value}`);
+  };
 
   return (
     <div className="portfolio-continer">
@@ -52,8 +56,6 @@ function Portfolio() {
                     } else if (unit.egUnit === "Past Year") {
                       dispatch(setUnit({ ...unit, egUnit: "Past Month" }));
                     } else if (unit.egUnit === "Past Month") {
-                      dispatch(setUnit({ ...unit, egUnit: "Past Week" }));
-                    } else if (unit.egUnit === "Past Week") {
                       dispatch(setUnit({ ...unit, egUnit: "Past 24hours" }));
                     } else if (unit.egUnit === "Past 24hours") {
                       dispatch(setUnit({ ...unit, egUnit: "Total" }));
@@ -86,8 +88,6 @@ function Portfolio() {
                     } else if (unit.cfUnit === "Past Year") {
                       dispatch(setUnit({ ...unit, cfUnit: "Past Month" }));
                     } else if (unit.cfUnit === "Past Month") {
-                      dispatch(setUnit({ ...unit, cfUnit: "Past Week" }));
-                    } else if (unit.cfUnit === "Past Week") {
                       dispatch(setUnit({ ...unit, cfUnit: "Past 24hours" }));
                     } else if (unit.cfUnit === "Past 24hours") {
                       dispatch(setUnit({ ...unit, cfUnit: "Total" }));
@@ -135,8 +135,6 @@ function Portfolio() {
                     } else if (unit.savUnit === "Past Year") {
                       dispatch(setUnit({ ...unit, savUnit: "Past Month" }));
                     } else if (unit.savUnit === "Past Month") {
-                      dispatch(setUnit({ ...unit, savUnit: "Past Week" }));
-                    } else if (unit.savUnit === "Past Week") {
                       dispatch(setUnit({ ...unit, savUnit: "Past 24hours" }));
                     } else if (unit.savUnit === "Past 24hours") {
                       dispatch(setUnit({ ...unit, savUnit: "Total" }));
@@ -174,8 +172,16 @@ function Portfolio() {
           </div>
         </div>
         <div className="portfolio-chart">
-          <span className="portfolio-chart-title">Energy generated</span>
-          <div>
+          <Select
+            defaultValue="lucy"
+            className="portfolio-chart-title"
+            onChange={handleChange}
+          >
+            <Option value="Energy generat">Energy generat</Option>
+            <Option value="Cash flow">Cash flow</Option>
+            <Option value="Saving">Saving</Option>
+          </Select>
+          <div className="chart-continer">
             <Chart />
           </div>
           <div>

@@ -1,4 +1,4 @@
-import { Header } from "antd/lib/layout/layout";
+import Header from "../components/Header";
 import Portfolio from "../components/Portfolio";
 
 const PortfolioPage = () => {
