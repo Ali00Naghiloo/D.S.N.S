@@ -33,6 +33,7 @@ class App extends Component {
               series={this.state.series}
               type="bar"
               width="100%"
+              height="300px"
             />
           </div>
         </div>

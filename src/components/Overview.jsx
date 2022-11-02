@@ -4,6 +4,10 @@ import fairValue from "../assets/icons/Fair value.png";
 import cash from "../assets/icons/cash flow.png";
 import NPV from "../assets/icons/NPV icon.png";
 import returnOnEq from "../assets/icons/return on equity.png";
+import Availability from "../assets/icons/Availability icon.jpg";
+import PPA from "../assets/icons/PPA Deadline.png";
+import Grid from "../assets/icons/Grid Connection.jpg";
+import ProjectSize from "../assets/icons/Project Size.png";
 import tpw from "../assets/icons/Water Passed icon.png";
 import CO2saving from "../assets/icons/Co2 saving.png";
 import { Button } from "antd";
@@ -22,17 +26,19 @@ function Overview() {
       <Navbar />
 
       <div className="overview-header">
-        <span className="overview-header-title">System Profile</span>
-        <div className="overview-detail">
+        <span className="overview-header-title">
+          System Profile (In operation)
+        </span>
+        {/* <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
             <span>Project phase</span>
           </div>
           <span>In operation</span>
-        </div>
+        </div> */}
 
         <div className="overview-detail">
-          <img src={icon} alt="" />
+          <img src={ProjectSize} alt="" />
           <div>
             <span>Project size</span>
           </div>
@@ -40,7 +46,7 @@ function Overview() {
         </div>
 
         <div className="overview-detail">
-          <img src={icon} alt="" />
+          <img src={Grid} alt="" />
           <div>
             <span>Grid connection</span>
           </div>
@@ -48,7 +54,7 @@ function Overview() {
         </div>
 
         <div className="overview-detail">
-          <img src={icon} alt="" />
+          <img src={PPA} alt="" />
           <div>
             <span>PPA Deadline</span>
           </div>
@@ -89,7 +95,7 @@ function Overview() {
           <span>0</span>
         </div>
 
-        <div className="overview-detail">
+        {/* <div className="overview-detail">
           <img src={icon} alt="" />
           <div>
             <span>Turbine Passed Water</span>
@@ -112,10 +118,10 @@ function Overview() {
             </span>
           </div>
           <span>0 kWh</span>
-        </div>
+        </div> */}
 
         <div className="overview-detail">
-          <img src={icon} alt="" />
+          <img src={Availability} alt="" />
           <div>
             <span>Availability Factor</span>
             <span
@@ -164,7 +170,7 @@ function Overview() {
           <span>0 €</span>
         </div>
 
-        <div className="overview-detail">
+        {/* <div className="overview-detail">
           <img src={CO2saving} alt="" />
           <div>
             <span>Saving</span>
@@ -204,7 +210,7 @@ function Overview() {
             </span>
           </div>
           <span>0 €</span>
-        </div>
+        </div> */}
       </div>
 
       <div className="overview-header">

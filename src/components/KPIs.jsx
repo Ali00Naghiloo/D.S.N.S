@@ -10,7 +10,7 @@ function KPIs() {
   return (
     <div className="kpi-continer">
       <div className="kpi-header">
-        <h2>Monthly Technical Performance Indicators</h2>
+        <h2>Key Performance Indicators</h2>
         <div className="kpi-options">
           <div
             onClick={() => {

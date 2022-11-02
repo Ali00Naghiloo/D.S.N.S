@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Navbar from "./Navbar";
 import { setUnit } from "./slices/unitSlice";
-import { Select } from "antd";
+import { Button, Select } from "antd";
 
 function Portfolio() {
   const unit = useSelector((state) => state.unit.unit);
@@ -173,7 +173,7 @@ function Portfolio() {
         </div>
         <div className="portfolio-chart">
           <Select
-            defaultValue="lucy"
+            defaultValue="Energy generat"
             className="portfolio-chart-title"
             onChange={handleChange}
           >
@@ -184,10 +184,26 @@ function Portfolio() {
           <div className="chart-continer">
             <Chart />
           </div>
-          <div>
-            <button>hello</button>
-            <button>hello</button>
-            <button>hello</button>
+          <div className="charts-detail">
+            <div>
+              <Select
+                defaultValue="Demo1"
+                className="portfolio-chart-title"
+                onChange={handleChange}
+              >
+                <Option value={Api.system1}>{Api.system1}</Option>
+                <Option value={Api.system2}>{Api.system2}</Option>
+                <Option value={Api.system3}>{Api.system3}</Option>
+              </Select>
+            </div>
+            <div>
+              <Button type="primary">Weeks</Button>
+              <Button type="primary">Months</Button>
+              <Button type="primary">Years</Button>
+            </div>
+            <div>
+              <Button type="danger">_</Button>
+            </div>
           </div>
         </div>
       </div>
@@ -251,9 +267,11 @@ function Portfolio() {
       <div className="portfolio-footer">
         <div className="portfolio-footer-items">
           <div className="portfolio-footer-item">
-            <Link to="/panel">
-              <h4>Saleh, 150.00 kWp, Iran</h4>
-            </Link>
+            <section>
+              <Link to="/panel">
+                <h2>Saleh, 150.00 kWp, Iran</h2>
+              </Link>
+            </section>
             <img src={photo} alt="" />
             <div className="portfolio-footer-detail">
               <img src={icon} alt="" />
@@ -279,9 +297,11 @@ function Portfolio() {
           </div>
 
           <div className="portfolio-footer-item">
-            <Link to="/panel">
-              <h4>Ehsan, 100.00 kWp, Iran</h4>
-            </Link>
+            <section>
+              <Link to="/panel">
+                <h2>Ehsan, 100.00 kWp, Iran</h2>
+              </Link>
+            </section>
             <img src={photo} alt="" />
             <div className="portfolio-footer-detail">
               <img src={icon} alt="" />

@@ -3,7 +3,6 @@ import { Input, Button, Popover } from "antd";
 import contact from "../assets/icons/contact-icon.png";
 import home from "../assets/icons/home-icon.png";
 import mail from "../assets/icons/mail-icon.png";
-import comanyLogo from "../assets/icons/company-icon.jpeg";
 import "../styles/style.scss";
 import Header from "./Header";
 import { useState } from "react";
@@ -30,28 +29,6 @@ function Interduction() {
 
   return (
     <div className="introduction-continer">
-      {/* <div className="intro-nav">
-        <main className="main">
-          <img src={comanyLogo} alt="" />
-          <p>DSNS Co.</p>
-        </main>
-        {visibleSignin && (
-          <div className="signin">
-            <Input placeholder="Username" className="signin-input" />
-            <Input placeholder="Password" className="signin-input" />
-            <Button type="primary">Sign Up</Button>
-          </div>
-        )}
-        <Popover
-          className="intro-nav-btn"
-          placement="bottomRight"
-          title="Wellcome!"
-          trigger="hover"
-          content={content}
-        >
-          Start Here!
-        </Popover>
-      </div> */}
       <Header />
 
       <div className="div-1">
@@ -70,11 +47,12 @@ function Interduction() {
         <span className="text-4">
           Optimize Your Investments Take the Right Decisions at the Right
           Moments
+          <a href="#back">Click</a>
         </span>
+        <div></div>
       </div>
-
-      <div className="div-2">
-        <span>
+      <main className="div-back">
+        <section id="back">
           Our innovative solution has been built to enable renewable plants
           owners to be aware of their asset performance, anytime from anywhere
           in a private and secure digital environment. It provides you with many
@@ -85,27 +63,34 @@ function Interduction() {
           digital trusted place effortlessly. And that will let you make sound
           data-driven decisions in real-time, and get the most out of your
           investment.
-        </span>
-      </div>
+        </section>
+      </main>
 
-      <div className="div-3">
-        <span>
+      <div className="div-2"></div>
+      <main className="div-back">
+        <section>
           Benefits Ensure The Technical and Financial Performance of Your Power
           plants. Monitor Reliable Parameters in Real Time Benchmark and reduce
           expenses and increase yields Compare and Investigate Indicators at a
           Glance
-        </span>
-      </div>
+        </section>
+      </main>
+
+      {/* <div className="div-3"></div> */}
+      {/* <main className="div-back"></main> */}
 
       <div className="div-4">
-        <span>
+        <span></span>
+      </div>
+      <main className="div-back">
+        <section>
           Danesh Sanat (DSNS) Co. specialized in solving energy efficiency
           challenges in today’s highly demanding renewable energies. We help our
           clients to manage and monitor their energy generating and consuming
           assets. We provide consulting services as well as the turnkey projects
           for implementation of Remote monitoring system.
-        </span>
-      </div>
+        </section>
+      </main>
 
       <div className="div-5">
         <div className="title-div-5">
@@ -123,6 +108,9 @@ function Interduction() {
           <Button type="primary">Send</Button>
         </form>
       </div>
+      <main className="div-back">
+        <section></section>
+      </main>
 
       <div className="div-6">
         <div>
@@ -151,7 +139,6 @@ function Interduction() {
           </div>
         </div>
       </div>
-      {/* <Link to="/portfolio">test</Link> */}
     </div>
   );
 }

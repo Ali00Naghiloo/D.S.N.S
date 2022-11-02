@@ -5,31 +5,9 @@ import { Link, useParams } from "react-router-dom";
 import "../styles/style.scss";
 
 const Header = () => {
-  const currentPage = useParams();
-  // useEffect(() => console.log(currentPage));
-  const [visibleSignin, setVisibleSignin] = useState(false);
-  const content = (
-    <div className="submit">
-      {currentPage ? (
-        <>
-          <section>
-            <Button type="primary">
-              <Link onClick={() => setVisibleSignin(true)}>SignUp</Link>
-            </Button>
-          </section>
-          <section>
-            <Button type="primary">
-              <Link to="/portfolio" onClick={() => setVisibleSignin(false)}>
-                Login
-              </Link>
-            </Button>
-          </section>
-        </>
-      ) : (
-        ""
-      )}
-    </div>
-  );
+  const { id } = useParams();
+  useEffect(() => console.log(id));
+  const [visibleLogin, setVisibleLogin] = useState(false);
 
   return (
     <>
@@ -38,22 +16,20 @@ const Header = () => {
           <img src={comanyLogo} alt="" />
           <p>DSNS Co.</p>
         </main>
-        {visibleSignin && (
+        {visibleLogin && (
           <div className="signin">
             <Input placeholder="Username" className="signin-input" />
             <Input placeholder="Password" className="signin-input" />
-            <Button type="primary">Sign Up</Button>
           </div>
         )}
-        <Popover
+
+        <Link
+          to={visibleLogin ? "/portfolio" : ""}
           className="intro-nav-btn"
-          placement="bottomRight"
-          title="Wellcome!"
-          trigger="hover"
-          content={content}
+          onClick={() => (visibleLogin === false ? setVisibleLogin(true) : "")}
         >
-          Start Here!
-        </Popover>
+          Login
+        </Link>
       </div>
     </>
   );
