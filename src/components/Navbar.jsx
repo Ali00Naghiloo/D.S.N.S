@@ -33,16 +33,27 @@ function Navbar() {
         </button>
       </div>
 
-      <div
+      <section
         className={`nav-detail ${
           navbar === "navIsOpened" ? "open-navbar" : ""
         }`}
       >
-        <span>{demos.system1}</span>
-        <span>{demos.system2}</span>
-        <span>{demos.system3}</span>
-        <span>my account</span>
-      </div>
+        <div>
+          <NavLink to="/panel">{demos.system1}</NavLink>
+        </div>
+        <div>
+          <NavLink>{demos.system2}</NavLink>
+        </div>
+        <div>
+          <NavLink>{demos.system3}</NavLink>
+        </div>
+        <div>
+          <NavLink to="/portfolio">My Portfolio</NavLink>
+        </div>
+        <div>
+          <NavLink to="/">Logout</NavLink>
+        </div>
+      </section>
     </>
   );
 }

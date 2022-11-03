@@ -10,7 +10,6 @@ import Grid from "../assets/icons/Grid Connection.jpg";
 import ProjectSize from "../assets/icons/Project Size.png";
 import tpw from "../assets/icons/Water Passed icon.png";
 import CO2saving from "../assets/icons/Co2 saving.png";
-import { Button } from "antd";
 import Api from "./api/api.json";
 import Navbar from "./Navbar";
 import { setPanel } from "./slices/panelSlice";
@@ -23,8 +22,6 @@ function Overview() {
 
   return (
     <div className="overview-continer">
-      <Navbar />
-
       <div className="overview-header">
         <span className="overview-header-title">
           System Profile (In operation)

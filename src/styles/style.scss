@@ -577,6 +577,8 @@ $font1: #f08220;
   gap: 20px;
   border-bottom: 2px solid black;
   margin: 20px 0;
+  margin-top: 15vh;
+  position: relative;
 
   .panel-title {
     position: absolute;
@@ -607,7 +609,7 @@ $font1: #f08220;
 //
 //-----------------header---------------------
 .intro-nav {
-  display: flex;
+  @include flex-Center(row, space-between, center);
   position: fixed;
   top: 0;
   right: 0;
@@ -677,12 +679,6 @@ $font1: #f08220;
   }
 }
 
-.submit {
-  @include flex-Center(row, space-around, center);
-  gap: 10px;
-  text-align: center;
-}
-
 //
 //
 //
@@ -690,14 +686,9 @@ $font1: #f08220;
 
 .navbar-icon {
   width: 7vh;
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  background: $background;
   border-radius: 0 0 0 25px;
   transition: 1s;
   z-index: 10;
-  border: 1px solid black;
 
   button {
     width: 100%;
@@ -719,25 +710,35 @@ $font1: #f08220;
   background: $background;
   position: fixed;
   top: 0;
-  right: -250px;
-  width: 250px;
+  right: -22%;
+  width: 20%;
   height: 100vh;
   z-index: 9;
   transition: 2s;
   border-left: 0.5px solid black;
   border-radius: 15px 0 0 15px;
-  padding: 60px 2%;
+  margin-top: 10vh;
   @include flex-Center(column, flex-start, center);
 
+  :nth-child(1) {
+    border-top: none;
+  }
+
   div {
+    @include flex-Center(row, center, center);
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
     font-size: 1.3em;
+    border-top: 1px solid black;
   }
 }
 
 .open-navbar {
   right: 0;
-  top: 0;
 }
+
+///---------------------logo style----------------
 
 ///
 ///

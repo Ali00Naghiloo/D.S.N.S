@@ -1,4 +1,7 @@
+import Navbar from "./Navbar";
+import Chart from "./Chart";
 import Api from "./api/api.json";
+import Api1 from "./api/demos.json";
 import "../styles/style.scss";
 import icon from "../assets/icons/cloud-icon.png";
 import photo from "../assets/icons/photo-icon.png";
@@ -10,10 +13,9 @@ import NGsaving from "../assets/icons/Fuel Saving.png";
 import fairValue from "../assets/icons/Fair value.png";
 import returnOnEq from "../assets/icons/return on equity.png";
 import NPV from "../assets/icons/NPV icon.png";
-import Chart from "./Chart";
+import comanyLogo from "../assets/icons/company-icon.jpeg";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import Navbar from "./Navbar";
 import { setUnit } from "./slices/unitSlice";
 import { Button, Select } from "antd";
 
@@ -27,7 +29,13 @@ function Portfolio() {
 
   return (
     <div className="portfolio-continer">
-      <Navbar />
+      <div className="intro-nav">
+        <main className="main">
+          <img src={comanyLogo} alt="" />
+          <p>DSNS Co.</p>
+        </main>
+        <Navbar />
+      </div>
       <div className="portfolio-sign">
         <div className="portfolio-sign-line"></div>
         <img src={portfolio} alt="" />
@@ -48,7 +56,7 @@ function Portfolio() {
                 alt=""
               />
               <div className="portfolio-header-value">
-                <span>Energy generat</span>
+                <span>Energy generated</span>
                 <span
                   onClick={() => {
                     if (unit.egUnit === "Total") {
@@ -191,9 +199,9 @@ function Portfolio() {
                 className="portfolio-chart-title"
                 onChange={handleChange}
               >
-                <Option value={Api.system1}>{Api.system1}</Option>
-                <Option value={Api.system2}>{Api.system2}</Option>
-                <Option value={Api.system3}>{Api.system3}</Option>
+                <Option value={Api1.system1}>{Api1.system1}</Option>
+                <Option value={Api1.system2}>{Api1.system2}</Option>
+                <Option value={Api1.system3}>{Api1.system3}</Option>
               </Select>
             </div>
             <div>
