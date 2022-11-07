@@ -38,20 +38,26 @@ function Navbar() {
           navbar === "navIsOpened" ? "open-navbar" : ""
         }`}
       >
-        <div>
-          <NavLink to="/panel">{demos.system1}</NavLink>
-        </div>
-        <div>
-          <NavLink>{demos.system2}</NavLink>
-        </div>
-        <div>
-          <NavLink>{demos.system3}</NavLink>
-        </div>
+        {demos.map((d, index) => {
+          return (
+            <>
+              <div key={index}>
+                <NavLink to={`/panel:${d.system0}`}>{d.system0}</NavLink>
+              </div>
+              <div key={index}>
+                <NavLink to={`/panel:${d.system1}`}>{d.system1}</NavLink>
+              </div>
+            </>
+          );
+        })}
         <div>
           <NavLink to="/portfolio">My Portfolio</NavLink>
         </div>
         <div>
           <NavLink to="/">Logout</NavLink>
+        </div>
+        <div>
+          <NavLink to="/myaccount">My Account</NavLink>
         </div>
       </section>
     </>

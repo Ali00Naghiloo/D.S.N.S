@@ -1,4 +1,4 @@
-import PageThree from "../components/PageThree";
+import PageThree from "../components/my account page/PageThree";
 
 const MyAccount = () => {
   return (

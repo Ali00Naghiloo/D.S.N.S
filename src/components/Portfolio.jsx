@@ -7,12 +7,15 @@ import icon from "../assets/icons/cloud-icon.png";
 import photo from "../assets/icons/photo-icon.png";
 import portfolio from "../assets/icons/portfolio-icon.png";
 import cash from "../assets/icons/cash flow.png";
-import energy from "../assets/icons/energy.webp";
+import energy from "../assets/icons/energy.png";
 import CO2saving from "../assets/icons/Co2 saving.png";
 import NGsaving from "../assets/icons/Fuel Saving.png";
 import fairValue from "../assets/icons/Fair value.png";
 import returnOnEq from "../assets/icons/return on equity.png";
 import NPV from "../assets/icons/NPV icon.png";
+import totalNumber from "../assets/icons/Total number of Plants.png";
+import totalCap from "../assets/icons/Total Capacity.png";
+import ProjectPhase from "../assets/icons/Project Phase.png";
 import comanyLogo from "../assets/icons/company-icon.jpeg";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -36,9 +39,9 @@ function Portfolio() {
         </main>
         <Navbar />
       </div>
+
       <div className="portfolio-sign">
         <div className="portfolio-sign-line"></div>
-        <img src={portfolio} alt="" />
         <span>My Portfolio</span>
       </div>
 
@@ -51,6 +54,7 @@ function Portfolio() {
             <div className="portfolio-header-des">
               <img
                 width="60px"
+                height="65px"
                 className="portfolio-header-icon"
                 src={energy}
                 alt=""
@@ -164,7 +168,7 @@ function Portfolio() {
         <div className="portfolio-summary">
           <span className="portfolio-summary-title">Portfolio Summary</span>
           <div className="portfolio-summary-items">
-            <img src={icon} alt="" />
+            <img src={totalNumber} alt="" />
             <div>
               <span>Total number of plants</span>
               <span>{Api.Id}</span>
@@ -172,7 +176,7 @@ function Portfolio() {
           </div>
 
           <div className="portfolio-summary-items">
-            <img src={icon} alt="" />
+            <img src={totalCap} alt="" />
             <div>
               <span>Total Capacity</span>
               <span>{Api.Id}</span>
@@ -199,9 +203,9 @@ function Portfolio() {
                 className="portfolio-chart-title"
                 onChange={handleChange}
               >
-                <Option value={Api1.system1}>{Api1.system1}</Option>
-                <Option value={Api1.system2}>{Api1.system2}</Option>
-                <Option value={Api1.system3}>{Api1.system3}</Option>
+                <Option value="Demo1">Demo1</Option>
+                <Option value="Demo2">Demo2</Option>
+                <Option value="Demo3">Demo3</Option>
               </Select>
             </div>
             <div>
@@ -276,27 +280,27 @@ function Portfolio() {
         <div className="portfolio-footer-items">
           <div className="portfolio-footer-item">
             <section>
-              <Link to="/panel">
+              <Link to="/panel/:Saleh">
                 <h2>Saleh, 150.00 kWp, Iran</h2>
               </Link>
             </section>
             <img src={photo} alt="" />
             <div className="portfolio-footer-detail">
-              <img src={icon} alt="" />
+              <img src={ProjectPhase} alt="" />
               <div>
                 <span>Project phase</span>
                 <span>In operation</span>
               </div>
             </div>
             <div className="portfolio-footer-detail">
-              <img src={icon} alt="" />
+              <img height="55px" src={energy} alt="" />
               <div>
                 <span>Energy generated last month</span>
                 <span>0 kWh</span>
               </div>
             </div>
             <div className="portfolio-footer-detail">
-              <img src={icon} alt="" />
+              <img src={cash} alt="" />
               <div>
                 <span>Cash flow for last month</span>
                 <span>0 €</span>
@@ -306,27 +310,27 @@ function Portfolio() {
 
           <div className="portfolio-footer-item">
             <section>
-              <Link to="/panel">
+              <Link to="/panel/:Ehsan">
                 <h2>Ehsan, 100.00 kWp, Iran</h2>
               </Link>
             </section>
             <img src={photo} alt="" />
             <div className="portfolio-footer-detail">
-              <img src={icon} alt="" />
+              <img src={ProjectPhase} alt="" />
               <div>
                 <span>Project phase</span>
                 <span>In operation</span>
               </div>
             </div>
             <div className="portfolio-footer-detail">
-              <img src={icon} alt="" />
+              <img src={energy} alt="" />
               <div>
                 <span>Energy generated last month</span>
                 <span>0 kWh</span>
               </div>
             </div>
             <div className="portfolio-footer-detail">
-              <img src={icon} alt="" />
+              <img src={cash} alt="" />
               <div>
                 <span>Cash flow for last month</span>
                 <span>0 €</span>

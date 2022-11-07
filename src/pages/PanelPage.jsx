@@ -5,8 +5,10 @@ import KPIs from "../components/KPIs";
 import Navbar from "../components/Navbar";
 import "../styles/style.scss";
 import comanyLogo from "../assets/icons/company-icon.jpeg";
+import { useParams } from "react-router-dom/dist";
 
 const Panel = () => {
+  const { name } = useParams();
   const panel = useSelector((state) => state.panel.panel);
   const dispatch = useDispatch();
 
@@ -20,7 +22,7 @@ const Panel = () => {
           </main>
           <Navbar />
         </div>
-        <span className="panel-title">Saleh, 150.00 kWp, Iran</span>
+        <span className="panel-title">{name}, 150.00 kWp, Iran</span>
         <button
           className={`${panel === 1 ? "unselected-page" : ""}`}
           onClick={() => dispatch(setPanel(0))}

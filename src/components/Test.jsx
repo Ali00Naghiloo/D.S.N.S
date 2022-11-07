@@ -1,5 +1,5 @@
 import { Select, Tag } from "antd";
-import React from "react";
+
 const options = [
   {
     value: "gold",
@@ -34,16 +34,20 @@ const tagRender = (props) => {
     </Tag>
   );
 };
-const PageThree = () => (
-  <Select
-    mode="multiple"
-    showArrow
-    tagRender={tagRender}
-    defaultValue={["gold", "cyan"]}
-    style={{
-      width: "100%",
-    }}
-    options={options}
-  />
-);
-export default PageThree;
+
+const Test = () => {
+  return (
+    <Select
+      mode="multiple"
+      showArrow
+      tagRender={tagRender}
+      defaultValue={["gold", "cyan"]}
+      style={{
+        width: "100%",
+      }}
+      options={options}
+    />
+  );
+};
+
+export default Test;

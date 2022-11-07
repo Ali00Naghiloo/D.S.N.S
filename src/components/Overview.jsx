@@ -1,5 +1,5 @@
 import icon from "../assets/icons/cloud-icon.png";
-import energy from "../assets/icons/energy.webp";
+import energy from "../assets/icons/energy.png";
 import fairValue from "../assets/icons/Fair value.png";
 import cash from "../assets/icons/cash flow.png";
 import NPV from "../assets/icons/NPV icon.png";
@@ -15,6 +15,7 @@ import Navbar from "./Navbar";
 import { setPanel } from "./slices/panelSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { setUnit } from "./slices/unitSlice";
+import { useParams } from "react-router-dom/dist";
 
 function Overview() {
   const unit = useSelector((state) => state.unit.unit);

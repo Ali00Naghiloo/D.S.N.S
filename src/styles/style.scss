@@ -26,6 +26,8 @@ $font1: #f08220;
   margin-bottom: 0rem;
 }
 
+// --------------styles------------------
+
 .introduction-continer {
   width: 100%;
   position: relative;
@@ -284,7 +286,7 @@ $font1: #f08220;
 
         .portfolio-header-des {
           @include flex-Center(row, center, center);
-          gap: 20%;
+          gap: 20px;
           padding: 0 5%;
           cursor: pointer;
 
@@ -292,10 +294,6 @@ $font1: #f08220;
             @include flex-Center(column, space-evenly, center);
             font-size: 1.2em;
             font-weight: 700;
-
-            span {
-              width: max-content;
-            }
           }
         }
       }
@@ -344,6 +342,7 @@ $font1: #f08220;
 
         img {
           margin-right: auto;
+          width: 60px;
         }
 
         div {
@@ -420,6 +419,10 @@ $font1: #f08220;
           padding: 25px 10px;
           font-size: 1.2em;
           font-weight: 700;
+
+          img {
+            width: 50px;
+          }
 
           div {
             @include flex-Center(column, center, center);
@@ -569,6 +572,52 @@ $font1: #f08220;
 //
 //
 //
+//
+//------------------my account---------------
+// .myac-continer {
+//   width: 100%;
+//   @include flex-Center(row, flex-start, flex-start);
+// }
+
+.myac-navbar {
+  width: 30vh;
+  height: 100vh;
+  @include flex-Center(column, flex-start, center);
+  overflow-y: scroll;
+  border-radius: 15px;
+  border-right: 1.5px solid black;
+
+  div {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    border: 1px solid black;
+    cursor: pointer;
+
+    ::after {
+      content: "\002B";
+    }
+
+    p {
+      margin-right: auto;
+    }
+  }
+
+  .child {
+    width: 90%;
+    margin-left: auto;
+  }
+}
+
+.myac-detail {
+  width: 80vh;
+  height: 100%;
+  margin-left: auto;
+}
+
+//
+//
+//
 //------------------panel---------------------
 .panel-continer {
   width: 100%;
@@ -613,7 +662,6 @@ $font1: #f08220;
   position: fixed;
   top: 0;
   right: 0;
-  left: 0;
   height: 10vh;
   width: 100%;
   z-index: 15;
@@ -737,8 +785,6 @@ $font1: #f08220;
 .open-navbar {
   right: 0;
 }
-
-///---------------------logo style----------------
 
 ///
 ///

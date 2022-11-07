@@ -1,5 +1,7 @@
-{
-  "system1": "Demo1",
-  "system2": "Demo2",
-  "system3": "Demo3"
-}
+[
+  {
+    "system0": "Saleh",
+    "system1": "Ehsan",
+    "system2": "Demo3"
+  }
+]
