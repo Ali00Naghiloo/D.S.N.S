@@ -3,7 +3,6 @@ import { Input, Button, Popover } from "antd";
 import contact from "../assets/icons/contact-icon.png";
 import home from "../assets/icons/home-icon.png";
 import mail from "../assets/icons/mail-icon.png";
-import "../styles/style.scss";
 import Header from "./Header";
 import { useState } from "react";
 

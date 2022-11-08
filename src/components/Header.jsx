@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import comanyLogo from "../assets/icons/company-icon.jpeg";
 import { Popover, Input, Button } from "antd";
 import { Link, useParams } from "react-router-dom";
-import "../styles/style.scss";
 
 const Header = () => {
   const { id } = useParams();

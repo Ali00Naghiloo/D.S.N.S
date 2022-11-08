@@ -1,6 +1,5 @@
 import { setNavbar } from "./slices/navSlice";
 import { useSelector, useDispatch } from "react-redux";
-import "../styles/style.scss";
 import menu from "../assets/icons/menu-icon.svg";
 import cross from "../assets/icons/cross-icon.png";
 import demos from "./api/demos.json";

@@ -2,7 +2,6 @@ import Navbar from "./Navbar";
 import Chart from "./Chart";
 import Api from "./api/api.json";
 import Api1 from "./api/demos.json";
-import "../styles/style.scss";
 import icon from "../assets/icons/cloud-icon.png";
 import photo from "../assets/icons/photo-icon.png";
 import portfolio from "../assets/icons/portfolio-icon.png";

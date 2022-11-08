@@ -20,7 +20,8 @@ function KPIs() {
             }}
             className={` ${selected.a === true ? "selected-kpi" : ""}`}
           >
-            <span>Energy generated</span>
+            <span>Energy generated (Active)</span>
+            <p>MWh</p>
           </div>
 
           <div
@@ -31,7 +32,8 @@ function KPIs() {
             }}
             className={` ${selected.b === true ? "selected-kpi" : ""}`}
           >
-            <span>Availability Factor</span>
+            <span>Energy generated (Total)</span>
+            <p>MWh</p>
           </div>
 
           <div
@@ -42,7 +44,8 @@ function KPIs() {
             }}
             className={` ${selected.c === true ? "selected-kpi" : ""}`}
           >
-            <span>Plant Efficiency</span>
+            <span>Plant Factor</span>
+            <p>_</p>
           </div>
 
           <div
@@ -53,7 +56,8 @@ function KPIs() {
             }}
             className={` ${selected.d === true ? "selected-kpi" : ""}`}
           >
-            <span>Plant Factor</span>
+            <span>Plant Efficiency</span>
+            <p>%</p>
           </div>
 
           <div

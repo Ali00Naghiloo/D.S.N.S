@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import api from "../api/demos.json";
 import { setSelectedPage } from "../slices/selectedPageMyac";
 import { useDispatch, useSelector } from "react-redux";
-import CompanyInformation from "./comany information/CompanyInformation";
 import { Link } from "react-router-dom";
+import CompanyInformation from "./comany information/CompanyInformation";
+import api from "../api/demos.json";
+import up from "../../assets/icons/up.png";
+import down from "../../assets/icons/down.png";
 
 const MyAccountNavbar = () => {
   const [appChilds, setAppChilds] = useState(false);
@@ -27,6 +29,7 @@ const MyAccountNavbar = () => {
           }
         >
           <p>Add Power Plant</p>
+          <img src={appChilds ? up : down} alt="" />
         </div>
 
         {/* chidlrens of app */}
@@ -111,6 +114,7 @@ const MyAccountNavbar = () => {
               key={index}
             >
               <p>{a.system0}</p>
+              <img src={appChilds ? up : down} alt="" />
             </div>
           );
         })}

@@ -512,10 +512,11 @@ $font1: #f08220;
 .kpi-continer {
   width: 100%;
   @include flex-Center(column, center, center);
+  font-size: 13px;
 
   .kpi-header {
     width: 100%;
-    padding: 50px 2.5%;
+    padding: 50px 1%;
     margin-bottom: 30px;
     background: $background;
     position: relative;
@@ -527,7 +528,7 @@ $font1: #f08220;
     }
 
     .kpi-options {
-      @include flex-Center(row, center, center);
+      @include flex-Center(column, center, center);
       width: 100%;
       flex-wrap: wrap;
 
@@ -574,45 +575,58 @@ $font1: #f08220;
 //
 //
 //------------------my account---------------
-// .myac-continer {
-//   width: 100%;
-//   @include flex-Center(row, flex-start, flex-start);
-// }
+.myac-continer {
+  width: 100%;
+  padding-top: 12vh;
+  @include flex-Center(row, flex-start, flex-start);
 
-.myac-navbar {
-  width: 30vh;
-  height: 100vh;
-  @include flex-Center(column, flex-start, center);
-  overflow-y: scroll;
-  border-radius: 15px;
-  border-right: 1.5px solid black;
+  .myac-navbar {
+    width: 30vh;
+    height: 88vh;
+    @include flex-Center(column, flex-start, center);
+    overflow-y: scroll;
+    border-radius: 15px;
+    border-right: 1.5px solid black;
 
-  div {
-    width: 100%;
-    text-align: center;
-    padding: 1rem 0;
-    border: 1px solid black;
-    cursor: pointer;
+    div {
+      width: 100%;
+      padding: 1rem 0;
+      border: 1px solid black;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 1rem;
 
-    ::after {
-      content: "\002B";
+      // ::after {
+      //   content: "\002B";
+      // }
+
+      p {
+        display: flex;
+        align-items: center;
+        margin: 0;
+      }
+
+      img {
+        width: 18px;
+      }
     }
 
-    p {
-      margin-right: auto;
+    .child {
+      padding: 1rem;
+      width: 90%;
+      margin-left: auto;
     }
   }
 
-  .child {
-    width: 90%;
-    margin-left: auto;
+  .myac-detail {
+    width: 100vh;
+    height: 100%;
+    padding-left: 2vh;
+    overflow-y: scroll;
+    max-height: 88vh;
   }
-}
-
-.myac-detail {
-  width: 80vh;
-  height: 100%;
-  margin-left: auto;
 }
 
 //
