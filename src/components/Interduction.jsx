@@ -46,7 +46,7 @@ function Interduction() {
         <span className="text-4">
           Optimize Your Investments Take the Right Decisions at the Right
           Moments
-          <a href="#back">Click</a>
+          {/* <a href="#back">Click</a> */}
         </span>
         <div></div>
       </div>

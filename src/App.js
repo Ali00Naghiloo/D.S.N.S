@@ -1,10 +1,11 @@
 import "./App.css";
 import "./styles/style.scss";
+import { Routes, Route } from "react-router-dom";
 import Interduction from "./pages/IntroPage";
 import PortfolioPage from "./pages/PortfolioPage";
 import MyAccount from "./pages/MyAccount";
 import Panel from "./pages/PanelPage";
-import { Routes, Route } from "react-router-dom";
+import Test from "./components/Test";
 import MyAccountNavbar from "./components/my account page/MyAccountNavbar";
 import CompanyInformation from "./components/my account page/comany information/CompanyInformation";
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/myaccount" element={<MyAccount />} />
           <Route path="/panel/:name" element={<Panel />} />
+          <Route path="/test" element={<Test />} />
           <Route path="*" element={<h1>not found</h1>} />
         </Routes>
       </div>
