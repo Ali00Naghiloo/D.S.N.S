@@ -41,10 +41,10 @@ function Navbar() {
           return (
             <>
               <div key={index}>
-                <NavLink to={`/panel:${d.system0}`}>{d.system0}</NavLink>
+                <NavLink to={`/panel/:${d.system0}`}>{d.system0}</NavLink>
               </div>
               <div key={index + 1}>
-                <NavLink to={`/panel:${d.system1}`}>{d.system1}</NavLink>
+                <NavLink to={`/panel/:${d.system1}`}>{d.system1}</NavLink>
               </div>
             </>
           );

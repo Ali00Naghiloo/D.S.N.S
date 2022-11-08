@@ -19,6 +19,7 @@ import comanyLogo from "../../assets/icons/company-icon.jpeg";
 
 const PageThree = () => {
   const [appChilds, setAppChilds] = useState(false);
+  const [appChildChild, setAppChildChild] = useState(false);
   const [nameChild, setNameChild] = useState(false);
   // const dispatch = useDispatch();
   // const selectedPage = useSelector((state) => state.selectedPage.selectedPage);
@@ -53,38 +54,47 @@ const PageThree = () => {
               onClick={() => setSelectedPage(<PowePlantInfo />)}
               className="child"
             >
-              powerPlantInfo
+              PowerPlantInfo
             </div>
             <div
-              onClick={() => setSelectedPage(<FinancialInfo />)}
+              onClick={() => setAppChildChild(appChildChild ? false : true)}
               className="child"
             >
-              financialInfo
+              <p>FinancialInfo</p>
+              <img src={appChildChild ? up : down} alt="" />
             </div>
-            <div
-              onClick={() => setSelectedPage(<InvestmentInfo />)}
-              className="child"
-            >
-              investmentInfo
-            </div>
-            <div onClick={() => setSelectedPage(<Revenue />)} className="child">
-              Revenue
-            </div>
-            <div
-              onClick={() => setSelectedPage(<Expenses />)}
-              className="child"
-            >
-              Expenses
-            </div>
-            <div
-              onClick={() => setSelectedPage(<EconomicalParameters />)}
-              className="child"
-            >
-              Economical Parameters
-            </div>
-            <div onClick={() => setSelectedPage(<CPF />)} className="child">
-              CPF
-            </div>
+
+            {appChildChild && (
+              <>
+                <div
+                  onClick={() => setSelectedPage(<InvestmentInfo />)}
+                  className="child"
+                >
+                  InvestmentInfo
+                </div>
+                <div
+                  onClick={() => setSelectedPage(<Revenue />)}
+                  className="child"
+                >
+                  Revenue
+                </div>
+                <div
+                  onClick={() => setSelectedPage(<Expenses />)}
+                  className="child"
+                >
+                  Expenses
+                </div>
+                <div
+                  onClick={() => setSelectedPage(<EconomicalParameters />)}
+                  className="child"
+                >
+                  Economical Parameters
+                </div>
+                <div onClick={() => setSelectedPage(<CPF />)} className="child">
+                  CPF
+                </div>
+              </>
+            )}
           </>
         )}
 

@@ -2,6 +2,7 @@ import icon from "../assets/icons/cloud-icon.png";
 import Chart from "./Chart";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedKPI } from "./slices/selectedKPISlice";
+import { Checkbox } from "antd";
 
 function KPIs() {
   const selected = useSelector((state) => state.selectedKPI.selectedKPI);
@@ -13,14 +14,14 @@ function KPIs() {
         <h2>Key Performance Indicators</h2>
         <div className="kpi-options">
           <div
-            onClick={() => {
-              selected.a === false
-                ? dispatch(setSelectedKPI({ ...selected, a: true }))
-                : dispatch(setSelectedKPI({ ...selected, a: false }));
-            }}
-            className={` ${selected.a === true ? "selected-kpi" : ""}`}
+          // onClick={() => {
+          //   selected.a === false
+          //     ? dispatch(setSelectedKPI({ ...selected, a: true }))
+          //     : dispatch(setSelectedKPI({ ...selected, a: false }));
+          // }}
+          // className={` ${selected.a === true ? "selected-kpi" : ""}`}
           >
-            <span>Energy generated (Active)</span>
+            <Checkbox>Energy generated (Active)</Checkbox>
             <p>MWh</p>
           </div>
 
@@ -32,7 +33,7 @@ function KPIs() {
             }}
             className={` ${selected.b === true ? "selected-kpi" : ""}`}
           >
-            <span>Energy generated (Total)</span>
+            <Checkbox>Energy generated (Total)</Checkbox>
             <p>MWh</p>
           </div>
 
@@ -44,7 +45,7 @@ function KPIs() {
             }}
             className={` ${selected.c === true ? "selected-kpi" : ""}`}
           >
-            <span>Plant Factor</span>
+            <Checkbox>Plant Factor</Checkbox>
             <p>_</p>
           </div>
 
