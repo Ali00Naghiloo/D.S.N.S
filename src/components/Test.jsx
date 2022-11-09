@@ -78,3 +78,135 @@ const Test = () => (
   </Upload>
 );
 export default Test;
+
+//  <div
+//   onClick={() => {
+//     selected.eg === false
+//       ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+//       : dispatch(setSelectedKPI({ ...selected, eg: false }));
+//   }}
+//   className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+// >
+//   <span>Generator V2 Temperature</span>
+// </div>
+
+// <div
+//   onClick={() => {
+//     selected.eg === false
+//       ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+//       : dispatch(setSelectedKPI({ ...selected, eg: false }));
+//   }}
+//   className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+// >
+//   <span>Generator W1 Temperature</span>
+// </div>
+
+// <div
+//   onClick={() => {
+//     selected.eg === false
+//       ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+//       : dispatch(setSelectedKPI({ ...selected, eg: false }));
+//   }}
+//   className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+// >
+//   <span>Generator W2 Temperature</span>
+// </div>
+
+// <div
+//   onClick={() => {
+//     selected.eg === false
+//       ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+//       : dispatch(setSelectedKPI({ ...selected, eg: false }));
+//   }}
+//   className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+// >
+//   <span>Generator U1 Temperature</span>
+// </div>
+
+// <div
+//   onClick={() => {
+//     selected.eg === false
+//       ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+//       : dispatch(setSelectedKPI({ ...selected, eg: false }));
+//   }}
+//   className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+// >
+//   <span>Generator U2 Temperature</span>
+// </div>
+
+// <div
+//   onClick={() => {
+//     selected.eg === false
+//       ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+//       : dispatch(setSelectedKPI({ ...selected, eg: false }));
+//   }}
+//   className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+// >
+//   <span>Generator Air Inlet Temperature</span>
+// </div>
+
+// <div
+//   onClick={() => {
+//     selected.eg === false
+//       ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+//       : dispatch(setSelectedKPI({ ...selected, eg: false }));
+//   }}
+//   className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+// >
+//   <span>Generator Air outlet Temperature</span>
+// </div>
+
+// <div
+//   onClick={() => {
+//     selected.eg === false
+//       ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+//       : dispatch(setSelectedKPI({ ...selected, eg: false }));
+//   }}
+//   className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+// >
+//   <span>Generator Oil Temperature</span>
+// </div>
+
+// <div
+//   onClick={() => {
+//     selected.eg === false
+//       ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+//       : dispatch(setSelectedKPI({ ...selected, eg: false }));
+//   }}
+//   className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+// >
+//   <span>Turbine Upstream Pressure</span>
+// </div>
+
+// <div
+//   onClick={() => {
+//     selected.eg === false
+//       ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+//       : dispatch(setSelectedKPI({ ...selected, eg: false }));
+//   }}
+//   className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+// >
+//   <span>Turbine Downstream Pressure</span>
+// </div>
+
+// <div
+//   onClick={() => {
+//     selected.eg === false
+//       ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+//       : dispatch(setSelectedKPI({ ...selected, eg: false }));
+//   }}
+//   className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+// >
+//   <span>Generator DE Vibration</span>
+// </div>
+
+// <div
+//   onClick={() => {
+//     selected.eg === false
+//       ? dispatch(setSelectedKPI({ ...selected, eg: true }))
+//       : dispatch(setSelectedKPI({ ...selected, eg: false }));
+//   }}
+//   className={` ${selected.eg === true ? "selected-kpi" : ""}`}
+// >
+//   <span>Generator NDE Vibration</span>
+// </div>

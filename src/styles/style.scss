@@ -529,18 +529,18 @@ $font1: #f08220;
 
     .kpi-options {
       @include flex-Center(column, center, flex-start);
-      max-height: 80vh;
+      gap: 0;
+      max-height: 70vh;
       width: 100%;
       flex-wrap: wrap;
 
       div {
         @include flex-Center(row, space-between, center);
+        width: 20%;
         // background: #fff;
         text-align: left;
-        border-radius: 12px;
         font-size: 1.2em;
-        margin: 0.3rem 1rem;
-        padding: 10px 5px;
+        padding: 1rem;
         cursor: pointer;
 
         p {
