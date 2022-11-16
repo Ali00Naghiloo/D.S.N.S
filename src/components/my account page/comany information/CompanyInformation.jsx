@@ -26,22 +26,54 @@ const CompanyInformation = () => {
       <section className="company-info-continer">
         <section>
           <h1>CompanyInformation</h1>
-          <Input placeholder="Name" />
-          <Input placeholder="Postal address" />
-          <Input placeholder="Email address" />
-          <Input placeholder="Fax Number" />
-          <Upload {...props}>
-            <Button icon={<UploadOutlined />}>Click to Upload Logo</Button>
-          </Upload>
+          <div>
+            <span>Name</span>
+            <Input placeholder="Name" />
+          </div>
+          <div>
+            <span>Postal Number</span>
+            <Input placeholder="Postal address" />
+          </div>
+          <div>
+            <span>Email Address</span>
+            <Input placeholder="Email address" />
+          </div>
+          <div>
+            <span>Fax Number</span>
+            <Input placeholder="Fax Number" />
+          </div>
+          <div>
+            <Upload {...props}>
+              <Button style={{ width: "100%" }} icon={<UploadOutlined />}>
+                Upload Logo Here
+              </Button>
+            </Upload>
+          </div>
           <TextArea placeholder="Note" />
         </section>
+
         <section>
           <h1>Contact Person Information</h1>
-          <Input placeholder="Salution" />
-          <Input placeholder="Name" />
-          <Input placeholder="Organizational Level" />
-          <Input placeholder="Email Address" />
-          <Input placeholder="Phone Number" />
+          <div>
+            <span>Salution</span>
+            <Input placeholder="Salution" />
+          </div>
+          <div>
+            <span>Name</span>
+            <Input placeholder="Name" />
+          </div>
+          <div>
+            <span>Organizational Level</span>
+            <Input placeholder="Organizational Level" />
+          </div>
+          <div>
+            <span>Email Address</span>
+            <Input placeholder="Email Address" />
+          </div>
+          <div>
+            <span>Phone Number</span>
+            <Input placeholder="Phone Number" />
+          </div>
           <TextArea placeholder="Note" />
         </section>
         <section>

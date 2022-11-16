@@ -1,29 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  selectedPage: {
-    companyInformation: true,
-    addPowerPlant: {
-      powerPlantInfo: false,
-      financialInfo: false,
-      investmentInfo: false,
-      revenue: false,
-      expenses: false,
-      economicalParameters: false,
-      CPF: false,
-    },
-  },
+  selectedPlant: "",
 };
 
-export const selectedPageSlice = createSlice({
-  name: "selectedPage",
+export const selectedPlantSlice = createSlice({
+  name: "selectedPlant",
   initialState,
   reducers: {
-    setSelectedPage: (state, action) => {
-      state.selectedPage = action.payload;
+    setSelectedPlant: (state, action) => {
+      state.selectedPlant = action.payload;
     },
   },
 });
 
-export const { setSelectedPage } = selectedPageSlice.actions;
-export default selectedPageSlice.reducer;
+export const { setSelectedPlant } = selectedPlantSlice.actions;
+export default selectedPlantSlice.reducer;

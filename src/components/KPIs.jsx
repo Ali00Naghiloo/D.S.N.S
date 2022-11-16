@@ -375,7 +375,10 @@ function KPIs() {
         </div>
       </div>
       <div className="kpi-chart">
-        <Chart />
+        <div>
+          <Chart />
+        </div>
+        <div></div>
       </div>
     </div>
   );

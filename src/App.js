@@ -6,7 +6,6 @@ import PortfolioPage from "./pages/PortfolioPage";
 import MyAccount from "./pages/MyAccount";
 import Panel from "./pages/PanelPage";
 import Test from "./components/Test";
-import MyAccountNavbar from "./components/my account page/MyAccountNavbar";
 import CompanyInformation from "./components/my account page/comany information/CompanyInformation";
 
 function App() {

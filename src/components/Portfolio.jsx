@@ -8,7 +8,9 @@ import portfolio from "../assets/icons/portfolio-icon.png";
 import cash from "../assets/icons/cash flow.png";
 import energy from "../assets/icons/energy.png";
 import CO2saving from "../assets/icons/Co2 saving.png";
-import NGsaving from "../assets/icons/Fuel Saving.png";
+import NGsaving from "../assets/icons/Natural gas Saving.png";
+import fuelSaving from "../assets/icons/Fuel Saving.png";
+import gasoil from "../assets/icons/Fuel Saving.png";
 import fairValue from "../assets/icons/Fair value.png";
 import returnOnEq from "../assets/icons/return on equity.png";
 import NPV from "../assets/icons/NPV icon.png";
@@ -20,8 +22,10 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setUnit } from "./slices/unitSlice";
 import { Button, Select } from "antd";
+import { useState } from "react";
 
 function Portfolio() {
+  const [savingIcon, setSavingIcon] = useState(CO2saving);
   const unit = useSelector((state) => state.unit.unit);
   const dispatch = useDispatch();
   const { Option } = Select;
@@ -119,7 +123,7 @@ function Portfolio() {
               <img
                 width="80px"
                 className="portfolio-header-icon"
-                src={unit.savFuel === "CO2" ? CO2saving : NGsaving}
+                src={savingIcon}
                 alt=""
               />
               <div className="portfolio-header-value">
@@ -182,6 +186,7 @@ function Portfolio() {
             </div>
           </div>
         </div>
+
         <div className="portfolio-chart">
           <Select
             defaultValue="Energy generat"

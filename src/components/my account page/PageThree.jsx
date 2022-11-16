@@ -1,28 +1,32 @@
 import { useState } from "react";
 import "../../styles/style.scss";
-import { setSelectedPage } from "../slices/selectedPageMyac";
+import { setSelectedPlant } from "../slices/selectedPageMyac";
 import { useDispatch, useSelector } from "react-redux";
 // import MyAccountNavbar from "./MyAccountNavbar";
 import CompanyInformation from "./comany information/CompanyInformation";
-import PowePlantInfo from "./paower plant info/PowerPlantInfo";
-import FinancialInfo from "./paower plant info/FinancialInfo";
-import InvestmentInfo from "./paower plant info/InvestmentInfo";
-import Revenue from "./paower plant info/Revenue";
-import Expenses from "./paower plant info/Expenses";
-import EconomicalParameters from "./paower plant info/EconomicalParameters";
-import CPF from "./paower plant info/CPF";
+import PowePlantInfo from "./Add power plant/PowerPlantInfo";
+import FinancialInfo from "./Add power plant/FinancialInfo";
+import InvestmentInfo from "./Add power plant/InvestmentInfo";
+import Revenue from "./Add power plant/Revenue";
+import Expenses from "./Add power plant/Expenses";
+import EconomicalParameters from "./Add power plant/EconomicalParameters";
+import CPF from "./Add power plant/CPF";
 import Navbar from "../Navbar";
 import api from "../api/demos.json";
 import up from "../../assets/icons/up.png";
 import down from "../../assets/icons/down.png";
 import comanyLogo from "../../assets/icons/company-icon.jpeg";
+import SelectedPlant from "./SelectedPlant";
 
 const PageThree = () => {
   const [appChilds, setAppChilds] = useState(false);
   const [appChildChild, setAppChildChild] = useState(false);
   const [nameChild, setNameChild] = useState(false);
-  // const dispatch = useDispatch();
-  // const selectedPage = useSelector((state) => state.selectedPage.selectedPage);
+  const [selectedOnNavbar, setSelectedOnNavbar] = useState("ci");
+  const dispatch = useDispatch();
+  const selectedPlant = useSelector(
+    (state) => state.selectedPlant.selectedPlant
+  );
   const [selectedPage, setSelectedPage] = useState(<CompanyInformation />);
 
   return (
@@ -101,10 +105,13 @@ const PageThree = () => {
         {api.map((a, index) => {
           return (
             <div
-              onClick={() =>
-                nameChild === true ? setNameChild(false) : setNameChild(true)
-              }
-              key={index}
+              onClick={() => {
+                nameChild === true ? setNameChild(false) : setNameChild(true);
+                setSelectedPage();
+                dispatch(setSelectedPlant(a.system0));
+                console.log(selectedPlant);
+              }}
+              key={Math.random}
             >
               <p>{a.system0}</p>
               <img src={nameChild ? up : down} alt="" />
@@ -115,18 +122,27 @@ const PageThree = () => {
         {/* childrens of first */}
         {nameChild && (
           <>
-            <div className="child">powerPlantInfo</div>
-            <div className="child">financialInfo</div>
-            <div className="child">investmentInfo</div>
-            <div className="child">Revenue</div>
-            <div className="child">Expenses</div>
-            <div className="child">Economical Parameters</div>
-            <div className="child">CPF</div>
+            <div className="child">PowerPlantInfo</div>
+            <div className="child">
+              <p>FinancialInfo</p>
+              <img src={up} alt="" />
+            </div>
+            {
+              <>
+                <div className="child">InvestmentInfo</div>
+                <div className="child">Revenue</div>
+                <div className="child">Expenses</div>
+                <div className="child">Economical Parameters</div>
+                <div className="child">CPF</div>
+              </>
+            }
           </>
         )}
       </section>
 
-      <section className="myac-detail">{selectedPage}</section>
+      <section className="myac-detail">
+        {selectedPage ? selectedPage : <SelectedPlant />}
+      </section>
     </div>
   );
 };
