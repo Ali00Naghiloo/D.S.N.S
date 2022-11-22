@@ -9,15 +9,6 @@ const usePlants = () => {
       power: "140,000KWp",
     },
   ];
-
-  const callback = plants.map((a, index) => {
-    return `getItem(${a.system}, ${index}, <SettingOutlined />);`;
-  });
-
-  const exports = {
-    callback,
-  };
-  return exports;
 };
 
 export default usePlants;
