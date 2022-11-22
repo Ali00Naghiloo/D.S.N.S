@@ -1,9 +1,19 @@
 import { Input, Upload, Button, Select, Tooltip } from "antd";
 import { UploadOutlined, ExclamationOutlined } from "@ant-design/icons";
 import { useState } from "react";
-import api from "../../api/demos.json";
+// import api from "../../api/demos.json";
 
 const PowerPlantInfo = () => {
+  const [api, setApi] = useState([
+    {
+      system: "Qom1",
+      power: "120,000KWp",
+    },
+    {
+      system: "Qom2",
+      power: "140,000KWp",
+    },
+  ]);
   const [selectedType, setSelectedType] = useState(``);
   const [projectName, setProjectName] = useState({ system: "" });
   const { TextArea } = Input;
@@ -249,7 +259,9 @@ const PowerPlantInfo = () => {
 
         <section>
           <Button
-            onClick={api.push(projectName)}
+            onClick={
+              (() => api.push(projectName.system), console.log(projectName))
+            }
             style={{ background: "#f08220" }}
             type="primary"
           >

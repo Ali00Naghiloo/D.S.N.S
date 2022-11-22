@@ -185,31 +185,31 @@ const App = () => {
   //   api.push(hello);
   // }, [hello]);
 
-  const items = [
-    getItem("Company Information", "companyinfo", <MailOutlined />),
+  // const items = [
+  //   getItem("Company Information", "companyinfo", <MailOutlined />),
 
-    getItem("Add Power Plant", "add powerplant", <AppstoreOutlined />, [
-      getItem("Power Plant Info.", "powerplant info", null),
-      getItem("Financail Info.", "Financial add", null, [
-        getItem("Investment Information", "app Investment Information"),
-        getItem("Revenue", "app Revenue"),
-        getItem("Expenses", "app Expenses"),
-        getItem("Economical Parameters", "app Economical Parameters"),
-        getItem("CPF", "app CPF"),
-      ]),
-    ]),
+  //   getItem("Add Power Plant", "add powerplant", <AppstoreOutlined />, [
+  //     getItem("Power Plant Info.", "powerplant info", null),
+  //     getItem("Financail Info.", "Financial add", null, [
+  //       getItem("Investment Information", "app Investment Information"),
+  //       getItem("Revenue", "app Revenue"),
+  //       getItem("Expenses", "app Expenses"),
+  //       getItem("Economical Parameters", "app Economical Parameters"),
+  //       getItem("CPF", "app CPF"),
+  //     ]),
+  //   ]),
 
-    getItem("Name1", `plants ${index + 1}`, <SettingOutlined />, [
-      getItem("Power Plant Info.", "powerplant infos", null),
-      getItem("Financail Info.", `plant ${Math.random}`, null, [
-        getItem("Investment Information"),
-        getItem("Revenue"),
-        getItem("Expenses"),
-        getItem("Economical Parameters"),
-        getItem("CPF"),
-      ]),
-    ]),
-  ];
+  //   getItem("Name1", `plants ${index + 1}`, <SettingOutlined />, [
+  //     getItem("Power Plant Info.", "powerplant infos", null),
+  //     getItem("Financail Info.", `plant ${Math.random}`, null, [
+  //       getItem("Investment Information"),
+  //       getItem("Revenue"),
+  //       getItem("Expenses"),
+  //       getItem("Economical Parameters"),
+  //       getItem("CPF"),
+  //     ]),
+  //   ]),
+  // ];
 
   return <></>;
 };
