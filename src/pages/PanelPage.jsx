@@ -47,8 +47,7 @@ const Panel = () => {
               {api.map((a, index) => {
                 if (query === a.system) {
                   return <span key={index}>{a.power}</span>;
-                } else {
-                  ("");
+                } else {}
                 }
               })}
             </span>
