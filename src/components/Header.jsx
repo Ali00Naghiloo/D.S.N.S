@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import comanyLogo from "../assets/icons/company-icon.jpeg";
+import comanyLogo from "../assets/icons/company-icon.svg";
+// import { ReactComponent as Logo } from "../assets/icons/company-icon.svg";
 import { Popover, Input, Button } from "antd";
 import { Link, useParams } from "react-router-dom";
 
@@ -13,6 +14,7 @@ const Header = () => {
       <div className="intro-nav">
         <main className="main">
           <img src={comanyLogo} alt="" />
+          {/* <Logo width="200px" /> */}
           <p>DSNS Co.</p>
         </main>
         {visibleLogin && (

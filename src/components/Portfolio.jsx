@@ -1,7 +1,6 @@
 import Navbar from "./Navbar";
 import Chart from "./Chart";
-import Api from "./api/api.json";
-import Api1 from "./api/demos.json";
+import api from "./api/demos.json";
 import icon from "../assets/icons/cloud-icon.png";
 import photo from "../assets/icons/photo-icon.png";
 import portfolio from "../assets/icons/portfolio-icon.png";
@@ -22,9 +21,24 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setUnit } from "./slices/unitSlice";
 import { Button, Select } from "antd";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Portfolio() {
+  const [query, setQuery] = useState({});
+  const getQueryString = () => {
+    const params = new URLSearchParams(window.location.search);
+    for (const key of params.keys()) {
+      if (params.getAll(key).length > 1) {
+        query[key] = params.getAll(key);
+      } else {
+        query[key] = params.get(key);
+      }
+    }
+  };
+  useEffect(() => {
+    getQueryString();
+  }, []);
+  /////////
   const [savingIcon, setSavingIcon] = useState(CO2saving);
   const unit = useSelector((state) => state.unit.unit);
   const dispatch = useDispatch();
@@ -81,7 +95,7 @@ function Portfolio() {
                 </span>
               </div>
               <div>
-                <span>{Api.name}</span>
+                <span>{api.name}</span>
               </div>
             </div>
           </div>
@@ -113,7 +127,7 @@ function Portfolio() {
                 </span>
               </div>
               <div>
-                <span>{Api.name}</span>
+                <span>{api.name}</span>
               </div>
             </div>
           </div>
@@ -160,7 +174,7 @@ function Portfolio() {
                 </span>
               </div>
               <div>
-                <span>{Api.name}</span>
+                <span>{api.name}</span>
               </div>
             </div>
           </div>
@@ -174,7 +188,7 @@ function Portfolio() {
             <img src={totalNumber} alt="" />
             <div>
               <span>Total number of plants</span>
-              <span>{Api.Id}</span>
+              <span>{api.Id}</span>
             </div>
           </div>
 
@@ -182,7 +196,7 @@ function Portfolio() {
             <img src={totalCap} alt="" />
             <div>
               <span>Total Capacity</span>
-              <span>{Api.Id}</span>
+              <span>{api.Id}</span>
             </div>
           </div>
         </div>
@@ -239,7 +253,7 @@ function Portfolio() {
                 <div>
                   <span>Total fair value</span>
                   <div style={{ fontWeight: "100" }}>
-                    <span>{Api.name}</span>
+                    <span>{api.name}</span>
                   </div>
                 </div>
               </div>
@@ -257,7 +271,7 @@ function Portfolio() {
                 <div>
                   <span>Average return on equitye</span>
                   <div style={{ fontWeight: "100" }}>
-                    <span>{Api.name}</span>
+                    <span>{api.name}</span>
                   </div>
                 </div>
               </div>
@@ -271,7 +285,7 @@ function Portfolio() {
                 <div>
                   <span>Net present value</span>
                   <div style={{ fontWeight: "100" }}>
-                    <span>{Api.name}</span>
+                    <span>{api.name}</span>
                   </div>
                 </div>
               </div>
@@ -285,7 +299,7 @@ function Portfolio() {
           <div className="portfolio-footer-item">
             <section>
               <Link to="/panel/:Saleh">
-                <h2>Saleh, 150.00 kWp, Iran</h2>
+                <h2>{`${api[0].system}, 150.00 kWp, Iran`}</h2>
               </Link>
             </section>
             <img src={photo} alt="" />
@@ -315,7 +329,7 @@ function Portfolio() {
           <div className="portfolio-footer-item">
             <section>
               <Link to="/panel/:Ehsan">
-                <h2>Ehsan, 100.00 kWp, Iran</h2>
+                <h2>{api[1].system}, 100.00 kWp, Iran</h2>
               </Link>
             </section>
             <img src={photo} alt="" />

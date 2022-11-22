@@ -1,7 +1,10 @@
 [
   {
-    "system0": "Qom1",
-    "system1": "Qom2",
-    "system2": "Demo3"
+    "system": "Qom1",
+    "power": "120,000KWp"
+  },
+  {
+    "system": "Qom2",
+    "power": "140,000KWp"
   }
 ]

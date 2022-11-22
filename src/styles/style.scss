@@ -33,6 +33,54 @@ $font1: #f08220;
   margin-bottom: 0rem;
 }
 
+.myac-navbar {
+  width: 30vh;
+  height: 88vh;
+  @include flex-Center(column, flex-start, center);
+  overflow-y: scroll;
+  border-radius: 0 15px 15px 0;
+  background: #f08220;
+  color: #fff;
+  border: 1.5px solid #fff;
+  margin-right: auto;
+
+  :nth-child(1) {
+    border-top: none;
+  }
+
+  div {
+    width: 100%;
+    padding: 1rem 0;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    font-size: 1em;
+    font-weight: bold;
+
+    p {
+      display: flex;
+      align-items: center;
+      margin: 0;
+    }
+
+    img {
+      width: 18px;
+    }
+  }
+
+  .child {
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 1rem;
+    width: 90%;
+    margin-left: auto;
+  }
+}
+
 // --------------styles------------------
 
 .introduction-continer {
@@ -673,6 +721,38 @@ $font1: #f08220;
         }
       }
     }
+
+    .powerplant-info-continer {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 1rem;
+
+        .information-on-hover {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+
+          :nth-child(1) {
+            width: 90%;
+          }
+
+          .information {
+            border: 1px solid black;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -741,7 +821,7 @@ $font1: #f08220;
     justify-content: flex-start;
     align-items: center;
 
-    img {
+    :nth-child(1) {
       height: 100%;
       padding: 3px 10px;
       border-radius: 50%;

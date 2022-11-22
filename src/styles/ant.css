@@ -1,0 +1,10 @@
+.ant-menu {
+  color: #fff !important;
+  background-color: #f08220 !important;
+  border-radius: 12px !important;
+  border: none !important;
+}
+
+.ant-menu-item {
+  padding: 0 10px !important;
+}

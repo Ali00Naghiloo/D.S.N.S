@@ -1,7 +1,9 @@
 const InvestmentInfo = () => {
   return (
     <>
-      <div>investmentInfo</div>
+      <section>
+        <h1>Investment Information</h1>
+      </section>
     </>
   );
 };

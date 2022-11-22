@@ -138,6 +138,7 @@ import cross from "../assets/icons/cross-icon.png";
 // };
 // export default App;
 
+import api from "./api/demos.json";
 import { Menu } from "antd";
 import {
   MailOutlined,
@@ -156,7 +157,7 @@ const App = () => (
       padding: "0",
     }}
     mode="horizontal"
-    defaultSelectedKeys={["mail"]}
+    // defaultSelectedKeys={["four"]}
   >
     <Menu.SubMenu
       key="SubMenu"
@@ -164,13 +165,15 @@ const App = () => (
       icon={<MenuOutlined style={{ width: "100%", color: "#fff" }} />}
     >
       <Menu.ItemGroup title="Plants">
-        <Menu.Item key="two" icon={<LinkOutlined />}>
-          <Link to="/panel/:Qome1">Qom1</Link>
-        </Menu.Item>
-        <Menu.Item key="three" icon={<LinkOutlined />}>
-          <Link to="/panel/:Qome2">Qom2</Link>
-        </Menu.Item>
+        {api.map((a, index) => {
+          return (
+            <Menu.Item key={index} icon={<LinkOutlined />}>
+              <Link to={`/panel?plant=${a.system}`}>{a.system}</Link>
+            </Menu.Item>
+          );
+        })}
       </Menu.ItemGroup>
+
       <Menu.Item key="four" icon={<AppstoreOutlined />}>
         <Link to="/portfolio">My Portfolio</Link>
       </Menu.Item>
