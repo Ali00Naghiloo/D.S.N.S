@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import comanyLogo from "../assets/icons/company-icon.svg";
+import comanyLogo from "../assets/icons/company-icon.jpeg";
 // import { ReactComponent as Logo } from "../assets/icons/company-icon.svg";
 import { Popover, Input, Button } from "antd";
 import { Link, useParams } from "react-router-dom";
