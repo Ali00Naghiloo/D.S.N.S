@@ -11,7 +11,7 @@ const usePlants = () => {
   ];
 
   const callback = plants.map((a, index) => {
-    `getItem(${a.system}, ${index}, <SettingOutlined />);`;
+    return `getItem(${a.system}, ${index}, <SettingOutlined />);`;
   });
 
   const exports = {
