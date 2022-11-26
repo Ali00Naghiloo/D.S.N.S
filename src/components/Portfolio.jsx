@@ -20,11 +20,11 @@ import comanyLogo from "../assets/icons/company-icon.jpeg";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setUnit } from "./slices/unitSlice";
-import { Button, Select } from "antd";
+import { Button, Select, Space } from "antd";
+import { RollbackOutlined } from "@ant-design/icons";
 import { useState, useEffect } from "react";
 
 function Portfolio() {
-  const [query, setQuery] = useState({});
   const getQueryString = () => {
     const params = new URLSearchParams(window.location.search);
     for (const key of params.keys()) {
@@ -35,17 +35,20 @@ function Portfolio() {
       }
     }
   };
-  useEffect(() => {
-    getQueryString();
-  }, []);
-  /////////
-  const [savingIcon, setSavingIcon] = useState(CO2saving);
+
   const unit = useSelector((state) => state.unit.unit);
+  const api = useSelector((state) => state.plant.plant);
   const dispatch = useDispatch();
+  const [query, setQuery] = useState({});
+  const [savingIcon, setSavingIcon] = useState(CO2saving);
   const { Option } = Select;
   const handleChange = (value) => {
     console.log(`selected ${value}`);
   };
+
+  useEffect(() => {
+    getQueryString();
+  }, []);
 
   return (
     <div className="portfolio-continer">
@@ -95,7 +98,7 @@ function Portfolio() {
                 </span>
               </div>
               <div>
-                <span>{api.name}</span>
+                <span>{api[0].power}</span>
               </div>
             </div>
           </div>
@@ -127,7 +130,7 @@ function Portfolio() {
                 </span>
               </div>
               <div>
-                <span>{api.name}</span>
+                <span>{api[0].power}</span>
               </div>
             </div>
           </div>
@@ -174,7 +177,7 @@ function Portfolio() {
                 </span>
               </div>
               <div>
-                <span>{api.name}</span>
+                <span>{api[0].power}</span>
               </div>
             </div>
           </div>
@@ -217,22 +220,33 @@ function Portfolio() {
           <div className="charts-detail">
             <div>
               <Select
-                defaultValue="Demo1"
+                mode="multiple"
+                placeholder="Select Plants"
+                defaultValue={api[0].system}
+                optionLabelProp="label"
                 className="portfolio-chart-title"
                 onChange={handleChange}
               >
-                <Option value="Demo1">Demo1</Option>
-                <Option value="Demo2">Demo2</Option>
-                <Option value="Demo3">Demo3</Option>
+                {api.map((a, index) => {
+                  return (
+                    <Option key={index} value={a.system}>
+                      {a.system}
+                    </Option>
+                  );
+                })}
               </Select>
             </div>
             <div>
-              <Button type="primary">Weeks</Button>
-              <Button type="primary">Months</Button>
-              <Button type="primary">Years</Button>
+              <Space>
+                <Button type="primary">Weeks</Button>
+                <Button type="primary">Months</Button>
+                <Button type="primary">Years</Button>
+              </Space>
             </div>
             <div>
-              <Button type="danger">_</Button>
+              <Button type="danger">
+                <RollbackOutlined />
+              </Button>
             </div>
           </div>
         </div>
@@ -243,7 +257,7 @@ function Portfolio() {
         className="portfolio-header-continer"
       >
         <span className="portfolio-header-title">
-          Portfolio Key Performance Indicators
+          Portfolio Financial Indicators
         </span>
         <div className="portfolio-header-items">
           <div className="portfolio-header-item">
@@ -253,7 +267,7 @@ function Portfolio() {
                 <div>
                   <span>Total fair value</span>
                   <div style={{ fontWeight: "100" }}>
-                    <span>{api.name}</span>
+                    <span>{api[0].power}</span>
                   </div>
                 </div>
               </div>
@@ -296,65 +310,43 @@ function Portfolio() {
 
       <div className="portfolio-footer">
         <div className="portfolio-footer-items">
-          <div className="portfolio-footer-item">
-            <section>
-              <Link to="/panel/:Saleh">
-                <h2>{`${api[0].system}, 150.00 kWp, Iran`}</h2>
-              </Link>
-            </section>
-            <img src={photo} alt="" />
-            <div className="portfolio-footer-detail">
-              <img src={ProjectPhase} alt="" />
-              <div>
-                <span>Project phase</span>
-                <span>In operation</span>
-              </div>
-            </div>
-            <div className="portfolio-footer-detail">
-              <img height="55px" src={energy} alt="" />
-              <div>
-                <span>Energy generated last month</span>
-                <span>0 kWh</span>
-              </div>
-            </div>
-            <div className="portfolio-footer-detail">
-              <img src={cash} alt="" />
-              <div>
-                <span>Cash flow for last month</span>
-                <span>0 €</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="portfolio-footer-item">
-            <section>
-              <Link to="/panel/:Ehsan">
-                <h2>{api[1].system}, 100.00 kWp, Iran</h2>
-              </Link>
-            </section>
-            <img src={photo} alt="" />
-            <div className="portfolio-footer-detail">
-              <img src={ProjectPhase} alt="" />
-              <div>
-                <span>Project phase</span>
-                <span>In operation</span>
-              </div>
-            </div>
-            <div className="portfolio-footer-detail">
-              <img src={energy} alt="" />
-              <div>
-                <span>Energy generated last month</span>
-                <span>0 kWh</span>
-              </div>
-            </div>
-            <div className="portfolio-footer-detail">
-              <img src={cash} alt="" />
-              <div>
-                <span>Cash flow for last month</span>
-                <span>0 €</span>
-              </div>
-            </div>
-          </div>
+          {api.map((a) => {
+            return (
+              <>
+                <div className="portfolio-footer-item">
+                  <section>
+                    <Link to={`/panel?plant=${a.system}`}>
+                      <h2>
+                        {a.system}, {a.power}, Iran
+                      </h2>
+                    </Link>
+                  </section>
+                  <img src={photo} alt="" />
+                  <div className="portfolio-footer-detail">
+                    <img src={ProjectPhase} alt="" />
+                    <div>
+                      <span>Project phase</span>
+                      <span>In operation</span>
+                    </div>
+                  </div>
+                  <div className="portfolio-footer-detail">
+                    <img height="55px" src={energy} alt="" />
+                    <div>
+                      <span>Energy generated last month</span>
+                      <span>0 kWh</span>
+                    </div>
+                  </div>
+                  <div className="portfolio-footer-detail">
+                    <img src={cash} alt="" />
+                    <div>
+                      <span>Cash flow for last month</span>
+                      <span>0 mRls.</span>
+                    </div>
+                  </div>
+                </div>
+              </>
+            );
+          })}
         </div>
       </div>
     </div>

@@ -5,6 +5,17 @@
   border: none !important;
 }
 
+.ant-btn {
+  background-color: #f08220 !important;
+  color: #fff !important;
+}
+
 .ant-menu-item {
   padding: 0 10px !important;
+}
+
+.ant-checkbox-checked,
+.ant-checkbox,
+.ant-checkbox-input {
+  accent-color: #f08220 !important;
 }

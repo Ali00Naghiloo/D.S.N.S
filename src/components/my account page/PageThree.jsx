@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../styles/style.scss";
 import selectedPageMyac, { setSelectedPlant } from "../slices/selectedPageMyac";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,24 +29,58 @@ const PageThree = () => {
     (state) => state.selectedPlant.selectedPlant
   );
   const [selectedPage, setSelectedPage] = useState(<CompanyInformation />);
+  const [plantList, setPlantList] = useState(() => {});
 
   const onClick = (e) => {
     if (e.key === "companyinfo") {
       setSelectedPage(<CompanyInformation />);
     } else if (e.key === "add powerplant info") {
       setSelectedPage(<PowePlantInfo />);
-    } else if (e.key === "add Investment Information") {
-      setSelectedPage(<PowePlantInfo />);
-    } else if (e.key === "add Revenue") {
-      setSelectedPage(<PowePlantInfo />);
-    } else if (e.key === "add Expenses") {
-      setSelectedPage(<PowePlantInfo />);
-    } else if (e.key === "add Economical Parameters") {
-      setSelectedPage(<PowePlantInfo />);
-    } else if (e.key === "add CPF") {
-      setSelectedPage(<PowePlantInfo />);
+    } else if (e.key === "app Investment Information") {
+      setSelectedPage(<InvestmentInfo />);
+    } else if (e.key === "app Revenue") {
+      setSelectedPage(<Revenue />);
+    } else if (e.key === "app Expenses") {
+      setSelectedPage(<Expenses />);
+    } else if (e.key === "app Economical Parameters") {
+      setSelectedPage(<EconomicalParameters />);
+    } else if (e.key === "app CPF") {
+      setSelectedPage(<CPF />);
+    } else {
+      setSelectedPage(<SelectedPlant />);
     }
   };
+
+  const hello = api.map((a, index) => {
+    return (
+      <Menu.SubMenu
+        onClick={() => dispatch(setSelectedPlant(a.system))}
+        key={index}
+        title={a.system}
+        icon={<AppstoreOutlined />}
+      >
+        <Menu.Item key={`powerplant info ${a.system}`}>
+          Power Plant Info.
+        </Menu.Item>
+        <Menu.SubMenu
+          title="Financail Info."
+          key={`financail info ${a.system}`}
+        >
+          <Menu.Item key={`Investment Information ${a.system}`}>
+            Investment Information
+          </Menu.Item>
+          <Menu.Item key={`Revenue ${a.system}`}>Revenue</Menu.Item>
+          <Menu.Item key={`Expenses ${a.system}`}>Expenses</Menu.Item>
+          <Menu.Item key={`Economical Parameters ${a.system}`}>
+            Economical Parameters
+          </Menu.Item>
+          <Menu.Item key={`CPF ${a.system}`}>CPF</Menu.Item>
+        </Menu.SubMenu>
+      </Menu.SubMenu>
+    );
+  });
+
+  useEffect(() => {}, [api]);
 
   return (
     <div className="myac-continer">
@@ -57,6 +91,7 @@ const PageThree = () => {
         </main>
         <Navbar />
       </div>
+
       <div className="myac-navbar">
         <Menu
           onClick={onClick}
@@ -91,29 +126,7 @@ const PageThree = () => {
             </Menu.SubMenu>
           </Menu.SubMenu>
 
-          {api.map((a, index) => {
-            return (
-              <Menu.SubMenu
-                key={index}
-                title={a.system}
-                icon={<AppstoreOutlined />}
-              >
-                <Menu.Item key={`powerplant info ${a.system}`}>
-                  Power Plant Info.
-                </Menu.Item>
-                <Menu.SubMenu
-                  title="Financail Info."
-                  key={`financail info ${a.system}`}
-                >
-                  <Menu.Item>Investment Information</Menu.Item>
-                  <Menu.Item>Revenue</Menu.Item>
-                  <Menu.Item>Expenses</Menu.Item>
-                  <Menu.Item>Economical Parameters</Menu.Item>
-                  <Menu.Item>CPF</Menu.Item>
-                </Menu.SubMenu>
-              </Menu.SubMenu>
-            );
-          })}
+          {plantList}
         </Menu>
       </div>
 

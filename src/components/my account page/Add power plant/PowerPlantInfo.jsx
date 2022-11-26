@@ -1,22 +1,16 @@
-import { Input, Upload, Button, Select, Tooltip, message } from "antd";
+import { Input, Upload, Button, Select, Tooltip, message, Space } from "antd";
 import { UploadOutlined, ExclamationOutlined } from "@ant-design/icons";
 import { Option } from "antd/lib/mentions";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setPlant } from "../../slices/plantsInfoSlice";
 // import api from "../../api/demos.json";
 
 const PowerPlantInfo = () => {
-  const [api, setApi] = useState([
-    {
-      system: "Qom1",
-      power: "120,000KWp",
-    },
-    {
-      system: "Qom2",
-      power: "140,000KWp",
-    },
-  ]);
+  const api = useSelector((state) => state.plant.plant);
+  const dispatch = useDispatch();
   const [selectedType, setSelectedType] = useState(``);
-  const [projectName, setProjectName] = useState({ system: "" });
+  const [projectName, setProjectName] = useState("");
   const { TextArea } = Input;
   const props = {
     name: "file",
@@ -43,9 +37,7 @@ const PowerPlantInfo = () => {
           <h1>General Information:</h1>
           <Input
             value={projectName.system}
-            onChange={(e) =>
-              setProjectName({ ...projectName, system: e.target.value })
-            }
+            onChange={(e) => setProjectName(e.target.value)}
             placeholder="Project Name:"
           />
           <Upload {...props}>
@@ -56,8 +48,9 @@ const PowerPlantInfo = () => {
           <div
             style={{ width: "100%", display: "flex", justifyContent: "center" }}
           >
-            <p>Plant Type : </p>
+            <p>PlantType:</p>
             <Select
+              style={{ direction: "ltr", width: "fit-content", margin: "0" }}
               onChange={(value) => setSelectedType(value)}
               placeholder="Select Your Type"
             >
@@ -67,10 +60,29 @@ const PowerPlantInfo = () => {
               <Option value="Other">Other</Option>
             </Select>
           </div>
-          <Input placeholder="Country:" />
-          <Input placeholder="City:" />
-          <Input placeholder="Geographic Coordinate: Lat Lon" />
-          <Input placeholder="Site Elevation:" />
+          <Space>
+            <div>
+              <span>Country:</span>
+              <Input placeholder="" />
+            </div>
+            <div>
+              <span>City:</span>
+              <Input placeholder="" />
+            </div>
+            <div>
+              <span>SiteElevation:</span>
+              <Input placeholder="" />
+            </div>
+          </Space>
+          <h1>GeographicCoordinate:</h1>
+          <div>
+            <span>Long. :</span>
+            <Input placeholder="" />
+          </div>
+          <div>
+            <span>Lat." :</span>
+            <Input placeholder="" />
+          </div>
           <TextArea placeholder="Note" />
         </section>
 
@@ -260,9 +272,7 @@ const PowerPlantInfo = () => {
 
         <section>
           <Button
-            onClick={
-              (() => api.push(projectName.system), console.log(projectName))
-            }
+            onClick={(() => api.push(projectName), console.log(projectName))}
             style={{ background: "#f08220" }}
             type="primary"
           >
