@@ -8,9 +8,9 @@ import {
   Space,
   Form,
   DatePicker,
-  Option,
 } from "antd";
 import { UploadOutlined, ExclamationOutlined } from "@ant-design/icons";
+import { Option } from "antd/lib/mentions";
 import { setSelectedPlant } from "../slices/selectedPageMyac";
 import { useDispatch, useSelector } from "react-redux";
 import { setPlant } from "../slices/plantsInfoSlice";

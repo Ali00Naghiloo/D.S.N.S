@@ -344,7 +344,7 @@ const PowerPlantInfo = () => {
           <Button
             onClick={() => {
               dispatch(setPlant([...plant, projectData]));
-              setProjectName({ system: "" });
+              setProjectData({ ...projectData, system: "" });
               setProjectData({});
               console.log(plant);
             }}
