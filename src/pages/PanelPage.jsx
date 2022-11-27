@@ -37,11 +37,12 @@ const Panel = () => {
           <div className="panel-continer">
             <div className="intro-nav">
               <main className="main">
-                <img src={comanyLogo} alt="" />
-                <p>DSNS Co.</p>
+                {/* <img src={comanyLogo} alt="" />
+                <p>DSNS Co.</p> */}
               </main>
               <Navbar />
             </div>
+
             <span className="panel-title">
               {query.plant},{" "}
               {api.map((a, index) => {
@@ -51,19 +52,20 @@ const Panel = () => {
                 }
               })}
             </span>
-            <button
+
+            <Button
               className={`${panel === 1 ? "unselected-page" : ""}`}
               onClick={() => dispatch(setPanel(0))}
             >
               Overview
-            </button>
+            </Button>
 
-            <button
+            <Button
               className={`${panel === 0 ? "unselected-page" : ""}`}
               onClick={() => dispatch(setPanel(1))}
             >
               KPIs in detail
-            </button>
+            </Button>
           </div>
           {panel === 0 ? <Overview /> : <KPIs />}
         </>

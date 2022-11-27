@@ -9,8 +9,15 @@ import Panel from "./pages/PanelPage";
 import Test from "./components/Test";
 import CompanyInformation from "./components/my account page/comany information/CompanyInformation";
 import { useEffect, useState } from "react";
+import { motion, useScroll } from "framer-motion";
 
 function App() {
+  const { scrollY } = useScroll();
+
+  useEffect(() => {
+    console.log(scrollY);
+  }, [scrollY]);
+
   return (
     <>
       <div className="app">

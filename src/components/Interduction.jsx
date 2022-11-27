@@ -4,9 +4,13 @@ import contact from "../assets/icons/contact-icon.png";
 import home from "../assets/icons/home-icon.png";
 import mail from "../assets/icons/mail-icon.png";
 import Header from "./Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { motion, useScroll } from "framer-motion";
 
 function Interduction() {
+  const { scrollYProgress } = useScroll();
+
+  const [srolledValue, setScrolledValue] = useState(scrollYProgress);
   const [visibleSignin, setVisibleSignin] = useState(false);
   const { TextArea } = Input;
   const content = (
@@ -28,7 +32,7 @@ function Interduction() {
 
   return (
     <div className="introduction-continer">
-      <Header />
+      {scrollYProgress === 0 ? "" : <Header />}
 
       <div className="div-1">
         <span className="text-1">

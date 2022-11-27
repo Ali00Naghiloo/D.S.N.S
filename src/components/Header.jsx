@@ -5,18 +5,12 @@ import { Popover, Input, Button } from "antd";
 import { Link, useParams } from "react-router-dom";
 
 const Header = () => {
-  const { id } = useParams();
-  useEffect(() => console.log(id));
   const [visibleLogin, setVisibleLogin] = useState(false);
 
   return (
     <>
       <div className="intro-nav">
-        <main className="main">
-          <img src={comanyLogo} alt="" />
-          {/* <Logo width="200px" /> */}
-          <p>DSNS Co.</p>
-        </main>
+        <main className="main">{/* <Logo width="200px" /> */}</main>
         {visibleLogin && (
           <div className="signin">
             <Input placeholder="Username" className="signin-input" />

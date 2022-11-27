@@ -328,7 +328,7 @@ $font1: #f08220;
       @include flex-Center(row, space-evenly, center);
 
       .portfolio-header-item {
-        @include flex-Center(row, space-evenly, center);
+        @include flex-Center(row, flex-start, center);
         flex-wrap: wrap;
         text-align: center;
         width: 25%;
@@ -728,7 +728,7 @@ $font1: #f08220;
       gap: 2rem;
 
       section {
-        width: 90%;
+        width: 80%;
         margin: 0 auto;
         display: flex;
         flex-direction: column;

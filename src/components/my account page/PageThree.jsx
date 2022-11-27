@@ -25,6 +25,7 @@ import {
 
 const PageThree = () => {
   const dispatch = useDispatch();
+  const plant = useSelector((state) => state.plant.plant);
   const selectedPlant = useSelector(
     (state) => state.selectedPlant.selectedPlant
   );
@@ -51,34 +52,38 @@ const PageThree = () => {
     }
   };
 
-  const hello = api.map((a, index) => {
-    return (
-      <Menu.SubMenu
-        onClick={() => dispatch(setSelectedPlant(a.system))}
-        key={index}
-        title={a.system}
-        icon={<AppstoreOutlined />}
-      >
-        <Menu.Item key={`powerplant info ${a.system}`}>
-          Power Plant Info.
-        </Menu.Item>
-        <Menu.SubMenu
-          title="Financail Info."
-          key={`financail info ${a.system}`}
-        >
-          <Menu.Item key={`Investment Information ${a.system}`}>
-            Investment Information
-          </Menu.Item>
-          <Menu.Item key={`Revenue ${a.system}`}>Revenue</Menu.Item>
-          <Menu.Item key={`Expenses ${a.system}`}>Expenses</Menu.Item>
-          <Menu.Item key={`Economical Parameters ${a.system}`}>
-            Economical Parameters
-          </Menu.Item>
-          <Menu.Item key={`CPF ${a.system}`}>CPF</Menu.Item>
-        </Menu.SubMenu>
-      </Menu.SubMenu>
-    );
-  });
+  useEffect(() => {
+    const hello = () =>
+      plant.map((a, index) => {
+        return (
+          <Menu.SubMenu
+            onClick={() => dispatch(setSelectedPlant(a.system))}
+            key={index}
+            title={a.system}
+            icon={<AppstoreOutlined />}
+          >
+            <Menu.Item key={`powerplant info ${a.system}`}>
+              Power Plant Info.
+            </Menu.Item>
+            <Menu.SubMenu
+              title="Financail Info."
+              key={`financail info ${a.system}`}
+            >
+              <Menu.Item key={`Investment Information ${a.system}`}>
+                Investment Information
+              </Menu.Item>
+              <Menu.Item key={`Revenue ${a.system}`}>Revenue</Menu.Item>
+              <Menu.Item key={`Expenses ${a.system}`}>Expenses</Menu.Item>
+              <Menu.Item key={`Economical Parameters ${a.system}`}>
+                Economical Parameters
+              </Menu.Item>
+              <Menu.Item key={`CPF ${a.system}`}>CPF</Menu.Item>
+            </Menu.SubMenu>
+          </Menu.SubMenu>
+        );
+      });
+    setPlantList(hello);
+  }, [plant]);
 
   useEffect(() => {}, [api]);
 
@@ -86,8 +91,8 @@ const PageThree = () => {
     <div className="myac-continer">
       <div className="intro-nav">
         <main className="main">
-          <img src={comanyLogo} alt="" />
-          <p>DSNS Co.</p>
+          {/* <img src={comanyLogo} alt="" />
+          <p>DSNS Co.</p> */}
         </main>
         <Navbar />
       </div>

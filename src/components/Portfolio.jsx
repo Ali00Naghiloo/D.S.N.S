@@ -9,7 +9,7 @@ import energy from "../assets/icons/energy.png";
 import CO2saving from "../assets/icons/Co2 saving.png";
 import NGsaving from "../assets/icons/Natural gas Saving.png";
 import fuelSaving from "../assets/icons/Fuel Saving.png";
-import gasoil from "../assets/icons/Fuel Saving.png";
+import gasoil from "../assets/icons/Plant factor.png";
 import fairValue from "../assets/icons/Fair value.png";
 import returnOnEq from "../assets/icons/return on equity.png";
 import NPV from "../assets/icons/NPV icon.png";
@@ -54,8 +54,8 @@ function Portfolio() {
     <div className="portfolio-continer">
       <div className="intro-nav">
         <main className="main">
-          <img src={comanyLogo} alt="" />
-          <p>DSNS Co.</p>
+          {/* <img src={comanyLogo} alt="" />
+          <p>DSNS Co.</p> */}
         </main>
         <Navbar />
       </div>
@@ -82,6 +82,7 @@ function Portfolio() {
               <div className="portfolio-header-value">
                 <span>Energy generated</span>
                 <span
+                  style={{ color: "#00ABB3", textShadow: "1px 1px 1px black" }}
                   onClick={() => {
                     if (unit.egUnit === "Total") {
                       dispatch(setUnit({ ...unit, egUnit: "Past Year" }));
@@ -130,7 +131,7 @@ function Portfolio() {
                 </span>
               </div>
               <div>
-                <span>{api[0].power}</span>
+                <span>{api[1].power}</span>
               </div>
             </div>
           </div>
@@ -144,21 +145,27 @@ function Portfolio() {
                 alt=""
               />
               <div className="portfolio-header-value">
-                <span>Saving</span>
-                <span
-                  onClick={() => {
-                    if (unit.savFuel === "CO2") {
-                      dispatch(setUnit({ ...unit, savFuel: "Natural Gas" }));
-                    } else if (unit.savFuel === "Natural Gas") {
-                      dispatch(setUnit({ ...unit, savFuel: "Fuel Oil" }));
-                    } else if (unit.savFuel === "Fuel Oil") {
-                      dispatch(setUnit({ ...unit, savFuel: "Gasoil" }));
-                    } else if (unit.savFuel === "Gasoil") {
-                      dispatch(setUnit({ ...unit, savFuel: "CO2" }));
-                    }
-                  }}
-                >
-                  {unit.savFuel}
+                <span>
+                  Saving
+                  <span
+                    onClick={() => {
+                      if (unit.savFuel === "CO2") {
+                        dispatch(setUnit({ ...unit, savFuel: "Natural Gas" }));
+                        setSavingIcon(NGsaving);
+                      } else if (unit.savFuel === "Natural Gas") {
+                        dispatch(setUnit({ ...unit, savFuel: "Fuel Oil" }));
+                        setSavingIcon(fuelSaving);
+                      } else if (unit.savFuel === "Fuel Oil") {
+                        dispatch(setUnit({ ...unit, savFuel: "Gasoil" }));
+                        setSavingIcon(gasoil);
+                      } else if (unit.savFuel === "Gasoil") {
+                        dispatch(setUnit({ ...unit, savFuel: "CO2" }));
+                        setSavingIcon(CO2saving);
+                      }
+                    }}
+                  >
+                    {" " + unit.savFuel}
+                  </span>
                 </span>
                 <span
                   onClick={() => {

@@ -1,4 +1,14 @@
-import { Input, Upload, Button, Select, Tooltip, message, Space } from "antd";
+import {
+  Input,
+  Upload,
+  Button,
+  Select,
+  Tooltip,
+  message,
+  Space,
+  Form,
+  DatePicker,
+} from "antd";
 import { UploadOutlined, ExclamationOutlined } from "@ant-design/icons";
 import { Option } from "antd/lib/mentions";
 import { useState } from "react";
@@ -7,10 +17,81 @@ import { setPlant } from "../../slices/plantsInfoSlice";
 // import api from "../../api/demos.json";
 
 const PowerPlantInfo = () => {
-  const api = useSelector((state) => state.plant.plant);
+  const plant = useSelector((state) => state.plant.plant);
   const dispatch = useDispatch();
   const [selectedType, setSelectedType] = useState(``);
-  const [projectName, setProjectName] = useState("");
+  const [projectData, setProjectData] = useState({
+    system: "",
+    plantType: "",
+    country: "",
+    city: "",
+    siteElevation: "",
+    lat: "",
+    long: "",
+    notes: "",
+    technicalInformation: {
+      projectSize: "",
+      gridConnectionVoltage: "",
+      gridConnectionDate: "",
+      solarPowerPlant: {
+        pvModuleManufacturer: "",
+        pvModulePower: "",
+        inverterSize: "",
+        noInverters: "",
+        inverterManufacturer: "",
+        monitoringSystem: "",
+        trackingSystem: "",
+        comments: "",
+      },
+      hydroPowerPlant: {
+        plantType: "",
+        turbineType: "",
+        noTurbine: "",
+        ratedPowerOfeachTurbine: "",
+        turbineSpeed: "",
+        turbineManufacturer: "",
+        generatorManufacturer: "",
+        generatorType: "",
+        comments: "",
+        investeeName: "",
+        contractEffectiveDate: "",
+        contractDeadline: "",
+        waterFeePerM3AtTheBaseYear: "",
+        powerPurchaserName: "",
+        contractEffectiveDate: "",
+        electricityPriceAtTheBaseYear: "",
+        cpiAtTheBaseYear: "",
+        etsAtTheBaseYear: "",
+        co2Saving: "",
+        naturalGasSaving: "",
+        gasoilSaving: "",
+        fuelOilSaving: "",
+        equivalentNoOfTreesForCo2Saving: "",
+      },
+      windPowerPlant: {
+        noTurbine: "",
+        ratedPowerOfEachTurbine: "",
+        towerHeight: "",
+        turbineManufacturer: "",
+        turbineWindClass: "",
+        generatorType: "",
+        comments: "",
+      },
+      other: {
+        powerPlantType: "",
+        spac1: "",
+        spac2: "",
+        spac3: "",
+        spac4: "",
+        comments: "",
+      },
+    },
+    power: "",
+    total: "",
+    pastYear: "",
+    pastMonth: "",
+    past24: "",
+  });
   const { TextArea } = Input;
   const props = {
     name: "file",
@@ -36,19 +117,15 @@ const PowerPlantInfo = () => {
         <section>
           <h1>General Information:</h1>
           <Input
-            value={projectName.system}
-            onChange={(e) => setProjectName(e.target.value)}
-            placeholder="Project Name:"
+            value={projectData.system}
+            onChange={(e) => setProjectData({ system: e.target.value })}
+            addonBefore="Project Name :"
+            allowClear
           />
-          <Upload {...props}>
-            <Button style={{ width: "100%" }} icon={<UploadOutlined />}>
-              Power Plant Image:
-            </Button>
-          </Upload>
           <div
             style={{ width: "100%", display: "flex", justifyContent: "center" }}
           >
-            <p>PlantType:</p>
+            <p>PlantType : </p>
             <Select
               style={{ direction: "ltr", width: "fit-content", margin: "0" }}
               onChange={(value) => setSelectedType(value)}
@@ -60,37 +137,30 @@ const PowerPlantInfo = () => {
               <Option value="Other">Other</Option>
             </Select>
           </div>
-          <Space>
-            <div>
-              <span>Country:</span>
-              <Input placeholder="" />
-            </div>
-            <div>
-              <span>City:</span>
-              <Input placeholder="" />
-            </div>
-            <div>
-              <span>SiteElevation:</span>
-              <Input placeholder="" />
-            </div>
-          </Space>
-          <h1>GeographicCoordinate:</h1>
-          <div>
-            <span>Long. :</span>
-            <Input placeholder="" />
-          </div>
-          <div>
-            <span>Lat." :</span>
-            <Input placeholder="" />
-          </div>
+          <Input addonBefore="Country :" />
+          <Input addonBefore="City :" />
+          <Input addonBefore="Site Elevation:" />
+          <Upload {...props}>
+            <Button style={{ width: "100%" }} icon={<UploadOutlined />}>
+              Power Plant Image:
+            </Button>
+          </Upload>
+          <br />
+          <h1>GeographicCoordinate</h1>
+          <Input addonBefore="Lat. :" />
+          <Input addonBefore="Long. :" />
+          <br />
           <TextArea placeholder="Note" />
         </section>
 
         <section>
           <h1>Technical Information:</h1>
           <Input placeholder="Project Size (kW)" />
-          <Input placeholder="Grid Connection Date (mm/yyyy)" />
           <Input placeholder="Grid Connection Voltage (kV)" />
+          <div>
+            <span>Grid Connection Date : </span>
+            <DatePicker width="100%" showToday placeholder="(mm/yyyy)" />
+          </div>
           {selectedType === "Solar Power Plant" ? (
             <>
               <Input placeholder="PV Module Manufacturer:" />
@@ -176,7 +246,7 @@ const PowerPlantInfo = () => {
 
               <h1>Contract Information:</h1>
               <Input placeholder="Investee Name:" />
-              <Input placeholder="Contract Effective Date:)" />
+              <Input placeholder="Contract Effective Date:" />
               <Input placeholder="Contract Deadline:" />
               <Input placeholder="Water Fee per m3 at the base year (Rls./m3)" />
               <Input placeholder="Power Purchaser Name:" />
@@ -272,9 +342,12 @@ const PowerPlantInfo = () => {
 
         <section>
           <Button
-            onClick={(() => api.push(projectName), console.log(projectName))}
-            style={{ background: "#f08220" }}
-            type="primary"
+            onClick={() => {
+              dispatch(setPlant([...plant, projectData]));
+              setProjectName({ system: "" });
+              setProjectData({});
+              console.log(plant);
+            }}
           >
             Save Changes(creating new plant)
           </Button>

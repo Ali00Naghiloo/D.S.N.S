@@ -18,6 +18,14 @@ const initialState = {
       pastMonth: "",
       past24: "",
     },
+    {
+      system: "Qom3",
+      power: "180,000KWp",
+      total: "",
+      pastYear: "",
+      pastMonth: "",
+      past24: "",
+    },
   ],
 };
 
