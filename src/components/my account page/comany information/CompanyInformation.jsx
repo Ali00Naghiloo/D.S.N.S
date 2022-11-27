@@ -1,5 +1,6 @@
 import { UploadOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Input, message, Select, Upload } from "antd";
+import { Option } from "antd/lib/mentions";
 
 const CompanyInformation = () => {
   const { TextArea } = Input;
@@ -57,8 +58,8 @@ const CompanyInformation = () => {
           <div style={{ width: "50%" }}>
             <span>Salution</span>
             <Select>
-              <Option>Mr.</Option>
-              <Option>Ms.</Option>
+              <Option value="Mr">Mr.</Option>
+              <Option value="Ms">Ms.</Option>
             </Select>
           </div>
           <div>
