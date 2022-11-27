@@ -8,13 +8,87 @@ import {
   Space,
   Form,
   DatePicker,
+  Option,
 } from "antd";
 import { UploadOutlined, ExclamationOutlined } from "@ant-design/icons";
 import { setSelectedPlant } from "../slices/selectedPageMyac";
 import { useDispatch, useSelector } from "react-redux";
+import { setPlant } from "../slices/plantsInfoSlice";
 import { useState } from "react";
 
 const SelectedPlant = () => {
+  const [projectData, setProjectData] = useState({
+    system: "",
+    plantType: "",
+    country: "",
+    city: "",
+    siteElevation: "",
+    lat: "",
+    long: "",
+    notes: "",
+    technicalInformation: {
+      projectSize: "",
+      gridConnectionVoltage: "",
+      gridConnectionDate: "",
+      solarPowerPlant: {
+        pvModuleManufacturer: "",
+        pvModulePower: "",
+        inverterSize: "",
+        noInverters: "",
+        inverterManufacturer: "",
+        monitoringSystem: "",
+        trackingSystem: "",
+        comments: "",
+      },
+      hydroPowerPlant: {
+        plantType: "",
+        turbineType: "",
+        noTurbine: "",
+        ratedPowerOfeachTurbine: "",
+        turbineSpeed: "",
+        turbineManufacturer: "",
+        generatorManufacturer: "",
+        generatorType: "",
+        comments: "",
+        investeeName: "",
+        contractEffectiveDate: "",
+        contractDeadline: "",
+        waterFeePerM3AtTheBaseYear: "",
+        powerPurchaserName: "",
+        contractEffectiveDate: "",
+        electricityPriceAtTheBaseYear: "",
+        cpiAtTheBaseYear: "",
+        etsAtTheBaseYear: "",
+        co2Saving: "",
+        naturalGasSaving: "",
+        gasoilSaving: "",
+        fuelOilSaving: "",
+        equivalentNoOfTreesForCo2Saving: "",
+      },
+      windPowerPlant: {
+        noTurbine: "",
+        ratedPowerOfEachTurbine: "",
+        towerHeight: "",
+        turbineManufacturer: "",
+        turbineWindClass: "",
+        generatorType: "",
+        comments: "",
+      },
+      other: {
+        powerPlantType: "",
+        spac1: "",
+        spac2: "",
+        spac3: "",
+        spac4: "",
+        comments: "",
+      },
+    },
+    power: "",
+    total: "",
+    pastYear: "",
+    pastMonth: "",
+    past24: "",
+  });
   const [selectedType, setSelectedType] = useState(``);
   const plant = useSelector((state) => state.plant.plant);
   const dispatch = useDispatch();
@@ -278,7 +352,7 @@ const SelectedPlant = () => {
               <Button
                 onClick={() => {
                   dispatch(setPlant([...plant, projectData]));
-                  setProjectName({ system: "" });
+                  setProjectData({ ...projectData, system: "" });
                   setProjectData({});
                   console.log(plant);
                 }}
