@@ -66,7 +66,13 @@ const Charts = () => {
 
   return (
     <div className="portfolio-chart">
-      <Chart className="chart" options={options} series={series} type="line" />
+      <Chart
+        className="chart"
+        width="500"
+        options={options}
+        series={series}
+        type="line"
+      />
     </div>
   );
 };

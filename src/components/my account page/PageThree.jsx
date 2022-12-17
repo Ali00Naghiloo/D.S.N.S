@@ -12,8 +12,6 @@ import EconomicalParameters from "./Add power plant/Financial Info/EconomicalPar
 import CPF from "./Add power plant/Financial Info/CPF";
 import Navbar from "../Navbar";
 import api from "../api/demos.json";
-import up from "../../assets/icons/up.png";
-import down from "../../assets/icons/down.png";
 import comanyLogo from "../../assets/icons/company-icon.jpeg";
 import SelectedPlant from "./SelectedPlant";
 import { Menu } from "antd";
@@ -86,6 +84,18 @@ const PageThree = () => {
   }, [plant]);
 
   useEffect(() => {}, [api]);
+
+  // Prevent Loading
+  // useEffect(() => {
+  //   const unloadCallback = (event) => {
+  //     event.preventDefault();
+  //     event.returnValue = "";
+  //     return "";
+  //   };
+
+  //   window.addEventListener("beforeunload", unloadCallback);
+  //   return () => window.removeEventListener("beforeunload", unloadCallback);
+  // }, []);
 
   return (
     <div className="myac-continer">

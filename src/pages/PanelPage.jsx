@@ -16,6 +16,8 @@ const Panel = () => {
   const dispatch = useDispatch();
 
   const [query, setQuery] = useState({});
+  const [ready, setReady] = useState(false);
+
   const getQueryString = () => {
     const params = new URLSearchParams(window.location.search);
     for (const key of params.keys()) {
@@ -25,14 +27,18 @@ const Panel = () => {
         query[key] = params.get(key);
       }
     }
+    setReady(true);
   };
+
   useEffect(() => {
     getQueryString();
-  }, [query]);
+  }, []);
 
   return (
     <>
-      {query && (
+      {!ready ? (
+        <>loading...</>
+      ) : (
         <>
           <div className="panel-continer">
             <div className="intro-nav">

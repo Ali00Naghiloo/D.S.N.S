@@ -1,5 +1,5 @@
 import React from "react";
-import { Space, Table, Tag } from "antd";
+import { Input, Space, Table, Tabs, Tag } from "antd";
 const columns = [
   {
     title: "Name",
@@ -74,9 +74,36 @@ const data = [
 const App = () => {
   return (
     <>
-      <div style={{ width: "50%" }}>
-        <Table columns={columns} dataSource={data} />;
-      </div>
+      <Tabs defaultActiveKey="1">
+        <Tabs.TabPane tab="Tab1" key="1">
+          <Space>
+            <Input addonBefore="January" />
+            <Input addonBefore="February" />
+            <Input addonBefore="March" />
+          </Space>
+        </Tabs.TabPane>
+        <Tabs.TabPane tab="Tab2" key="2">
+          <Space>
+            <Input addonBefore="April" />
+            <Input addonBefore="February" />
+            <Input addonBefore="March" />
+          </Space>
+        </Tabs.TabPane>
+        <Tabs.TabPane tab="Tab3" key="3">
+          <Space>
+            <Input addonBefore="January" />
+            <Input addonBefore="February" />
+            <Input addonBefore="March" />
+          </Space>
+        </Tabs.TabPane>
+        <Tabs.TabPane tab="Tab4" key="4">
+          <Space>
+            <Input addonBefore="January" />
+            <Input addonBefore="February" />
+            <Input addonBefore="March" />
+          </Space>
+        </Tabs.TabPane>
+      </Tabs>
     </>
   );
 };

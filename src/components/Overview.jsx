@@ -16,8 +16,27 @@ import { setPanel } from "./slices/panelSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { setUnit } from "./slices/unitSlice";
 import { useParams } from "react-router-dom/dist";
+import { useState } from "react";
+import { useEffect } from "react";
 
 function Overview() {
+  const [query, setQuery] = useState({});
+
+  const getQueryString = () => {
+    const params = new URLSearchParams(window.location.search);
+    for (const key of params.keys()) {
+      if (params.getAll(key).length > 1) {
+        query[key] = params.getAll(key);
+      } else {
+        query[key] = params.get(key);
+      }
+    }
+  };
+
+  useEffect(() => {
+    getQueryString();
+  }, []);
+
   const unit = useSelector((state) => state.unit.unit);
   const dispatch = useDispatch();
 
@@ -243,7 +262,7 @@ function Overview() {
         <div className="overview-footer-detail">
           <div>
             <span style={{ fontWeight: "700" }}>Project name</span>
-            <span>Saleh</span>
+            <span>{"query"}</span>
           </div>
           <div>
             <span style={{ fontWeight: "700" }}>Project Phase</span>

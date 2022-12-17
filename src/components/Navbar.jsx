@@ -34,8 +34,16 @@ const App = () => {
         <Menu.ItemGroup title="Plants">
           {plant.map((a, index) => {
             return (
-              <Menu.Item key={index} icon={<LinkOutlined />}>
-                <Link to={`/panel?plant=${a.system}`}>{a.system}</Link>
+              <Menu.Item
+                onClick={() => {
+                  window.location.replace(
+                    `http://localhost:3000/panel?plant=${a.system}`
+                  );
+                }}
+                key={index}
+                icon={<LinkOutlined />}
+              >
+                <span>{a.system}</span>
               </Menu.Item>
             );
           })}

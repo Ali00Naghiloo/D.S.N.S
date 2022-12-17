@@ -32,6 +32,10 @@ const CompanyInformation = () => {
             <Input placeholder="Name" />
           </div>
           <div>
+            <span>Phone Number</span>
+            <Input placeholder="Phone Number" />
+          </div>
+          <div>
             <span>Postal Number</span>
             <Input placeholder="Postal address" />
           </div>

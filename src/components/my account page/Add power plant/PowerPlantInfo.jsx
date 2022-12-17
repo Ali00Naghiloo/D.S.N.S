@@ -14,84 +14,88 @@ import { Option } from "antd/lib/mentions";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPlant } from "../../slices/plantsInfoSlice";
+import { setProjectData } from "../../slices/projectDataSlice";
+import { useEffect } from "react";
+import { toast, ToastContainer } from "react-toastify";
 // import api from "../../api/demos.json";
 
 const PowerPlantInfo = () => {
   const plant = useSelector((state) => state.plant.plant);
+  const projectData = useSelector((state) => state.projectData.projectData);
   const dispatch = useDispatch();
   const [selectedType, setSelectedType] = useState(``);
-  const [projectData, setProjectData] = useState({
-    system: "",
-    plantType: "",
-    country: "",
-    city: "",
-    siteElevation: "",
-    lat: "",
-    long: "",
-    notes: "",
-    technicalInformation: {
-      projectSize: "",
-      gridConnectionVoltage: "",
-      gridConnectionDate: "",
-      solarPowerPlant: {
-        pvModuleManufacturer: "",
-        pvModulePower: "",
-        inverterSize: "",
-        noInverters: "",
-        inverterManufacturer: "",
-        monitoringSystem: "",
-        trackingSystem: "",
-        comments: "",
-      },
-      hydroPowerPlant: {
-        plantType: "",
-        turbineType: "",
-        noTurbine: "",
-        ratedPowerOfeachTurbine: "",
-        turbineSpeed: "",
-        turbineManufacturer: "",
-        generatorManufacturer: "",
-        generatorType: "",
-        comments: "",
-        investeeName: "",
-        contractEffectiveDate: "",
-        contractDeadline: "",
-        waterFeePerM3AtTheBaseYear: "",
-        powerPurchaserName: "",
-        contractEffectiveDate: "",
-        electricityPriceAtTheBaseYear: "",
-        cpiAtTheBaseYear: "",
-        etsAtTheBaseYear: "",
-        co2Saving: "",
-        naturalGasSaving: "",
-        gasoilSaving: "",
-        fuelOilSaving: "",
-        equivalentNoOfTreesForCo2Saving: "",
-      },
-      windPowerPlant: {
-        noTurbine: "",
-        ratedPowerOfEachTurbine: "",
-        towerHeight: "",
-        turbineManufacturer: "",
-        turbineWindClass: "",
-        generatorType: "",
-        comments: "",
-      },
-      other: {
-        powerPlantType: "",
-        spac1: "",
-        spac2: "",
-        spac3: "",
-        spac4: "",
-        comments: "",
-      },
-    },
-    power: "",
-    total: "",
-    pastYear: "",
-    pastMonth: "",
-    past24: "",
-  });
+  // const [projectData, setProjectData] = useState({
+  //   system: "",
+  //   plantType: "",
+  //   country: "",
+  //   city: "",
+  //   siteElevation: "",
+  //   lat: "",
+  //   long: "",
+  //   notes: "",
+  //   technicalInformation: {
+  //     projectSize: "",
+  //     gridConnectionVoltage: "",
+  //     gridConnectionDate: "",
+  //     solarPowerPlant: {
+  //       pvModuleManufacturer: "",
+  //       pvModulePower: "",
+  //       inverterSize: "",
+  //       noInverters: "",
+  //       inverterManufacturer: "",
+  //       monitoringSystem: "",
+  //       trackingSystem: "",
+  //       comments: "",
+  //     },
+  //     hydroPowerPlant: {
+  //       plantType: "",
+  //       turbineType: "",
+  //       noTurbine: "",
+  //       ratedPowerOfeachTurbine: "",
+  //       turbineSpeed: "",
+  //       turbineManufacturer: "",
+  //       generatorManufacturer: "",
+  //       generatorType: "",
+  //       comments: "",
+  //       investeeName: "",
+  //       contractEffectiveDate: "",
+  //       contractDeadline: "",
+  //       waterFeePerM3AtTheBaseYear: "",
+  //       powerPurchaserName: "",
+  //       contractEffectiveDate: "",
+  //       electricityPriceAtTheBaseYear: "",
+  //       cpiAtTheBaseYear: "",
+  //       etsAtTheBaseYear: "",
+  //       co2Saving: "",
+  //       naturalGasSaving: "",
+  //       gasoilSaving: "",
+  //       fuelOilSaving: "",
+  //       equivalentNoOfTreesForCo2Saving: "",
+  //     },
+  //     windPowerPlant: {
+  //       noTurbine: "",
+  //       ratedPowerOfEachTurbine: "",
+  //       towerHeight: "",
+  //       turbineManufacturer: "",
+  //       turbineWindClass: "",
+  //       generatorType: "",
+  //       comments: "",
+  //     },
+  //     other: {
+  //       powerPlantType: "",
+  //       spac1: "",
+  //       spac2: "",
+  //       spac3: "",
+  //       spac4: "",
+  //       comments: "",
+  //     },
+  //   },
+  //   power: "",
+  //   total: "",
+  //   pastYear: "",
+  //   pastMonth: "",
+  //   past24: "",
+  // });
   const { TextArea } = Input;
   const props = {
     name: "file",
@@ -111,14 +115,34 @@ const PowerPlantInfo = () => {
     },
   };
 
+  useEffect(() => {
+    console.log(plant);
+  }, [plant]);
+
   return (
     <>
       <section className="powerplant-info-continer">
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
         <section>
           <h1>General Information:</h1>
           <Input
             value={projectData.system}
-            onChange={(e) => setProjectData({ system: e.target.value })}
+            onChange={(e) =>
+              dispatch(
+                setProjectData({ ...projectData, system: e.target.value })
+              )
+            }
             addonBefore="Project Name :"
             allowClear
           />
@@ -127,17 +151,35 @@ const PowerPlantInfo = () => {
           >
             <p>PlantType : </p>
             <Select
+              value={projectData.plantType}
+              onChange={(e) => {
+                dispatch(setProjectData({ ...projectData, plantType: e }));
+                setSelectedType(e);
+              }}
               style={{ direction: "ltr", width: "fit-content", margin: "0" }}
-              onChange={(value) => setSelectedType(value)}
               placeholder="Select Your Type"
             >
-              <Option value="Solar Power Plant">Solar Power Plant</Option>
-              <Option value="Hydro Power Plant">Hydro Power Plant</Option>
-              <Option value="Wind Power Plant">Wind Power Plant</Option>
-              <Option value="Other">Other</Option>
+              <Select.Option value="Solar Power Plant">
+                Solar Power Plant
+              </Select.Option>
+              <Select.Option value="Hydro Power Plant">
+                Hydro Power Plant
+              </Select.Option>
+              <Select.Option value="Wind Power Plant">
+                Wind Power Plant
+              </Select.Option>
+              <Select.Option value="Other">Other</Select.Option>
             </Select>
           </div>
-          <Input addonBefore="Country :" />
+          <Input
+            value={projectData.country}
+            onChange={(e) =>
+              dispatch(
+                setProjectData({ ...projectData, country: e.target.value })
+              )
+            }
+            addonBefore="Country :"
+          />
           <Input addonBefore="City :" />
           <Input addonBefore="Site Elevation:" />
           <Upload {...props}>
@@ -344,12 +386,95 @@ const PowerPlantInfo = () => {
           <Button
             onClick={() => {
               dispatch(setPlant([...plant, projectData]));
-              setProjectData({ ...projectData, system: "" });
-              setProjectData({});
+              dispatch(
+                setProjectData({
+                  ...projectData,
+                  system: "",
+                  plantType: "",
+                  country: "",
+                  city: "",
+                  siteElevation: "",
+                  lat: "",
+                  long: "",
+                  notes: "",
+                  technicalInformation: {
+                    projectSize: "",
+                    gridConnectionVoltage: "",
+                    gridConnectionDate: "",
+                    solarPowerPlant: {
+                      pvModuleManufacturer: "",
+                      pvModulePower: "",
+                      inverterSize: "",
+                      noInverters: "",
+                      inverterManufacturer: "",
+                      monitoringSystem: "",
+                      trackingSystem: "",
+                      comments: "",
+                    },
+                    hydroPowerPlant: {
+                      plantType: "",
+                      turbineType: "",
+                      noTurbine: "",
+                      ratedPowerOfeachTurbine: "",
+                      turbineSpeed: "",
+                      turbineManufacturer: "",
+                      generatorManufacturer: "",
+                      generatorType: "",
+                      comments: "",
+                      investeeName: "",
+                      contractEffectiveDate: "",
+                      contractDeadline: "",
+                      waterFeePerM3AtTheBaseYear: "",
+                      powerPurchaserName: "",
+                      contractEffectiveDate: "",
+                      electricityPriceAtTheBaseYear: "",
+                      cpiAtTheBaseYear: "",
+                      etsAtTheBaseYear: "",
+                      co2Saving: "",
+                      naturalGasSaving: "",
+                      gasoilSaving: "",
+                      fuelOilSaving: "",
+                      equivalentNoOfTreesForCo2Saving: "",
+                    },
+                    windPowerPlant: {
+                      noTurbine: "",
+                      ratedPowerOfEachTurbine: "",
+                      towerHeight: "",
+                      turbineManufacturer: "",
+                      turbineWindClass: "",
+                      generatorType: "",
+                      comments: "",
+                    },
+                    other: {
+                      powerPlantType: "",
+                      spac1: "",
+                      spac2: "",
+                      spac3: "",
+                      spac4: "",
+                      comments: "",
+                    },
+                  },
+                  power: "",
+                  total: "",
+                  pastYear: "",
+                  pastMonth: "",
+                  past24: "",
+                })
+              );
               console.log(plant);
+              toast.success("Your System has been saved!", {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+              });
             }}
           >
-            Save Changes(creating new plant)
+            Save Changes
           </Button>
         </section>
       </section>

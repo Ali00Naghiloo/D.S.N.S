@@ -213,13 +213,15 @@ function Portfolio() {
 
         <div className="portfolio-chart">
           <Select
-            defaultValue="Energy generat"
+            defaultValue="Energy generated"
             className="portfolio-chart-title"
             onChange={handleChange}
           >
-            <Option value="Energy generat">Energy generat</Option>
-            <Option value="Cash flow">Cash flow</Option>
-            <Option value="Saving">Saving</Option>
+            <Select.Option value="Energy generated">
+              Energy generated
+            </Select.Option>
+            <Select.Option value="Cash flow">Cash flow</Select.Option>
+            <Select.Option value="Saving">Saving</Select.Option>
           </Select>
           <div className="chart-continer">
             <Chart />
@@ -236,9 +238,9 @@ function Portfolio() {
               >
                 {api.map((a, index) => {
                   return (
-                    <Option key={index} value={a.system}>
+                    <Select.Option key={index} value={a.system}>
                       {a.system}
-                    </Option>
+                    </Select.Option>
                   );
                 })}
               </Select>
@@ -320,7 +322,7 @@ function Portfolio() {
           {api.map((a) => {
             return (
               <>
-                <div className="portfolio-footer-item">
+                <div key={a.system} className="portfolio-footer-item">
                   <section>
                     <Link to={`/panel?plant=${a.system}`}>
                       <h2>
