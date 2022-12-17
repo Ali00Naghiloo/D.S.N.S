@@ -100,7 +100,6 @@ const SelectedPlant = () => {
     if (selectedPlant === plant[0].system) {
       console.log(plant.system);
     } else {
-      ("");
     }
   }, []);
 
