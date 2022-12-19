@@ -37,7 +37,7 @@ const App = () => {
               <Menu.Item
                 onClick={() => {
                   window.location.replace(
-                    `http://localhost:3000/panel?plant=${a.system}`
+                    `http://dsns-project.netlify.com/panel?plant=${a.system}`
                   );
                 }}
                 key={index}
