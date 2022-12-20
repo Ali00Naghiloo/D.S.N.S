@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPlant } from "../slices/plantsInfoSlice";
 import currentPlantSelected from "../slices/currentPlantSelected";
 import { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 const SelectedPlant = () => {
   const [projectData, setProjectData] = useState({
@@ -110,343 +111,130 @@ const SelectedPlant = () => {
         if (selectedPlant === p.system) {
           return (
             <section className="powerplant-info-continer">
-              {() => {
-                if (
-                  currentPlantSelected === `powerplant info ${selectedPlant}`
-                ) {
-                  return (
-                    <>
-                      <section>
-                        <h1>{p.system}</h1>
-                        <Input
-                          value={selectedPlant}
-                          addonBefore="Project Name :"
-                          allowClear
-                        />
-                        <div
-                          style={{
-                            width: "100%",
-                            display: "flex",
-                            justifyContent: "center",
-                          }}
-                        >
-                          {/* <Select
-                    style={{
-                      direction: "ltr",
-                      width: "fit-content",
-                      margin: "0",
-                    }}
-                    onChange={(value) => setSelectedType(value)}
-                    placeholder="Select Your Type"
-                  >
-                    <Option value="Solar Power Plant">Solar Power Plant</Option>
-                    <Option value="Hydro Power Plant">Hydro Power Plant</Option>
-                    <Option value="Wind Power Plant">Wind Power Plant</Option>
-                    <Option value="Other">Other</Option>
-                  </Select> */}
-                        </div>
-                        <Input
-                          addonBefore="PlantType :"
-                          defaultValue={p.plantType}
-                        />
-                        <Input
-                          defaultValue={p.country}
-                          addonBefore="Country :"
-                        />
-                        <Input addonBefore="City :" />
-                        <Input addonBefore="Site Elevation:" />
-                        {/* <Upload {...props}>
-                  <Button style={{ width: "100%" }} icon={<UploadOutlined />}>
-                    Power Plant Image:
-                  </Button>
-                </Upload> */}
-                        <br />
-                        <h1>GeographicCoordinate</h1>
-                        <Input addonBefore="Lat. :" />
-                        <Input addonBefore="Long. :" />
-                        <br />
-                        <TextArea placeholder="Note" />
-                      </section>
+              <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="dark"
+              />
 
-                      <section>
-                        <h1>Technical Information:</h1>
-                        <Input placeholder="Project Size (kW)" />
-                        <Input placeholder="Grid Connection Voltage (kV)" />
-                        <div>
-                          <span>Grid Connection Date : </span>
-                          <DatePicker
-                            width="100%"
-                            showToday
-                            placeholder="(mm/yyyy)"
-                          />
-                        </div>
-                        {selectedType === "Solar Power Plant" ? (
-                          <>
-                            <Input placeholder="PV Module Manufacturer:" />
-                            <Input placeholder="PV Module Power (kW)" />
-                            <Input placeholder="Inverter Size (kW)" />
-                            <Input placeholder="No. Inverters:" />
-                            <Input placeholder="Inverter Manufacturer:" />
-                            <Input placeholder="Monitoring System:" />
-                            <Select placeholder="Tracking System:">
-                              <Option value="Fixed Structure">
-                                Fixed Structure
-                              </Option>
-                              <Option value="1 Axis Trcking System">
-                                1 Axis Trcking System
-                              </Option>
-                              <Option value="Inclind Axis Tracking System">
-                                Inclind Axis Tracking System
-                              </Option>
-                              <Option value="2 Axis Trcking System">
-                                2 Axis Trcking System
-                              </Option>
-                              <Option value="3 Axis Trcking System">
-                                3 Axis Trcking System
-                              </Option>
-                            </Select>
-                            <TextArea placeholder="Comments:" />
-                          </>
-                        ) : (
-                          ""
-                        )}
-                        {selectedType === "Hydro Power Plant" ? (
-                          <>
-                            <Select placeholder="Plant Type:">
-                              <Option value="Fixed Structure">
-                                Fixed Structure
-                              </Option>
-                              <Option value="1 Axis Trcking System">
-                                1 Axis Trcking System
-                              </Option>
-                              <Option value="Inclind Axis Tracking System">
-                                Inclind Axis Tracking System
-                              </Option>
-                              <Option value="2 Axis Trcking System">
-                                2 Axis Trcking System
-                              </Option>
-                              <Option value="3 Axis Trcking System">
-                                3 Axis Trcking System
-                              </Option>
-                            </Select>
-                            <Select placeholder="Turbine Type:">
-                              <Option value="Fixed Structure">
-                                Fixed Structure
-                              </Option>
-                              <Option value="1 Axis Trcking System">
-                                1 Axis Trcking System
-                              </Option>
-                              <Option value="Inclind Axis Tracking System">
-                                Inclind Axis Tracking System
-                              </Option>
-                              <Option value="2 Axis Trcking System">
-                                2 Axis Trcking System
-                              </Option>
-                              <Option value="3 Axis Trcking System">
-                                3 Axis Trcking System
-                              </Option>
-                            </Select>
-                            <Input placeholder="No. Turbine(s):" />
-                            <Input placeholder="Rated power of each Turbine:" />
-                            <Input placeholder="Turbine Speed (RPM)" />
-                            <Input placeholder="Turbine Manufacturer:" />
-                            <Input placeholder="Generator Manufacturer:" />
-                            <Select placeholder="Generator Type:">
-                              <Option value="Fixed Structure">
-                                Fixed Structure
-                              </Option>
-                              <Option value="1 Axis Trcking System">
-                                1 Axis Trcking System
-                              </Option>
-                              <Option value="Inclind Axis Tracking System">
-                                Inclind Axis Tracking System
-                              </Option>
-                              <Option value="2 Axis Trcking System">
-                                2 Axis Trcking System
-                              </Option>
-                              <Option value="3 Axis Trcking System">
-                                3 Axis Trcking System
-                              </Option>
-                            </Select>
-
-                            <TextArea placeholder="Comments:" />
-
-                            <h1>Contract Information:</h1>
-                            <Input placeholder="Investee Name:" />
-                            <Input placeholder="Contract Effective Date:" />
-                            <Input placeholder="Contract Deadline:" />
-                            <Input placeholder="Water Fee per m3 at the base year (Rls./m3)" />
-                            <Input placeholder="Power Purchaser Name:" />
-                            <Input placeholder="Contract Effective Date:" />
-                            <Input placeholder="Contract Deadline:" />
-                            <Input placeholder="Electricity Price at the base year (Rials/kWh)" />
-                            <Input placeholder="CPI at the base year:" />
-                            <Input placeholder="ETS at the base year:" />
-
-                            <h1>Environmental Information:</h1>
-                            <div className="information-on-hover">
-                              <Input placeholder="Co2 Saving (kg/kWh)" x />
-                              <Tooltip
-                                placement="topLeft"
-                                className="information"
-                                title="the rate varies in different countries based on Fuel consumption for electricity generation"
-                              >
-                                <ExclamationOutlined />
-                              </Tooltip>
-                            </div>
-                            <div className="information-on-hover">
-                              <Input placeholder="Natural Gas Saving (m3/kWh)" />
-                              <Tooltip
-                                placement="topLeft"
-                                className="information"
-                                title="the rate varies in different countries based on Fuel consumption for electricity generation"
-                              >
-                                <ExclamationOutlined />
-                              </Tooltip>
-                            </div>
-                            <div className="information-on-hover">
-                              <Input placeholder="Gasoil Saving (Litre/kWh)" />
-                              <Tooltip
-                                placement="topLeft"
-                                className="information"
-                                title="the rate varies in different countries based on Fuel consumption for electricity generation"
-                              >
-                                <ExclamationOutlined />
-                              </Tooltip>
-                            </div>
-                            <div className="information-on-hover">
-                              <Input placeholder="Fuel Oil Saving (Litre/kWh)" />
-                              <Tooltip
-                                placement="topLeft"
-                                className="information"
-                                title="the rate varies in different countries based on Fuel consumption for electricity generation"
-                              >
-                                <ExclamationOutlined />
-                              </Tooltip>
-                            </div>
-                            <div className="information-on-hover">
-                              <Input placeholder="Equivalent No. of Trees for Co2 Saving:" />
-                              <Tooltip
-                                placement="topLeft"
-                                className="information"
-                                title="The annual CO2 offsetting rate varies from 21.77 kg CO2/tree to 31.5 kg CO2/tree. To compensate 1 tonne of CO2, 31 to 46 trees are needed."
-                              >
-                                <ExclamationOutlined />
-                              </Tooltip>
-                            </div>
-                          </>
-                        ) : (
-                          ""
-                        )}
-                        {selectedType === "Wind Power Plant" ? (
-                          <>
-                            <Input placeholder="No. Turbine(s):" />
-                            <Input placeholder="Rated power of each Turbine:" />
-                            <Input placeholder="Tower Height (m)" />
-                            <Input placeholder="Turbine manufacturer:" />
-                            <Input placeholder="Turbine Wind Class:" />
-                            <Input placeholder="Generator Type:" />
-
-                            <TextArea placeholder="Comments:" />
-                          </>
-                        ) : (
-                          ""
-                        )}
-                        {selectedType === "Other" ? (
-                          <>
-                            <Input placeholder="Power Plant Type:" />
-                            <Input placeholder="Spec 1:" />
-                            <Input placeholder="Spec 2:" />
-                            <Input placeholder="Spec 3:" />
-                            <Input placeholder="Spec 4:" />
-
-                            <TextArea placeholder="Comments:" />
-                          </>
-                        ) : (
-                          ""
-                        )}
-                      </section>
-
-                      <section>
-                        <Button style={{ background: "red" }} type="danger">
-                          Delete
-                        </Button>
-                      </section>
-                    </>
-                  );
-                } else {
-                  return <div>hello</div>;
-                }
-              }}
-
-              <>
-                <section>
-                  <h1>{p.system}</h1>
+              <section>
+                <h1>General Information:</h1>
+                <div>
+                  <span className="title">Project Name</span>
                   <Input
-                    value={selectedPlant}
-                    addonBefore="Project Name :"
+                    value={p.system}
+                    onChange={
+                      selectedType !== "Other"
+                        ? (e) =>
+                            dispatch(
+                              setProjectData({
+                                ...projectData,
+                                system: e.target.value,
+                              })
+                            )
+                        : ""
+                    }
                     allowClear
                   />
-                  <div
-                    style={{
-                      width: "100%",
-                      display: "flex",
-                      justifyContent: "center",
-                    }}
-                  >
-                    {/* <Select
-                    style={{
-                      direction: "ltr",
-                      width: "fit-content",
-                      margin: "0",
-                    }}
-                    onChange={(value) => setSelectedType(value)}
-                    placeholder="Select Your Type"
-                  >
-                    <Option value="Solar Power Plant">Solar Power Plant</Option>
-                    <Option value="Hydro Power Plant">Hydro Power Plant</Option>
-                    <Option value="Wind Power Plant">Wind Power Plant</Option>
-                    <Option value="Other">Other</Option>
-                  </Select> */}
-                  </div>
-                  <Input addonBefore="PlantType :" defaultValue={p.plantType} />
-                  <Input defaultValue={p.country} addonBefore="Country :" />
-                  <Input addonBefore="City :" />
-                  <Input addonBefore="Site Elevation:" />
-                  {/* <Upload {...props}>
-                  <Button style={{ width: "100%" }} icon={<UploadOutlined />}>
-                    Power Plant Image:
-                  </Button>
-                </Upload> */}
-                  <br />
-                  <h1>GeographicCoordinate</h1>
-                  <Input addonBefore="Lat. :" />
-                  <Input addonBefore="Long. :" />
-                  <br />
-                  <TextArea placeholder="Note" />
-                </section>
+                </div>
 
-                <section>
-                  <h1>Technical Information:</h1>
-                  <Input placeholder="Project Size (kW)" />
-                  <Input placeholder="Grid Connection Voltage (kV)" />
-                  <div>
-                    <span>Grid Connection Date : </span>
-                    <DatePicker
-                      width="100%"
-                      showToday
-                      placeholder="(mm/yyyy)"
-                    />
-                  </div>
-                  {selectedType === "Solar Power Plant" ? (
-                    <>
-                      <Input placeholder="PV Module Manufacturer:" />
-                      <Input placeholder="PV Module Power (kW)" />
-                      <Input placeholder="Inverter Size (kW)" />
-                      <Input placeholder="No. Inverters:" />
-                      <Input placeholder="Inverter Manufacturer:" />
-                      <Input placeholder="Monitoring System:" />
-                      <Select placeholder="Tracking System:">
+                <div>
+                  <span className="title">PlantType</span>
+                  <Input defaultValue={p.plantType} />
+                </div>
+
+                <div>
+                  <span className="title">Country</span>
+                  <Input
+                    value={projectData.country}
+                    onChange={(e) =>
+                      dispatch(
+                        setProjectData({
+                          ...projectData,
+                          country: e.target.value,
+                        })
+                      )
+                    }
+                  />
+                </div>
+
+                <div>
+                  <span className="title">City</span>
+                  <Input />
+                </div>
+                <div>
+                  <span className="title">Site Elevation</span>
+                  <Input />
+                </div>
+                <div>
+                  <span className="title">Power Plant Image</span>
+                  <Input />
+                </div>
+                <h1>GeographicCoordinate</h1>
+                <div>
+                  <span className="title">Lat.</span>
+                  <Input />
+                </div>
+                <div>
+                  <span className="title">Long</span>
+                  <Input />
+                </div>
+                <div>
+                  <span className="title">Note</span>
+                  <TextArea />
+                </div>
+              </section>
+
+              <section>
+                <h1>Technical Information:</h1>
+                <div>
+                  <span className="title">Project Size (kW)</span>
+                  <Input placeholder="" />
+                </div>
+                <div>
+                  <span className="title">Grid Connection Voltage (kV)</span>
+                  <Input placeholder="" />
+                </div>
+                <div>
+                  <span className="title">Grid Connection Date </span>
+                  <DatePicker width="100%" showToday placeholder="(mm/yyyy)" />
+                </div>
+                {p.plantType === "Solar Power Plant" ? (
+                  <>
+                    <div>
+                      <span className="title">PV Module Manufacturer:</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">PV Module Power (kW)</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Inverter Size (kW)</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">No. Inverters:</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Inverter Manufacturer:</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Monitoring System:</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Tracking System:</span>
+                      <Select placeholder="">
                         <Option value="Fixed Structure">Fixed Structure</Option>
                         <Option value="1 Axis Trcking System">
                           1 Axis Trcking System
@@ -461,14 +249,20 @@ const SelectedPlant = () => {
                           3 Axis Trcking System
                         </Option>
                       </Select>
-                      <TextArea placeholder="Comments:" />
-                    </>
-                  ) : (
-                    ""
-                  )}
-                  {selectedType === "Hydro Power Plant" ? (
-                    <>
-                      <Select placeholder="Plant Type:">
+                    </div>
+                    <div>
+                      <span className="title">Comments:</span>
+                      <TextArea placeholder="" />
+                    </div>
+                  </>
+                ) : (
+                  ""
+                )}
+                {p.plantType === "Hydro Power Plant" ? (
+                  <>
+                    <div>
+                      <span className="title">Plant Type:</span>
+                      <Select placeholder="Click to select">
                         <Option value="Fixed Structure">Fixed Structure</Option>
                         <Option value="1 Axis Trcking System">
                           1 Axis Trcking System
@@ -483,7 +277,10 @@ const SelectedPlant = () => {
                           3 Axis Trcking System
                         </Option>
                       </Select>
-                      <Select placeholder="Turbine Type:">
+                    </div>
+                    <div>
+                      <span className="title">Turbine Type:</span>
+                      <Select placeholder="Click to select">
                         <Option value="Fixed Structure">Fixed Structure</Option>
                         <Option value="1 Axis Trcking System">
                           1 Axis Trcking System
@@ -498,12 +295,30 @@ const SelectedPlant = () => {
                           3 Axis Trcking System
                         </Option>
                       </Select>
-                      <Input placeholder="No. Turbine(s):" />
-                      <Input placeholder="Rated power of each Turbine:" />
-                      <Input placeholder="Turbine Speed (RPM)" />
-                      <Input placeholder="Turbine Manufacturer:" />
-                      <Input placeholder="Generator Manufacturer:" />
-                      <Select placeholder="Generator Type:">
+                    </div>
+                    <div>
+                      <span className="title">No. Turbine(s)</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Rated power of each Turbine</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Turbine Speed (RPM)</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Turbine Manufacturer</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Generator Manufacturer</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Generator Type</span>
+                      <Select placeholder="Click to select">
                         <Option value="Fixed Structure">Fixed Structure</Option>
                         <Option value="1 Axis Trcking System">
                           1 Axis Trcking System
@@ -518,111 +333,308 @@ const SelectedPlant = () => {
                           3 Axis Trcking System
                         </Option>
                       </Select>
+                    </div>
+                    <div>
+                      <span className="title">Comments</span>
+                      <TextArea placeholder="" />
+                    </div>
 
-                      <TextArea placeholder="Comments:" />
+                    <h1>Contract Information:</h1>
+                    <div>
+                      <span className="title">Investee Name</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Contract Effective Date</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Contract Deadline</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">
+                        Water Fee per m3 at the base year (Rls./m3)
+                      </span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Power Purchaser Name</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Contract Effective Date</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Contract Deadline</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">
+                        Electricity Price at the base year (Rials/kWh)
+                      </span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">CPI at the base year</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">ETS at the base year</span>
+                      <Input placeholder="" />
+                    </div>
+                  </>
+                ) : (
+                  ""
+                )}
+                {p.plantType === "Wind Power Plant" ? (
+                  <>
+                    <div>
+                      <span className="title">No. Turbine(s)</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Rated power of each Turbine</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Tower Height (m)</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Turbine Wind Class</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Generator Type</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Comments</span>
+                      <TextArea placeholder="" />
+                    </div>
+                  </>
+                ) : (
+                  ""
+                )}
+                {p.plantType === "Other" ? (
+                  <>
+                    <div>
+                      <span className="title">Power Plant Type</span>
+                      <Input
+                        value={
+                          selectedType === "Other" ? projectData.system : ""
+                        }
+                        onChange={
+                          selectedType === "Other"
+                            ? (e) =>
+                                dispatch(
+                                  setProjectData({
+                                    ...projectData,
+                                    system: e.target.value,
+                                  })
+                                )
+                            : ""
+                        }
+                        placeholder=""
+                      />
+                    </div>
+                    <div>
+                      <span className="title">Spec 1:</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Spec 2:</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Spec 3:</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Spec 4:</span>
+                      <Input placeholder="" />
+                    </div>
+                    <div>
+                      <span className="title">Comments</span>
+                      <TextArea placeholder="" />
+                    </div>
+                  </>
+                ) : (
+                  ""
+                )}
+              </section>
 
-                      <h1>Contract Information:</h1>
-                      <Input placeholder="Investee Name:" />
-                      <Input placeholder="Contract Effective Date:" />
-                      <Input placeholder="Contract Deadline:" />
-                      <Input placeholder="Water Fee per m3 at the base year (Rls./m3)" />
-                      <Input placeholder="Power Purchaser Name:" />
-                      <Input placeholder="Contract Effective Date:" />
-                      <Input placeholder="Contract Deadline:" />
-                      <Input placeholder="Electricity Price at the base year (Rials/kWh)" />
-                      <Input placeholder="CPI at the base year:" />
-                      <Input placeholder="ETS at the base year:" />
+              <section>
+                <h1>Environmental Information:</h1>
+                <div className="information-on-hover">
+                  <Input
+                    addonBefore="Co2 Saving (kg/kWh)"
+                    addonAfter={
+                      <Tooltip
+                        placement="topLeft"
+                        className="information"
+                        title="the rate varies in different countries based on Fuel consumption for electricity generation"
+                      >
+                        <ExclamationOutlined />
+                      </Tooltip>
+                    }
+                  />
+                </div>
+                <div className="information-on-hover">
+                  <Input
+                    addonBefore="Natural Gas Saving (m3/kWh)"
+                    addonAfter={
+                      <Tooltip
+                        placement="topLeft"
+                        className="information"
+                        title="the rate varies in different countries based on Fuel consumption for electricity generation"
+                      >
+                        <ExclamationOutlined />
+                      </Tooltip>
+                    }
+                  />
+                </div>
+                <div className="information-on-hover">
+                  <Input
+                    addonBefore="Gasoil Saving (Litre/kWh)"
+                    addonAfter={
+                      <Tooltip
+                        placement="topLeft"
+                        className="information"
+                        title="the rate varies in different countries based on Fuel consumption for electricity generation"
+                      >
+                        <ExclamationOutlined />
+                      </Tooltip>
+                    }
+                  />
+                </div>
+                <div className="information-on-hover">
+                  <Input
+                    addonBefore="Fuel Oil Saving (Litre/kWh)"
+                    addonAfter={
+                      <Tooltip
+                        placement="topLeft"
+                        className="information"
+                        title="the rate varies in different countries based on Fuel consumption for electricity generation"
+                      >
+                        <ExclamationOutlined />
+                      </Tooltip>
+                    }
+                  />
+                </div>
+                <div className="information-on-hover">
+                  <Input
+                    addonBefore="Equivalent No. of Trees for Co2 Saving:"
+                    addonAfter={
+                      <Tooltip
+                        placement="topLeft"
+                        className="information"
+                        title="The annual CO2 offsetting rate varies from 21.77 kg CO2/tree to 31.5 kg CO2/tree. To compensate 1 tonne of CO2, 31 to 46 trees are needed."
+                      >
+                        <ExclamationOutlined />
+                      </Tooltip>
+                    }
+                  />
+                </div>
+              </section>
 
-                      <h1>Environmental Information:</h1>
-                      <div className="information-on-hover">
-                        <Input placeholder="Co2 Saving (kg/kWh)" x />
-                        <Tooltip
-                          placement="topLeft"
-                          className="information"
-                          title="the rate varies in different countries based on Fuel consumption for electricity generation"
-                        >
-                          <ExclamationOutlined />
-                        </Tooltip>
-                      </div>
-                      <div className="information-on-hover">
-                        <Input placeholder="Natural Gas Saving (m3/kWh)" />
-                        <Tooltip
-                          placement="topLeft"
-                          className="information"
-                          title="the rate varies in different countries based on Fuel consumption for electricity generation"
-                        >
-                          <ExclamationOutlined />
-                        </Tooltip>
-                      </div>
-                      <div className="information-on-hover">
-                        <Input placeholder="Gasoil Saving (Litre/kWh)" />
-                        <Tooltip
-                          placement="topLeft"
-                          className="information"
-                          title="the rate varies in different countries based on Fuel consumption for electricity generation"
-                        >
-                          <ExclamationOutlined />
-                        </Tooltip>
-                      </div>
-                      <div className="information-on-hover">
-                        <Input placeholder="Fuel Oil Saving (Litre/kWh)" />
-                        <Tooltip
-                          placement="topLeft"
-                          className="information"
-                          title="the rate varies in different countries based on Fuel consumption for electricity generation"
-                        >
-                          <ExclamationOutlined />
-                        </Tooltip>
-                      </div>
-                      <div className="information-on-hover">
-                        <Input placeholder="Equivalent No. of Trees for Co2 Saving:" />
-                        <Tooltip
-                          placement="topLeft"
-                          className="information"
-                          title="The annual CO2 offsetting rate varies from 21.77 kg CO2/tree to 31.5 kg CO2/tree. To compensate 1 tonne of CO2, 31 to 46 trees are needed."
-                        >
-                          <ExclamationOutlined />
-                        </Tooltip>
-                      </div>
-                    </>
-                  ) : (
-                    ""
-                  )}
-                  {selectedType === "Wind Power Plant" ? (
-                    <>
-                      <Input placeholder="No. Turbine(s):" />
-                      <Input placeholder="Rated power of each Turbine:" />
-                      <Input placeholder="Tower Height (m)" />
-                      <Input placeholder="Turbine manufacturer:" />
-                      <Input placeholder="Turbine Wind Class:" />
-                      <Input placeholder="Generator Type:" />
-
-                      <TextArea placeholder="Comments:" />
-                    </>
-                  ) : (
-                    ""
-                  )}
-                  {selectedType === "Other" ? (
-                    <>
-                      <Input placeholder="Power Plant Type:" />
-                      <Input placeholder="Spec 1:" />
-                      <Input placeholder="Spec 2:" />
-                      <Input placeholder="Spec 3:" />
-                      <Input placeholder="Spec 4:" />
-
-                      <TextArea placeholder="Comments:" />
-                    </>
-                  ) : (
-                    ""
-                  )}
-                </section>
-
-                <section>
-                  <Button style={{ background: "red" }} type="danger">
-                    Delete
-                  </Button>
-                </section>
-              </>
+              <section>
+                <Button
+                  onClick={() => {
+                    dispatch(setPlant([...plant, projectData]));
+                    dispatch(
+                      setProjectData({
+                        ...projectData,
+                        system: "",
+                        plantType: "",
+                        country: "",
+                        city: "",
+                        siteElevation: "",
+                        lat: "",
+                        long: "",
+                        notes: "",
+                        technicalInformation: {
+                          projectSize: "",
+                          gridConnectionVoltage: "",
+                          gridConnectionDate: "",
+                          solarPowerPlant: {
+                            pvModuleManufacturer: "",
+                            pvModulePower: "",
+                            inverterSize: "",
+                            noInverters: "",
+                            inverterManufacturer: "",
+                            monitoringSystem: "",
+                            trackingSystem: "",
+                            comments: "",
+                          },
+                          hydroPowerPlant: {
+                            plantType: "",
+                            turbineType: "",
+                            noTurbine: "",
+                            ratedPowerOfeachTurbine: "",
+                            turbineSpeed: "",
+                            turbineManufacturer: "",
+                            generatorManufacturer: "",
+                            generatorType: "",
+                            comments: "",
+                            investeeName: "",
+                            contractEffectiveDate: "",
+                            contractDeadline: "",
+                            waterFeePerM3AtTheBaseYear: "",
+                            powerPurchaserName: "",
+                            contractEffectiveDate: "",
+                            electricityPriceAtTheBaseYear: "",
+                            cpiAtTheBaseYear: "",
+                            etsAtTheBaseYear: "",
+                            co2Saving: "",
+                            naturalGasSaving: "",
+                            gasoilSaving: "",
+                            fuelOilSaving: "",
+                            equivalentNoOfTreesForCo2Saving: "",
+                          },
+                          windPowerPlant: {
+                            noTurbine: "",
+                            ratedPowerOfEachTurbine: "",
+                            towerHeight: "",
+                            turbineManufacturer: "",
+                            turbineWindClass: "",
+                            generatorType: "",
+                            comments: "",
+                          },
+                          other: {
+                            powerPlantType: "",
+                            spac1: "",
+                            spac2: "",
+                            spac3: "",
+                            spac4: "",
+                            comments: "",
+                          },
+                        },
+                        power: "",
+                        total: "",
+                        pastYear: "",
+                        pastMonth: "",
+                        past24: "",
+                      })
+                    );
+                    console.log(plant);
+                    toast.success("Your System has been saved!", {
+                      position: "top-right",
+                      autoClose: 3000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                      theme: "dark",
+                    });
+                  }}
+                >
+                  Delete
+                </Button>
+              </section>
             </section>
           );
         }

@@ -673,7 +673,6 @@ $font1: #f08220;
         div {
           width: 100%;
           @include flex-Center(row, flex-start, center);
-          gap: 2rem;
 
           .title {
             width: 20%;
