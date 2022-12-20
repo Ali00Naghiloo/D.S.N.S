@@ -140,11 +140,17 @@ const PowerPlantInfo = () => {
           <div>
             <span className="title">Project Name</span>
             <Input
-              value={projectData.system}
-              onChange={(e) =>
-                dispatch(
-                  setProjectData({ ...projectData, system: e.target.value })
-                )
+              value={selectedType !== "Other" ? projectData.system : ""}
+              onChange={
+                selectedType !== "Other"
+                  ? (e) =>
+                      dispatch(
+                        setProjectData({
+                          ...projectData,
+                          system: e.target.value,
+                        })
+                      )
+                  : ""
               }
               allowClear
             />
@@ -201,143 +207,287 @@ const PowerPlantInfo = () => {
               </Button>
             </Upload>
           </div>
-          <br />
           <h1>GeographicCoordinate</h1>
-          <Input addonBefore="Lat. :" />
-          <Input addonBefore="Long. :" />
-          <br />
-          <TextArea placeholder="Note" />
+          <div>
+            <span className="title">Lat.</span>
+            <Input />
+          </div>
+          <div>
+            <span className="title">Long</span>
+            <Input />
+          </div>
+          <div>
+            <span className="title">Note</span>
+            <TextArea />
+          </div>
         </section>
 
         <section>
           <h1>Technical Information:</h1>
-          <Input placeholder="Project Size (kW)" />
-          <Input placeholder="Grid Connection Voltage (kV)" />
           <div>
-            <span>Grid Connection Date : </span>
+            <span className="title">Project Size (kW)</span>
+            <Input placeholder="" />
+          </div>
+          <div>
+            <span className="title">Grid Connection Voltage (kV)</span>
+            <Input placeholder="" />
+          </div>
+          <div>
+            <span className="title">Grid Connection Date </span>
             <DatePicker width="100%" showToday placeholder="(mm/yyyy)" />
           </div>
           {selectedType === "Solar Power Plant" ? (
             <>
-              <Input placeholder="PV Module Manufacturer:" />
-              <Input placeholder="PV Module Power (kW)" />
-              <Input placeholder="Inverter Size (kW)" />
-              <Input placeholder="No. Inverters:" />
-              <Input placeholder="Inverter Manufacturer:" />
-              <Input placeholder="Monitoring System:" />
-              <Select placeholder="Tracking System:">
-                <Option value="Fixed Structure">Fixed Structure</Option>
-                <Option value="1 Axis Trcking System">
-                  1 Axis Trcking System
-                </Option>
-                <Option value="Inclind Axis Tracking System">
-                  Inclind Axis Tracking System
-                </Option>
-                <Option value="2 Axis Trcking System">
-                  2 Axis Trcking System
-                </Option>
-                <Option value="3 Axis Trcking System">
-                  3 Axis Trcking System
-                </Option>
-              </Select>
-              <TextArea placeholder="Comments:" />
+              <div>
+                <span className="title">PV Module Manufacturer:</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">PV Module Power (kW)</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Inverter Size (kW)</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">No. Inverters:</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Inverter Manufacturer:</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Monitoring System:</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Tracking System:</span>
+                <Select placeholder="">
+                  <Option value="Fixed Structure">Fixed Structure</Option>
+                  <Option value="1 Axis Trcking System">
+                    1 Axis Trcking System
+                  </Option>
+                  <Option value="Inclind Axis Tracking System">
+                    Inclind Axis Tracking System
+                  </Option>
+                  <Option value="2 Axis Trcking System">
+                    2 Axis Trcking System
+                  </Option>
+                  <Option value="3 Axis Trcking System">
+                    3 Axis Trcking System
+                  </Option>
+                </Select>
+              </div>
+              <div>
+                <span className="title">Comments:</span>
+                <TextArea placeholder="" />
+              </div>
             </>
           ) : (
             ""
           )}
           {selectedType === "Hydro Power Plant" ? (
             <>
-              <Select placeholder="Plant Type:">
-                <Option value="Fixed Structure">Fixed Structure</Option>
-                <Option value="1 Axis Trcking System">
-                  1 Axis Trcking System
-                </Option>
-                <Option value="Inclind Axis Tracking System">
-                  Inclind Axis Tracking System
-                </Option>
-                <Option value="2 Axis Trcking System">
-                  2 Axis Trcking System
-                </Option>
-                <Option value="3 Axis Trcking System">
-                  3 Axis Trcking System
-                </Option>
-              </Select>
-              <Select placeholder="Turbine Type:">
-                <Option value="Fixed Structure">Fixed Structure</Option>
-                <Option value="1 Axis Trcking System">
-                  1 Axis Trcking System
-                </Option>
-                <Option value="Inclind Axis Tracking System">
-                  Inclind Axis Tracking System
-                </Option>
-                <Option value="2 Axis Trcking System">
-                  2 Axis Trcking System
-                </Option>
-                <Option value="3 Axis Trcking System">
-                  3 Axis Trcking System
-                </Option>
-              </Select>
-              <Input placeholder="No. Turbine(s):" />
-              <Input placeholder="Rated power of each Turbine:" />
-              <Input placeholder="Turbine Speed (RPM)" />
-              <Input placeholder="Turbine Manufacturer:" />
-              <Input placeholder="Generator Manufacturer:" />
-              <Select placeholder="Generator Type:">
-                <Option value="Fixed Structure">Fixed Structure</Option>
-                <Option value="1 Axis Trcking System">
-                  1 Axis Trcking System
-                </Option>
-                <Option value="Inclind Axis Tracking System">
-                  Inclind Axis Tracking System
-                </Option>
-                <Option value="2 Axis Trcking System">
-                  2 Axis Trcking System
-                </Option>
-                <Option value="3 Axis Trcking System">
-                  3 Axis Trcking System
-                </Option>
-              </Select>
-
-              <TextArea placeholder="Comments:" />
+              <div>
+                <span className="title">Plant Type:</span>
+                <Select placeholder="Click to select">
+                  <Option value="Fixed Structure">Fixed Structure</Option>
+                  <Option value="1 Axis Trcking System">
+                    1 Axis Trcking System
+                  </Option>
+                  <Option value="Inclind Axis Tracking System">
+                    Inclind Axis Tracking System
+                  </Option>
+                  <Option value="2 Axis Trcking System">
+                    2 Axis Trcking System
+                  </Option>
+                  <Option value="3 Axis Trcking System">
+                    3 Axis Trcking System
+                  </Option>
+                </Select>
+              </div>
+              <div>
+                <span className="title">Turbine Type:</span>
+                <Select placeholder="Click to select">
+                  <Option value="Fixed Structure">Fixed Structure</Option>
+                  <Option value="1 Axis Trcking System">
+                    1 Axis Trcking System
+                  </Option>
+                  <Option value="Inclind Axis Tracking System">
+                    Inclind Axis Tracking System
+                  </Option>
+                  <Option value="2 Axis Trcking System">
+                    2 Axis Trcking System
+                  </Option>
+                  <Option value="3 Axis Trcking System">
+                    3 Axis Trcking System
+                  </Option>
+                </Select>
+              </div>
+              <div>
+                <span className="title">No. Turbine(s)</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Rated power of each Turbine</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Turbine Speed (RPM)</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Turbine Manufacturer</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Generator Manufacturer</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Generator Type</span>
+                <Select placeholder="Click to select">
+                  <Option value="Fixed Structure">Fixed Structure</Option>
+                  <Option value="1 Axis Trcking System">
+                    1 Axis Trcking System
+                  </Option>
+                  <Option value="Inclind Axis Tracking System">
+                    Inclind Axis Tracking System
+                  </Option>
+                  <Option value="2 Axis Trcking System">
+                    2 Axis Trcking System
+                  </Option>
+                  <Option value="3 Axis Trcking System">
+                    3 Axis Trcking System
+                  </Option>
+                </Select>
+              </div>
+              <div>
+                <span className="title">Comments</span>
+                <TextArea placeholder="" />
+              </div>
 
               <h1>Contract Information:</h1>
-              <Input placeholder="Investee Name:" />
-              <Input placeholder="Contract Effective Date:" />
-              <Input placeholder="Contract Deadline:" />
-              <Input placeholder="Water Fee per m3 at the base year (Rls./m3)" />
-              <Input placeholder="Power Purchaser Name:" />
-              <Input placeholder="Contract Effective Date:" />
-              <Input placeholder="Contract Deadline:" />
-              <Input placeholder="Electricity Price at the base year (Rials/kWh)" />
-              <Input placeholder="CPI at the base year:" />
-              <Input placeholder="ETS at the base year:" />
+              <div>
+                <span className="title">Investee Name</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Contract Effective Date</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Contract Deadline</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">
+                  Water Fee per m3 at the base year (Rls./m3)
+                </span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Power Purchaser Name</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Contract Effective Date</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Contract Deadline</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">
+                  Electricity Price at the base year (Rials/kWh)
+                </span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">CPI at the base year</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">ETS at the base year</span>
+                <Input placeholder="" />
+              </div>
             </>
           ) : (
             ""
           )}
           {selectedType === "Wind Power Plant" ? (
             <>
-              <Input placeholder="No. Turbine(s):" />
-              <Input placeholder="Rated power of each Turbine:" />
-              <Input placeholder="Tower Height (m)" />
-              <Input placeholder="Turbine manufacturer:" />
-              <Input placeholder="Turbine Wind Class:" />
-              <Input placeholder="Generator Type:" />
-
-              <TextArea placeholder="Comments:" />
+              <div>
+                <span className="title">No. Turbine(s)</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Rated power of each Turbine</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Tower Height (m)</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Turbine Wind Class</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Generator Type</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Comments</span>
+                <TextArea placeholder="" />
+              </div>
             </>
           ) : (
             ""
           )}
           {selectedType === "Other" ? (
             <>
-              <Input placeholder="Power Plant Type:" />
-              <Input placeholder="Spec 1:" />
-              <Input placeholder="Spec 2:" />
-              <Input placeholder="Spec 3:" />
-              <Input placeholder="Spec 4:" />
-
-              <TextArea placeholder="Comments:" />
+              <div>
+                <span className="title">Power Plant Type</span>
+                <Input
+                  value={selectedType === "Other" ? projectData.system : ""}
+                  onChange={
+                    selectedType === "Other"
+                      ? (e) =>
+                          dispatch(
+                            setProjectData({
+                              ...projectData,
+                              system: e.target.value,
+                            })
+                          )
+                      : ""
+                  }
+                  placeholder=""
+                />
+              </div>
+              <div>
+                <span className="title">Spec 1:</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Spec 2:</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Spec 3:</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Spec 4:</span>
+                <Input placeholder="" />
+              </div>
+              <div>
+                <span className="title">Comments</span>
+                <TextArea placeholder="" />
+              </div>
             </>
           ) : (
             ""

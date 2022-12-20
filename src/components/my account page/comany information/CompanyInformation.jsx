@@ -26,7 +26,7 @@ const CompanyInformation = () => {
     <>
       <section className="company-info-continer">
         <section>
-          <h1>CompanyInformation</h1>
+          <h1 style={{ fontSize: "2em" }}>Company Information</h1>
           <div>
             <span className="title">Name</span>
             <Input placeholder="Name" />
