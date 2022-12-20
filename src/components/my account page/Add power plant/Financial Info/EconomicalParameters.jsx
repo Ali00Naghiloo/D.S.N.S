@@ -32,7 +32,7 @@ const EconomicalParameters = () => {
               <Input addonBefore="March" />
             </Space>
           </div>
-          <Button>Save Year</Button>
+          <Button>Save</Button>
         </div>
       </section>
     </>

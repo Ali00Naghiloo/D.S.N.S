@@ -43,7 +43,7 @@ The values that are entered as Actual Revenue is accessible as 'Confirmed Revenu
               <Input addonBefore="March" />
             </Space>
           </div>
-          <Button>Save Year</Button>
+          <Button>Save</Button>
         </div>
       </section>
     </>

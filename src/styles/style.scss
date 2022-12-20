@@ -661,21 +661,30 @@ $font1: #f08220;
     .company-info-continer {
       width: 100%;
       @include flex-Center(column, center, center);
-      gap: 10vh;
-      font-size: 1em;
+      gap: 2rem;
+      font-size: 0.9em;
+      padding: 0 10%;
 
       section {
-        width: 90%;
+        width: 100%;
         @include flex-Center(column, center, center);
         gap: 1vh;
 
         div {
           width: 100%;
-          @include flex-Center(row, center, center);
+          @include flex-Center(row, flex-start, center);
+          gap: 2rem;
 
-          :nth-child(2) {
-            width: 85%;
-            margin-left: auto;
+          .title {
+            // width: 20%;
+          }
+
+          .anticon {
+            width: 5% !important;
+          }
+
+          .ant-btn {
+            width: 200px !important ;
           }
         }
       }
@@ -684,10 +693,11 @@ $font1: #f08220;
     .powerplant-info-continer {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 3rem;
+      padding: 0 10%;
 
       section {
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
         display: flex;
         flex-direction: column;
@@ -713,11 +723,6 @@ $font1: #f08220;
           display: flex;
           align-items: center;
           justify-content: center;
-          gap: 1rem;
-
-          :nth-child(1) {
-            width: 90%;
-          }
 
           .information {
             border: 1px solid black;

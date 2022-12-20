@@ -31,13 +31,22 @@ const App = () => {
         title=""
         icon={<MenuOutlined style={{ width: "100%", color: "#fff" }} />}
       >
+        <Menu.Item key="four" icon={<AppstoreOutlined />}>
+          <Link to="/portfolio">My Portfolio</Link>
+        </Menu.Item>
+        <Menu.Item key="five" icon={<AppstoreOutlined />}>
+          <Link to="/myaccount">My Account</Link>
+        </Menu.Item>
+        <Menu.Item key="six" icon={<AppstoreOutlined />}>
+          <Link to="/">Logout</Link>
+        </Menu.Item>
         <Menu.ItemGroup title="Plants">
           {plant.map((a, index) => {
             return (
               <Menu.Item
                 onClick={() => {
                   window.location.replace(
-                    `http://dsns-project.netlify.com/panel?plant=${a.system}`
+                    `http://localhost:3000/panel?plant=${a.system}`
                   );
                 }}
                 key={index}
@@ -48,16 +57,6 @@ const App = () => {
             );
           })}
         </Menu.ItemGroup>
-
-        <Menu.Item key="four" icon={<AppstoreOutlined />}>
-          <Link to="/portfolio">My Portfolio</Link>
-        </Menu.Item>
-        <Menu.Item key="five" icon={<AppstoreOutlined />}>
-          <Link to="/myaccount">My Account</Link>
-        </Menu.Item>
-        <Menu.Item key="six" icon={<AppstoreOutlined />}>
-          <Link to="/">Logout</Link>
-        </Menu.Item>
       </Menu.SubMenu>
     </Menu>
   );

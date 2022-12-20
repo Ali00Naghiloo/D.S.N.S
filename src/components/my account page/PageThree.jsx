@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import "../../styles/style.scss";
-import selectedPageMyac, { setSelectedPlant } from "../slices/selectedPageMyac";
+import selectedPageMyac, {
+  setSelectedPlant,
+} from "../slices/selectedPlantMyac";
+import { setCurrentPlant } from "../slices/currentPlantSelected";
 import { useDispatch, useSelector } from "react-redux";
 // import MyAccountNavbar from "./MyAccountNavbar";
 import CompanyInformation from "./comany information/CompanyInformation";
@@ -33,21 +36,23 @@ const PageThree = () => {
   const onClick = (e) => {
     if (e.key === "companyinfo") {
       setSelectedPage(<CompanyInformation />);
-    } else if (e.key === "add powerplant info") {
+    } else if (e.key === "add powerplant") {
       setSelectedPage(<PowePlantInfo />);
-    } else if (e.key === "app Investment Information") {
+    } else if (e.key === "pp Investment Information") {
       setSelectedPage(<InvestmentInfo />);
-    } else if (e.key === "app Revenue") {
+    } else if (e.key === "pp Revenue") {
       setSelectedPage(<Revenue />);
-    } else if (e.key === "app Expenses") {
+    } else if (e.key === "pp Expenses") {
       setSelectedPage(<Expenses />);
-    } else if (e.key === "app Economical Parameters") {
+    } else if (e.key === "pp Economical Parameters") {
       setSelectedPage(<EconomicalParameters />);
-    } else if (e.key === "app CPF") {
+    } else if (e.key === "pp CPF") {
       setSelectedPage(<CPF />);
     } else {
       setSelectedPage(<SelectedPlant />);
     }
+    console.log(e.key);
+    dispatch(setCurrentPlant(e.key));
   };
 
   useEffect(() => {
@@ -63,6 +68,7 @@ const PageThree = () => {
             <Menu.Item key={`powerplant info ${a.system}`}>
               Power Plant Info.
             </Menu.Item>
+
             <Menu.SubMenu
               title="Financail Info."
               key={`financail info ${a.system}`}
@@ -82,6 +88,10 @@ const PageThree = () => {
       });
     setPlantList(hello);
   }, [plant]);
+
+  useEffect(() => {
+    console.log(selectedPlant);
+  }, [selectedPlant]);
 
   useEffect(() => {}, [api]);
 
@@ -111,7 +121,6 @@ const PageThree = () => {
         <Menu
           onClick={onClick}
           defaultSelectedKeys={["companyinfo"]}
-          // defaultOpenKeys={["companyinfo"]}
           mode="inline"
           // items={items}
         >
@@ -122,24 +131,9 @@ const PageThree = () => {
           >
             Company Information
           </Menu.Item>
-          <Menu.SubMenu
-            key="add powerplant"
-            title="Add Power Plant"
-            icon={<AppstoreOutlined />}
-          >
-            <Menu.Item key="add powerplant info">Power Plant Info.</Menu.Item>
-            <Menu.SubMenu title="Financail Info." key="add Financail Info.">
-              <Menu.Item key="app Investment Information">
-                Investment Information
-              </Menu.Item>
-              <Menu.Item key="app Revenue">Revenue</Menu.Item>
-              <Menu.Item key="app Expenses">Expenses</Menu.Item>
-              <Menu.Item key="app Economical Parameters">
-                Economical Parameters
-              </Menu.Item>
-              <Menu.Item key="app CPF">CPF</Menu.Item>
-            </Menu.SubMenu>
-          </Menu.SubMenu>
+          <Menu.Item key="add powerplant" icon={<AppstoreOutlined />}>
+            Add Power Plant
+          </Menu.Item>
 
           {plantList}
         </Menu>

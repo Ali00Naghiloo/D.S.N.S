@@ -48,13 +48,15 @@ const CompanyInformation = () => {
             <Input placeholder="Fax Number" />
           </div>
           <div>
+            <span>Logo</span>
             <Upload {...props}>
-              <Button style={{ width: "100%" }} icon={<UploadOutlined />}>
-                Upload Logo Here
-              </Button>
+              <Button icon={<UploadOutlined />}>Upload Logo Here</Button>
             </Upload>
           </div>
-          <TextArea placeholder="Note" />
+          <div>
+            <span>Note</span>
+            <TextArea placeholder="Note" />
+          </div>
         </section>
 
         <section>
@@ -82,20 +84,23 @@ const CompanyInformation = () => {
             <span>Phone Number</span>
             <Input placeholder="Phone Number" />
           </div>
-          <TextArea placeholder="Note" />
+          <div>
+            <span className="title">Note</span>
+            <TextArea placeholder="" />
+          </div>
         </section>
         <section>
           <h1>Preferences</h1>
           <Checkbox>Newsletter subscription</Checkbox>
         </section>
         <section>
-          <Button type="primary">Save Changes</Button>
-        </section>
-        <section>
           <h1>Password</h1>
           <Input placeholder="Current Password" />
           <Input placeholder="New Password" />
           <Input placeholder="Confirm New Password" />
+        </section>
+        <section>
+          <Button type="primary">Save Changes</Button>
         </section>
       </section>
     </>

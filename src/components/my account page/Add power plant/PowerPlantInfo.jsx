@@ -134,6 +134,7 @@ const PowerPlantInfo = () => {
           pauseOnHover
           theme="dark"
         />
+
         <section>
           <h1>General Information:</h1>
           <Input
@@ -297,58 +298,6 @@ const PowerPlantInfo = () => {
               <Input placeholder="Electricity Price at the base year (Rials/kWh)" />
               <Input placeholder="CPI at the base year:" />
               <Input placeholder="ETS at the base year:" />
-
-              <h1>Environmental Information:</h1>
-              <div className="information-on-hover">
-                <Input placeholder="Co2 Saving (kg/kWh)" x />
-                <Tooltip
-                  placement="topLeft"
-                  className="information"
-                  title="the rate varies in different countries based on Fuel consumption for electricity generation"
-                >
-                  <ExclamationOutlined />
-                </Tooltip>
-              </div>
-              <div className="information-on-hover">
-                <Input placeholder="Natural Gas Saving (m3/kWh)" />
-                <Tooltip
-                  placement="topLeft"
-                  className="information"
-                  title="the rate varies in different countries based on Fuel consumption for electricity generation"
-                >
-                  <ExclamationOutlined />
-                </Tooltip>
-              </div>
-              <div className="information-on-hover">
-                <Input placeholder="Gasoil Saving (Litre/kWh)" />
-                <Tooltip
-                  placement="topLeft"
-                  className="information"
-                  title="the rate varies in different countries based on Fuel consumption for electricity generation"
-                >
-                  <ExclamationOutlined />
-                </Tooltip>
-              </div>
-              <div className="information-on-hover">
-                <Input placeholder="Fuel Oil Saving (Litre/kWh)" />
-                <Tooltip
-                  placement="topLeft"
-                  className="information"
-                  title="the rate varies in different countries based on Fuel consumption for electricity generation"
-                >
-                  <ExclamationOutlined />
-                </Tooltip>
-              </div>
-              <div className="information-on-hover">
-                <Input placeholder="Equivalent No. of Trees for Co2 Saving:" />
-                <Tooltip
-                  placement="topLeft"
-                  className="information"
-                  title="The annual CO2 offsetting rate varies from 21.77 kg CO2/tree to 31.5 kg CO2/tree. To compensate 1 tonne of CO2, 31 to 46 trees are needed."
-                >
-                  <ExclamationOutlined />
-                </Tooltip>
-              </div>
             </>
           ) : (
             ""
@@ -380,6 +329,80 @@ const PowerPlantInfo = () => {
           ) : (
             ""
           )}
+        </section>
+
+        <section>
+          <h1>Environmental Information:</h1>
+          <div className="information-on-hover">
+            <Input
+              addonBefore="Co2 Saving (kg/kWh)"
+              addonAfter={
+                <Tooltip
+                  placement="topLeft"
+                  className="information"
+                  title="the rate varies in different countries based on Fuel consumption for electricity generation"
+                >
+                  <ExclamationOutlined />
+                </Tooltip>
+              }
+            />
+          </div>
+          <div className="information-on-hover">
+            <Input
+              addonBefore="Natural Gas Saving (m3/kWh)"
+              addonAfter={
+                <Tooltip
+                  placement="topLeft"
+                  className="information"
+                  title="the rate varies in different countries based on Fuel consumption for electricity generation"
+                >
+                  <ExclamationOutlined />
+                </Tooltip>
+              }
+            />
+          </div>
+          <div className="information-on-hover">
+            <Input
+              addonBefore="Gasoil Saving (Litre/kWh)"
+              addonAfter={
+                <Tooltip
+                  placement="topLeft"
+                  className="information"
+                  title="the rate varies in different countries based on Fuel consumption for electricity generation"
+                >
+                  <ExclamationOutlined />
+                </Tooltip>
+              }
+            />
+          </div>
+          <div className="information-on-hover">
+            <Input
+              addonBefore="Fuel Oil Saving (Litre/kWh)"
+              addonAfter={
+                <Tooltip
+                  placement="topLeft"
+                  className="information"
+                  title="the rate varies in different countries based on Fuel consumption for electricity generation"
+                >
+                  <ExclamationOutlined />
+                </Tooltip>
+              }
+            />
+          </div>
+          <div className="information-on-hover">
+            <Input
+              addonBefore="Equivalent No. of Trees for Co2 Saving:"
+              addonAfter={
+                <Tooltip
+                  placement="topLeft"
+                  className="information"
+                  title="The annual CO2 offsetting rate varies from 21.77 kg CO2/tree to 31.5 kg CO2/tree. To compensate 1 tonne of CO2, 31 to 46 trees are needed."
+                >
+                  <ExclamationOutlined />
+                </Tooltip>
+              }
+            />
+          </div>
         </section>
 
         <section>
