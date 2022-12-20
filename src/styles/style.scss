@@ -676,29 +676,19 @@ $font1: #f08220;
           gap: 2rem;
 
           .title {
-            // width: 20%;
-          }
-
-          .anticon {
-            width: 5% !important;
-          }
-
-          .ant-btn {
-            width: 200px !important ;
+            width: 20%;
           }
         }
       }
     }
 
     .powerplant-info-continer {
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
+      @include flex-Center(column, flex-start, center);
+      gap: 2rem;
       padding: 0 10%;
 
       section {
         width: 100%;
-        margin: 0 auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -706,16 +696,20 @@ $font1: #f08220;
         gap: 10px;
         margin-top: 1rem;
 
-        section {
-          width: 100%;
-          display: flex;
-          flex-direction: row;
+        div {
+          @include flex-Center(row, flex-start, center);
           gap: 1rem;
+          width: 100%;
 
-          :nth-child(2) {
-            width: 85%;
-            margin-left: auto;
+          .title {
+            width: 20%;
           }
+        }
+
+        section {
+          @include flex-Center(column, center, center);
+          width: 100%;
+          gap: 1rem;
         }
 
         .information-on-hover {

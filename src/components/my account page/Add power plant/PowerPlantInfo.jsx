@@ -137,27 +137,27 @@ const PowerPlantInfo = () => {
 
         <section>
           <h1>General Information:</h1>
-          <Input
-            value={projectData.system}
-            onChange={(e) =>
-              dispatch(
-                setProjectData({ ...projectData, system: e.target.value })
-              )
-            }
-            addonBefore="Project Name :"
-            allowClear
-          />
-          <div
-            style={{ width: "100%", display: "flex", justifyContent: "center" }}
-          >
-            <p>PlantType : </p>
+          <div>
+            <span className="title">Project Name</span>
+            <Input
+              value={projectData.system}
+              onChange={(e) =>
+                dispatch(
+                  setProjectData({ ...projectData, system: e.target.value })
+                )
+              }
+              allowClear
+            />
+          </div>
+
+          <div>
+            <span className="title">PlantType</span>
             <Select
               value={projectData.plantType}
               onChange={(e) => {
                 dispatch(setProjectData({ ...projectData, plantType: e }));
                 setSelectedType(e);
               }}
-              style={{ direction: "ltr", width: "fit-content", margin: "0" }}
               placeholder="Select Your Type"
             >
               <Select.Option value="Solar Power Plant">
@@ -172,22 +172,35 @@ const PowerPlantInfo = () => {
               <Select.Option value="Other">Other</Select.Option>
             </Select>
           </div>
-          <Input
-            value={projectData.country}
-            onChange={(e) =>
-              dispatch(
-                setProjectData({ ...projectData, country: e.target.value })
-              )
-            }
-            addonBefore="Country :"
-          />
-          <Input addonBefore="City :" />
-          <Input addonBefore="Site Elevation:" />
-          <Upload {...props}>
-            <Button style={{ width: "100%" }} icon={<UploadOutlined />}>
-              Power Plant Image:
-            </Button>
-          </Upload>
+
+          <div>
+            <span className="title">Country</span>
+            <Input
+              value={projectData.country}
+              onChange={(e) =>
+                dispatch(
+                  setProjectData({ ...projectData, country: e.target.value })
+                )
+              }
+            />
+          </div>
+
+          <div>
+            <span className="title">City</span>
+            <Input />
+          </div>
+          <div>
+            <span className="title">Site Elevation</span>
+            <Input />
+          </div>
+          <div>
+            <span className="title">Power Plant Image</span>
+            <Upload {...props}>
+              <Button style={{ width: "100%" }} icon={<UploadOutlined />}>
+                Click here!
+              </Button>
+            </Upload>
+          </div>
           <br />
           <h1>GeographicCoordinate</h1>
           <Input addonBefore="Lat. :" />
