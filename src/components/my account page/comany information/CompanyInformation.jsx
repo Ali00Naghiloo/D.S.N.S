@@ -49,9 +49,11 @@ const CompanyInformation = () => {
           </div>
           <div>
             <span className="title">Logo</span>
-            <Upload {...props}>
-              <Button icon={<UploadOutlined />}>Click Here!</Button>
-            </Upload>
+            <div>
+              <Upload {...props}>
+                <Button icon={<UploadOutlined />}>Click Here!</Button>
+              </Upload>
+            </div>
           </div>
           <div>
             <span className="title">Note</span>

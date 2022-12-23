@@ -1,20 +1,13 @@
+import { Input, Button, Select, Tooltip, DatePicker, Space } from "antd";
 import {
-  Input,
-  Upload,
-  Button,
-  Select,
-  Tooltip,
-  message,
-  Space,
-  Form,
-  DatePicker,
-} from "antd";
-import { UploadOutlined, ExclamationOutlined } from "@ant-design/icons";
+  UploadOutlined,
+  ExclamationOutlined,
+  PlusOutlined,
+} from "@ant-design/icons";
 import { Option } from "antd/lib/mentions";
-import { setProjectData } from "../slices/projectDataSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { setPlant } from "../slices/plantsInfoSlice";
-import currentPlantSelected from "../slices/currentPlantSelected";
+import { setCurrentPlant } from "../slices/currentPlantSelected";
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -91,15 +84,16 @@ const SelectedPlant = () => {
     pastMonth: "",
     past24: "",
   });
-  const [selectedType, setSelectedType] = useState(``);
   const plant = useSelector((state) => state.plant.plant);
-  const dispatch = useDispatch();
   const selectedPlant = useSelector(
     (state) => state.selectedPlant.selectedPlant
   );
+  const currentPlant = useSelector((state) => state.currentPlant.currentPlant);
+  const dispatch = useDispatch();
   const { TextArea } = Input;
+
   useEffect(() => {
-    if (selectedPlant === plant[0].system) {
+    if (selectedPlant === plant.system) {
       console.log(plant.system);
     } else {
     }
@@ -108,7 +102,7 @@ const SelectedPlant = () => {
   return (
     <>
       {plant.map((p) => {
-        if (selectedPlant === p.system) {
+        if (currentPlant === `powerplant info ${p.system}`) {
           return (
             <section className="powerplant-info-continer">
               <ToastContainer
@@ -128,21 +122,7 @@ const SelectedPlant = () => {
                 <h1>General Information:</h1>
                 <div>
                   <span className="title">Project Name</span>
-                  <Input
-                    value={p.system}
-                    onChange={
-                      selectedType !== "Other"
-                        ? (e) =>
-                            dispatch(
-                              setProjectData({
-                                ...projectData,
-                                system: e.target.value,
-                              })
-                            )
-                        : ""
-                    }
-                    allowClear
-                  />
+                  <Input value={p.system} />
                 </div>
 
                 <div>
@@ -422,23 +402,7 @@ const SelectedPlant = () => {
                   <>
                     <div>
                       <span className="title">Power Plant Type</span>
-                      <Input
-                        value={
-                          selectedType === "Other" ? projectData.system : ""
-                        }
-                        onChange={
-                          selectedType === "Other"
-                            ? (e) =>
-                                dispatch(
-                                  setProjectData({
-                                    ...projectData,
-                                    system: e.target.value,
-                                  })
-                                )
-                            : ""
-                        }
-                        placeholder=""
-                      />
+                      <Input placeholder="" />
                     </div>
                     <div>
                       <span className="title">Spec 1:</span>
@@ -542,100 +506,385 @@ const SelectedPlant = () => {
 
               <section>
                 <Button
-                  onClick={() => {
-                    dispatch(setPlant([...plant, projectData]));
-                    dispatch(
-                      setProjectData({
-                        ...projectData,
-                        system: "",
-                        plantType: "",
-                        country: "",
-                        city: "",
-                        siteElevation: "",
-                        lat: "",
-                        long: "",
-                        notes: "",
-                        technicalInformation: {
-                          projectSize: "",
-                          gridConnectionVoltage: "",
-                          gridConnectionDate: "",
-                          solarPowerPlant: {
-                            pvModuleManufacturer: "",
-                            pvModulePower: "",
-                            inverterSize: "",
-                            noInverters: "",
-                            inverterManufacturer: "",
-                            monitoringSystem: "",
-                            trackingSystem: "",
-                            comments: "",
-                          },
-                          hydroPowerPlant: {
-                            plantType: "",
-                            turbineType: "",
-                            noTurbine: "",
-                            ratedPowerOfeachTurbine: "",
-                            turbineSpeed: "",
-                            turbineManufacturer: "",
-                            generatorManufacturer: "",
-                            generatorType: "",
-                            comments: "",
-                            investeeName: "",
-                            contractEffectiveDate: "",
-                            contractDeadline: "",
-                            waterFeePerM3AtTheBaseYear: "",
-                            powerPurchaserName: "",
-                            contractEffectiveDate: "",
-                            electricityPriceAtTheBaseYear: "",
-                            cpiAtTheBaseYear: "",
-                            etsAtTheBaseYear: "",
-                            co2Saving: "",
-                            naturalGasSaving: "",
-                            gasoilSaving: "",
-                            fuelOilSaving: "",
-                            equivalentNoOfTreesForCo2Saving: "",
-                          },
-                          windPowerPlant: {
-                            noTurbine: "",
-                            ratedPowerOfEachTurbine: "",
-                            towerHeight: "",
-                            turbineManufacturer: "",
-                            turbineWindClass: "",
-                            generatorType: "",
-                            comments: "",
-                          },
-                          other: {
-                            powerPlantType: "",
-                            spac1: "",
-                            spac2: "",
-                            spac3: "",
-                            spac4: "",
-                            comments: "",
-                          },
-                        },
-                        power: "",
-                        total: "",
-                        pastYear: "",
-                        pastMonth: "",
-                        past24: "",
-                      })
-                    );
-                    console.log(plant);
-                    toast.success("Your System has been saved!", {
-                      position: "top-right",
-                      autoClose: 3000,
-                      hideProgressBar: false,
-                      closeOnClick: true,
-                      pauseOnHover: true,
-                      draggable: true,
-                      progress: undefined,
-                      theme: "dark",
-                    });
-                  }}
+                  onClick={() =>
+                    plant.filter((p) => {
+                      if (p.system === plant.system) {
+                        console.log("hello");
+                      }
+                    })
+                  }
                 >
                   Delete
                 </Button>
               </section>
             </section>
+          );
+        } else if (currentPlant === `Investment Information ${p.system}`) {
+          return (
+            <>
+              <section className="financial-info">
+                <section>
+                  <h1>Investment Information</h1>
+                  <Input addonBefore="Investment Amount (m.Rials)" />
+                  <Input addonBefore="Investment date (mm/yyyy)" />
+                  <Input addonBefore="Project life Span (Years)" />
+                  <Input addonBefore="Investment Discount Rate (%)" />
+                </section>
+
+                <section>
+                  <h1>Income tax rate (%)</h1>
+                  <Input.Group compact>
+                    <Input
+                      style={{
+                        width: "50%",
+                      }}
+                    />
+                    <DatePicker
+                      style={{
+                        width: "50%",
+                      }}
+                      picker="year"
+                    />
+                  </Input.Group>
+                  <Button
+                    onClick={() => {
+                      return (
+                        <>
+                          <Input
+                            style={{
+                              width: "50%",
+                            }}
+                          />
+                          <DatePicker
+                            style={{
+                              width: "50%",
+                            }}
+                            picker="year"
+                          />
+                        </>
+                      );
+                    }}
+                  >
+                    <PlusOutlined />
+                  </Button>
+                </section>
+
+                <section>
+                  <Input addonBefore="Depreciation Parameters:" />
+                  <div>
+                    <span>Type :</span>
+                    <Select defaultValue="Linear">
+                      <Select.Option value="Linear">Linear</Select.Option>
+                      <Select.Option value="Linear to zero">
+                        Linear to zero
+                      </Select.Option>
+                      <Select.Option value="Accelerated">
+                        Accelerated
+                      </Select.Option>
+                    </Select>
+                  </div>
+                  <div>
+                    <span>Starting at :</span>
+                    <DatePicker />
+                  </div>
+                  <Input addonBefore="Rate (%p.a.)" />
+                  <Input type="number" addonBefore="Length (Years)" />
+                  <Input addonBefore="Scrap (%)" />
+                </section>
+
+                <section>
+                  <h1>Any Revenue increase coefficient (%)</h1>
+                  <Input.Group compact>
+                    <Input
+                      style={{
+                        width: "50%",
+                      }}
+                      addonAfter={
+                        <Tooltip title="Information: Any rate that is awarded to the project that increase the revenue. (e.g. Localization incentive coefficient)">
+                          <ExclamationOutlined />
+                        </Tooltip>
+                      }
+                    />
+                    <DatePicker
+                      style={{
+                        width: "50%",
+                      }}
+                      picker="year"
+                    />
+                  </Input.Group>
+                  <Button
+                    onClick={() => {
+                      return (
+                        <>
+                          <Input
+                            style={{
+                              width: "50%",
+                            }}
+                          />
+                          <DatePicker
+                            style={{
+                              width: "50%",
+                            }}
+                            picker="year"
+                          />
+                        </>
+                      );
+                    }}
+                  >
+                    <PlusOutlined />
+                  </Button>
+                </section>
+
+                <section>
+                  <h1>Any Revenue reduction coefficient (%)</h1>
+                  <Input.Group compact>
+                    <Input
+                      style={{
+                        width: "50%",
+                      }}
+                      addonAfter={
+                        <Tooltip title="Information: Any rate that will reduce the project revenue. (e.g. Project revenue reduction due to some PPA obligations or terms.)">
+                          <ExclamationOutlined />
+                        </Tooltip>
+                      }
+                    />
+                    <DatePicker
+                      style={{
+                        width: "50%",
+                      }}
+                      picker="year"
+                    />
+                  </Input.Group>
+                  <Button
+                    onClick={() => {
+                      return (
+                        <>
+                          <Input
+                            style={{
+                              width: "50%",
+                            }}
+                          />
+                          <DatePicker
+                            style={{
+                              width: "50%",
+                            }}
+                            picker="year"
+                          />
+                        </>
+                      );
+                    }}
+                  >
+                    <PlusOutlined />
+                  </Button>
+                </section>
+              </section>
+            </>
+          );
+        } else if (currentPlant === `Revenue ${p.system}`) {
+          return (
+            <>
+              <section className="financial-info">
+                <div className="financial-data-chart">
+                  <h1>
+                    Actual Revenue <h1>{p.system}</h1>
+                    <Tooltip
+                      title="Information:
+The revenue is automatically calculated based on the system data.
+Once the user fills in the actual values, the actual values will replace the Calculated ones.
+The values that are entered as Actual Revenue is accessible as 'Confirmed Revenue' "
+                    >
+                      <ExclamationOutlined />
+                      {/* <p>{moment("YYYY/MM/DD").locale("fa").format("YYYY/MM/DD")}</p> */}
+                    </Tooltip>{" "}
+                  </h1>
+                  <div className="datepicker">
+                    <DatePicker picker="year" />
+                  </div>
+                  <div className="data-chert">
+                    <Space>
+                      <Input addonBefore="January" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="April" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="January" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="January" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                  </div>
+                  <Button>Save</Button>
+                </div>
+              </section>
+            </>
+          );
+        } else if (currentPlant === `Expenses ${p.system}`) {
+          return (
+            <>
+              <section className="financial-info">
+                <div className="financial-data-chart">
+                  <h1>
+                    Operational Expenses (Calculated){" "}
+                    <Tooltip
+                      title="Information:
+The revenue is automatically calculated based on the system data.
+Once the user fills in the actual values, the actual values will replace the Calculated ones.
+The values that are entered as Actual Revenue is accessible as 'Confirmed Revenue' "
+                    >
+                      <ExclamationOutlined />
+                      {/* <p>{moment("YYYY/MM/DD").locale("fa").format("YYYY/MM/DD")}</p> */}
+                    </Tooltip>{" "}
+                  </h1>
+                  <div className="datepicker">
+                    <DatePicker picker="year" />
+                  </div>
+                  <div className="data-chert">
+                    <Space>
+                      <Input addonBefore="January" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="April" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="January" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="January" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                  </div>
+                  <Button>Save Year</Button>
+                </div>
+
+                <div className="financial-data-chart">
+                  <h1>Total Operational Expenses (Actual)</h1>
+                  <div className="datepicker">
+                    <DatePicker picker="year" />
+                  </div>
+                  <div className="data-chert">
+                    <Space>
+                      <Input addonBefore="January" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="April" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="January" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="January" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                  </div>
+                  <Button>Save Year</Button>
+                </div>
+
+                <div className="financial-data-chart">
+                  <h1>
+                    Water Fee (Actual){" "}
+                    <Tooltip
+                      title="Information:
+              The inflated Calculated oprational expenses values will be used in the calculations.
+              Once the user fills in the actual values, the actual values will replace the Calculated ones."
+                    >
+                      <ExclamationOutlined />
+                      {/* <p>{moment("YYYY/MM/DD").locale("fa").format("YYYY/MM/DD")}</p> */}
+                    </Tooltip>{" "}
+                  </h1>
+                  <div className="datepicker">
+                    <DatePicker picker="year" />
+                  </div>
+                  <div className="data-chert">
+                    <Space>
+                      <Input addonBefore="January" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="April" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="January" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="January" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                  </div>
+                  <Button>Save</Button>
+                </div>
+              </section>
+            </>
+          );
+        } else if (currentPlant === `Economical Parameters ${p.system}`) {
+          return (
+            <>
+              <section className="financial-info">
+                <div className="financial-data-chart">
+                  <h1>Economical Parameters</h1>
+                  <div className="datepicker">
+                    <DatePicker picker="year" />
+                  </div>
+                  <div className="data-chert">
+                    <Space>
+                      <Input addonBefore="January" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="April" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="January" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="January" />
+                      <Input addonBefore="February" />
+                      <Input addonBefore="March" />
+                    </Space>
+                  </div>
+                  <Button>Save</Button>
+                </div>
+              </section>
+            </>
+          );
+        } else if (currentPlant === `CPF ${p.system}`) {
+          return (
+            <>
+              <div>CPF</div>
+            </>
           );
         }
       })}

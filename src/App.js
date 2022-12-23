@@ -14,9 +14,9 @@ import { motion, useScroll } from "framer-motion";
 function App() {
   const { scrollY } = useScroll();
 
-  useEffect(() => {
-    console.log(scrollY);
-  }, [scrollY]);
+  // useEffect(() => {
+  //   console.log(scrollY);
+  // }, [scrollY]);
 
   return (
     <>

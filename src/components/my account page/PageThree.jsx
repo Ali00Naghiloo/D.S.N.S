@@ -51,7 +51,6 @@ const PageThree = () => {
     } else {
       setSelectedPage(<SelectedPlant />);
     }
-    console.log(e.key);
     dispatch(setCurrentPlant(e.key));
   };
 
@@ -89,9 +88,9 @@ const PageThree = () => {
     setPlantList(hello);
   }, [plant]);
 
-  useEffect(() => {
-    console.log(selectedPlant);
-  }, [selectedPlant]);
+  // useEffect(() => {
+  //   console.log(selectedPlant);
+  // }, [selectedPlant]);
 
   useEffect(() => {}, [api]);
 

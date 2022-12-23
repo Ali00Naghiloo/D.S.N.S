@@ -24,7 +24,6 @@ const PowerPlantInfo = () => {
   const projectData = useSelector((state) => state.projectData.projectData);
   const dispatch = useDispatch();
   const [selectedType, setSelectedType] = useState(``);
-  // const [projectData, setProjectData] = useState({
   //   system: "",
   //   plantType: "",
   //   country: "",
@@ -201,12 +200,15 @@ const PowerPlantInfo = () => {
           </div>
           <div>
             <span className="title">Power Plant Image</span>
-            <Upload {...props}>
-              <Button style={{ width: "100%" }} icon={<UploadOutlined />}>
-                Click here!
-              </Button>
-            </Upload>
+            <div>
+              <Upload {...props}>
+                <Button style={{ width: "100%" }} icon={<UploadOutlined />}>
+                  Click here!
+                </Button>
+              </Upload>
+            </div>
           </div>
+          <br />
           <h1>GeographicCoordinate</h1>
           <div>
             <span className="title">Lat.</span>
@@ -265,19 +267,21 @@ const PowerPlantInfo = () => {
               <div>
                 <span className="title">Tracking System:</span>
                 <Select placeholder="">
-                  <Option value="Fixed Structure">Fixed Structure</Option>
-                  <Option value="1 Axis Trcking System">
+                  <Select.Option value="Fixed Structure">
+                    Fixed Structure
+                  </Select.Option>
+                  <Select.Option value="1 Axis Trcking System">
                     1 Axis Trcking System
-                  </Option>
-                  <Option value="Inclind Axis Tracking System">
+                  </Select.Option>
+                  <Select.Option value="Inclind Axis Tracking System">
                     Inclind Axis Tracking System
-                  </Option>
-                  <Option value="2 Axis Trcking System">
+                  </Select.Option>
+                  <Select.Option value="2 Axis Trcking System">
                     2 Axis Trcking System
-                  </Option>
-                  <Option value="3 Axis Trcking System">
+                  </Select.Option>
+                  <Select.Option value="3 Axis Trcking System">
                     3 Axis Trcking System
-                  </Option>
+                  </Select.Option>
                 </Select>
               </div>
               <div>
@@ -293,37 +297,24 @@ const PowerPlantInfo = () => {
               <div>
                 <span className="title">Plant Type:</span>
                 <Select placeholder="Click to select">
-                  <Option value="Fixed Structure">Fixed Structure</Option>
-                  <Option value="1 Axis Trcking System">
-                    1 Axis Trcking System
-                  </Option>
-                  <Option value="Inclind Axis Tracking System">
-                    Inclind Axis Tracking System
-                  </Option>
-                  <Option value="2 Axis Trcking System">
-                    2 Axis Trcking System
-                  </Option>
-                  <Option value="3 Axis Trcking System">
-                    3 Axis Trcking System
-                  </Option>
+                  <Select.Option value="Dam">Dam</Select.Option>
+                  <Select.Option value="Pipeline">Pipeline</Select.Option>
+                  <Select.Option value="Run-of-river">
+                    Run-of-river
+                  </Select.Option>
+                  <Select.Option value="Pumped storage">
+                    Pumped storage
+                  </Select.Option>
+                  <Select.Option value="Other">Other</Select.Option>
                 </Select>
               </div>
               <div>
                 <span className="title">Turbine Type:</span>
                 <Select placeholder="Click to select">
-                  <Option value="Fixed Structure">Fixed Structure</Option>
-                  <Option value="1 Axis Trcking System">
-                    1 Axis Trcking System
-                  </Option>
-                  <Option value="Inclind Axis Tracking System">
-                    Inclind Axis Tracking System
-                  </Option>
-                  <Option value="2 Axis Trcking System">
-                    2 Axis Trcking System
-                  </Option>
-                  <Option value="3 Axis Trcking System">
-                    3 Axis Trcking System
-                  </Option>
+                  <Select.Option value="Pelton">Pelton</Select.Option>
+                  <Select.Option value="Francis">Francis</Select.Option>
+                  <Select.Option value="Kaplan">Kaplan</Select.Option>
+                  <Select.Option value="Other">Other</Select.Option>
                 </Select>
               </div>
               <div>
@@ -349,19 +340,10 @@ const PowerPlantInfo = () => {
               <div>
                 <span className="title">Generator Type</span>
                 <Select placeholder="Click to select">
-                  <Option value="Fixed Structure">Fixed Structure</Option>
-                  <Option value="1 Axis Trcking System">
-                    1 Axis Trcking System
-                  </Option>
-                  <Option value="Inclind Axis Tracking System">
-                    Inclind Axis Tracking System
-                  </Option>
-                  <Option value="2 Axis Trcking System">
-                    2 Axis Trcking System
-                  </Option>
-                  <Option value="3 Axis Trcking System">
-                    3 Axis Trcking System
-                  </Option>
+                  <Select.Option value="Synchronous">Synchronous</Select.Option>
+                  <Select.Option value="Asynchronous">
+                    Asynchronous
+                  </Select.Option>
                 </Select>
               </div>
               <div>
