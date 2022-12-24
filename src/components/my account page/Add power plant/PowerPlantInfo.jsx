@@ -479,8 +479,8 @@ const PowerPlantInfo = () => {
         <section>
           <h1>Environmental Information:</h1>
           <div className="information-on-hover">
+            <span className="title">Co2 Saving (kg/kWh)</span>
             <Input
-              addonBefore="Co2 Saving (kg/kWh)"
               addonAfter={
                 <Tooltip
                   placement="topLeft"
@@ -493,8 +493,8 @@ const PowerPlantInfo = () => {
             />
           </div>
           <div className="information-on-hover">
+            <span className="title">Natural Gas Saving (m3/kWh)</span>
             <Input
-              addonBefore="Natural Gas Saving (m3/kWh)"
               addonAfter={
                 <Tooltip
                   placement="topLeft"
@@ -507,8 +507,8 @@ const PowerPlantInfo = () => {
             />
           </div>
           <div className="information-on-hover">
+            <span className="title">Gasoil Saving (Litre/kWh)</span>
             <Input
-              addonBefore="Gasoil Saving (Litre/kWh)"
               addonAfter={
                 <Tooltip
                   placement="topLeft"
@@ -521,8 +521,8 @@ const PowerPlantInfo = () => {
             />
           </div>
           <div className="information-on-hover">
+            <span className="title">Fuel Oil Saving (Litre/kWh)</span>
             <Input
-              addonBefore="Fuel Oil Saving (Litre/kWh)"
               addonAfter={
                 <Tooltip
                   placement="topLeft"
@@ -535,8 +535,10 @@ const PowerPlantInfo = () => {
             />
           </div>
           <div className="information-on-hover">
+            <span className="title">
+              Equivalent No. of Trees for Co2 Saving:
+            </span>
             <Input
-              addonBefore="Equivalent No. of Trees for Co2 Saving:"
               addonAfter={
                 <Tooltip
                   placement="topLeft"

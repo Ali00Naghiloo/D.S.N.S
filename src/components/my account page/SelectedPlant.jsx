@@ -686,7 +686,7 @@ const SelectedPlant = () => {
               <section className="financial-info">
                 <div className="financial-data-chart">
                   <h1>
-                    Actual Revenue <h1>{p.system}</h1>
+                    Actual Revenue
                     <Tooltip
                       title="Information:
 The revenue is automatically calculated based on the system data.
