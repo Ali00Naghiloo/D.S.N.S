@@ -525,54 +525,69 @@ const SelectedPlant = () => {
               <section className="financial-info">
                 <section>
                   <h1>Investment Information</h1>
-                  <Input addonBefore="Investment Amount (m.Rials)" />
-                  <Input addonBefore="Investment date (mm/yyyy)" />
-                  <Input addonBefore="Project life Span (Years)" />
-                  <Input addonBefore="Investment Discount Rate (%)" />
-                </section>
-
-                <section>
-                  <h1>Income tax rate (%)</h1>
-                  <Input.Group compact>
-                    <Input
-                      style={{
-                        width: "50%",
-                      }}
-                    />
-                    <DatePicker
-                      style={{
-                        width: "50%",
-                      }}
-                      picker="year"
-                    />
-                  </Input.Group>
-                  <Button
-                    onClick={() => {
-                      return (
-                        <>
-                          <Input
-                            style={{
-                              width: "50%",
-                            }}
-                          />
-                          <DatePicker
-                            style={{
-                              width: "50%",
-                            }}
-                            picker="year"
-                          />
-                        </>
-                      );
-                    }}
-                  >
-                    <PlusOutlined />
-                  </Button>
-                </section>
-
-                <section>
-                  <Input addonBefore="Depreciation Parameters:" />
                   <div>
-                    <span>Type :</span>
+                    <span className="title">Investment Amount (m.Rials)</span>
+                    <Input />
+                  </div>
+                  <div>
+                    <span className="title">Investment date (mm/yyyy)</span>
+                    <Input />
+                  </div>
+                  <div>
+                    <span className="title">Project life Span (Years)</span>
+                    <Input />
+                  </div>
+                  <div>
+                    <span className="title">Investment Discount Rate (%)</span>
+                    <Input />
+                  </div>
+                </section>
+
+                <section className="financial-data-chart">
+                  <h1>
+                    Income tax rate (%){" "}
+                    <Tooltip
+                      title="Information:
+The revenue is automatically calculated based on the system data.
+Once the user fills in the actual values, the actual values will replace the Calculated ones.
+The values that are entered as Actual Revenue is accessible as 'Confirmed Revenue' "
+                    >
+                      <ExclamationOutlined />
+                      {/* <p>{moment("YYYY/MM/DD").locale("fa").format("YYYY/MM/DD")}</p> */}
+                    </Tooltip>{" "}
+                  </h1>
+                  <div className="data-chert">
+                    <Space>
+                      <Input addonBefore="2022" />
+                      <Input addonBefore="2023" />
+                      <Input addonBefore="2024" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="2025" />
+                      <Input addonBefore="2026" />
+                      <Input addonBefore="2027" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="2028" />
+                      <Input addonBefore="2029" />
+                      <Input addonBefore="2030" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="2031" />
+                      <Input addonBefore="2032" />
+                      <Input addonBefore="2033" />
+                    </Space>
+                  </div>
+                  <Button>Save</Button>
+                </section>
+
+                <section>
+                  <div>
+                    <span className="title">Depreciation Parameters:</span>
+                    <Input addonBefore="" />
+                  </div>
+                  <div>
+                    <span className="title">Type :</span>
                     <Select defaultValue="Linear">
                       <Select.Option value="Linear">Linear</Select.Option>
                       <Select.Option value="Linear to zero">
@@ -584,98 +599,97 @@ const SelectedPlant = () => {
                     </Select>
                   </div>
                   <div>
-                    <span>Starting at :</span>
+                    <span className="title">Starting at :</span>
                     <DatePicker />
                   </div>
-                  <Input addonBefore="Rate (%p.a.)" />
-                  <Input type="number" addonBefore="Length (Years)" />
-                  <Input addonBefore="Scrap (%)" />
+                  <div>
+                    <span className="title">Rate (%p.a.)</span>
+                    <Input addonBefore="" />
+                  </div>
+                  <div>
+                    <span className="title">Length (Years)</span>
+                    <Input type="number" addonBefore="" />
+                  </div>
+                  <div>
+                    <span className="title">Scrap (%)</span>
+                    <Input addonBefore="" />
+                  </div>
                 </section>
 
-                <section>
-                  <h1>Any Revenue increase coefficient (%)</h1>
-                  <Input.Group compact>
-                    <Input
-                      style={{
-                        width: "50%",
-                      }}
-                      addonAfter={
-                        <Tooltip title="Information: Any rate that is awarded to the project that increase the revenue. (e.g. Localization incentive coefficient)">
-                          <ExclamationOutlined />
-                        </Tooltip>
-                      }
-                    />
-                    <DatePicker
-                      style={{
-                        width: "50%",
-                      }}
-                      picker="year"
-                    />
-                  </Input.Group>
-                  <Button
-                    onClick={() => {
-                      return (
-                        <>
-                          <Input
-                            style={{
-                              width: "50%",
-                            }}
-                          />
-                          <DatePicker
-                            style={{
-                              width: "50%",
-                            }}
-                            picker="year"
-                          />
-                        </>
-                      );
-                    }}
-                  >
-                    <PlusOutlined />
-                  </Button>
+                <section className="financial-data-chart">
+                  <h1>
+                    Any Revenue increase coefficient (%){" "}
+                    <Tooltip
+                      title="Information:
+The revenue is automatically calculated based on the system data.
+Once the user fills in the actual values, the actual values will replace the Calculated ones.
+The values that are entered as Actual Revenue is accessible as 'Confirmed Revenue' "
+                    >
+                      <ExclamationOutlined />
+                      {/* <p>{moment("YYYY/MM/DD").locale("fa").format("YYYY/MM/DD")}</p> */}
+                    </Tooltip>{" "}
+                  </h1>
+                  <div className="data-chert">
+                    <Space>
+                      <Input addonBefore="2022" />
+                      <Input addonBefore="2023" />
+                      <Input addonBefore="2024" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="2025" />
+                      <Input addonBefore="2026" />
+                      <Input addonBefore="2027" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="2028" />
+                      <Input addonBefore="2029" />
+                      <Input addonBefore="2030" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="2031" />
+                      <Input addonBefore="2032" />
+                      <Input addonBefore="2033" />
+                    </Space>
+                  </div>
+                  <Button>Save</Button>
                 </section>
 
-                <section>
-                  <h1>Any Revenue reduction coefficient (%)</h1>
-                  <Input.Group compact>
-                    <Input
-                      style={{
-                        width: "50%",
-                      }}
-                      addonAfter={
-                        <Tooltip title="Information: Any rate that will reduce the project revenue. (e.g. Project revenue reduction due to some PPA obligations or terms.)">
-                          <ExclamationOutlined />
-                        </Tooltip>
-                      }
-                    />
-                    <DatePicker
-                      style={{
-                        width: "50%",
-                      }}
-                      picker="year"
-                    />
-                  </Input.Group>
-                  <Button
-                    onClick={() => {
-                      return (
-                        <>
-                          <Input
-                            style={{
-                              width: "50%",
-                            }}
-                          />
-                          <DatePicker
-                            style={{
-                              width: "50%",
-                            }}
-                            picker="year"
-                          />
-                        </>
-                      );
-                    }}
-                  >
-                    <PlusOutlined />
-                  </Button>
+                <section className="financial-data-chart">
+                  <h1>
+                    Any Revenue reduction coefficient (%){" "}
+                    <Tooltip
+                      title="Information:
+The revenue is automatically calculated based on the system data.
+Once the user fills in the actual values, the actual values will replace the Calculated ones.
+The values that are entered as Actual Revenue is accessible as 'Confirmed Revenue' "
+                    >
+                      <ExclamationOutlined />
+                      {/* <p>{moment("YYYY/MM/DD").locale("fa").format("YYYY/MM/DD")}</p> */}
+                    </Tooltip>{" "}
+                  </h1>
+                  <div className="data-chert">
+                    <Space>
+                      <Input addonBefore="2022" />
+                      <Input addonBefore="2023" />
+                      <Input addonBefore="2024" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="2025" />
+                      <Input addonBefore="2026" />
+                      <Input addonBefore="2027" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="2028" />
+                      <Input addonBefore="2029" />
+                      <Input addonBefore="2030" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="2031" />
+                      <Input addonBefore="2032" />
+                      <Input addonBefore="2033" />
+                    </Space>
+                  </div>
+                  <Button>Save</Button>
                 </section>
               </section>
             </>
@@ -708,18 +722,18 @@ The values that are entered as Actual Revenue is accessible as 'Confirmed Revenu
                     </Space>
                     <Space>
                       <Input addonBefore="April" />
-                      <Input addonBefore="February" />
-                      <Input addonBefore="March" />
+                      <Input addonBefore="May" />
+                      <Input addonBefore="June" />
                     </Space>
                     <Space>
-                      <Input addonBefore="January" />
-                      <Input addonBefore="February" />
-                      <Input addonBefore="March" />
+                      <Input addonBefore="July" />
+                      <Input addonBefore="August" />
+                      <Input addonBefore="Semtember" />
                     </Space>
                     <Space>
-                      <Input addonBefore="January" />
-                      <Input addonBefore="February" />
-                      <Input addonBefore="March" />
+                      <Input addonBefore="October" />
+                      <Input addonBefore="November" />
+                      <Input addonBefore="December" />
                     </Space>
                   </div>
                   <Button>Save</Button>
@@ -848,8 +862,35 @@ The values that are entered as Actual Revenue is accessible as 'Confirmed Revenu
           return (
             <>
               <section className="financial-info">
+                <section className="financial-data-chart">
+                  <h1>CPI </h1>
+                  <div className="data-chert">
+                    <Space>
+                      <Input addonBefore="2022" />
+                      <Input addonBefore="2023" />
+                      <Input addonBefore="2024" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="2025" />
+                      <Input addonBefore="2026" />
+                      <Input addonBefore="2027" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="2028" />
+                      <Input addonBefore="2029" />
+                      <Input addonBefore="2030" />
+                    </Space>
+                    <Space>
+                      <Input addonBefore="2031" />
+                      <Input addonBefore="2032" />
+                      <Input addonBefore="2033" />
+                    </Space>
+                  </div>
+                  <Button>Save</Button>
+                </section>
+
                 <div className="financial-data-chart">
-                  <h1>Economical Parameters</h1>
+                  <h1>ETS</h1>
                   <div className="datepicker">
                     <DatePicker picker="year" />
                   </div>

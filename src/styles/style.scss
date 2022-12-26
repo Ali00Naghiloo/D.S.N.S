@@ -738,15 +738,25 @@ $font1: #f08220;
     @include flex-Center(column, flex-start, center);
     gap: 1rem;
     margin: 1rem 0;
+
+    div {
+      @include flex-Center(row, space-between, center);
+      width: 100%;
+
+      .title {
+        width: 30%;
+      }
+    }
   }
 
   h1 {
     margin: 0 0;
+    font-size: 1.2em;
     margin-right: auto;
   }
 
   .financial-data-chart {
-    width: 100%;
+    width: 90%;
     border: 1px solid black;
     padding: 20px;
     border-radius: 15px;
